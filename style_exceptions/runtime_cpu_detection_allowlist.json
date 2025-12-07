@@ -44,6 +44,7 @@
   "qt",
   "qtbase",
   "qtwebengine",
+  "redis",
   "spades",
   "spidermonkey",
   "svt-av1",
