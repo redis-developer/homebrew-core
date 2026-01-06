@@ -2,8 +2,8 @@ class Redistimeseries < Formula
   desc "Time series data structure for Redis"
   homepage "https://github.com/RedisTimeSeries/RedisTimeSeries"
   url "https://github.com/RedisTimeSeries/RedisTimeSeries.git",
-      tag:      "v8.2.0",
-      revision: "1439d4a439ca9c063e6ef124a510abff09a5d493"
+      tag:      "v8.4.0",
+      revision: "3520a1568ad69076d60885c70711fbdc9b448749"
   license all_of: [
     "AGPL-3.0-only",
     "Apache-2.0", # deps/cpu_features
@@ -43,15 +43,6 @@ class Redistimeseries < Formula
     ENV.append "CPPFLAGS", "-I#{llvm.opt_include}"
     ENV.append "LDFLAGS", "-L#{llvm.opt_lib}"
 
-    # Set minimum SDK version for macOS
-    if OS.mac?
-      ENV["OSX_MIN_SDK_VER"] = case MacOS.version
-      when :tahoe then "26.0"
-      when 15 then "15.0"
-      when 14 then "14.0"
-      else MacOS.version.to_s
-      end
-    end
     # Build the module
     system "make", "build", "openssl_prefix=#{openssl.opt_prefix}", "OPENSSL_PREFIX=#{openssl.opt_prefix}"
 
