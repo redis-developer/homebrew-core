@@ -27,6 +27,7 @@ class Redis < Formula
   end
 
   depends_on "openssl@3"
+  depends_on "redisbloom"
   depends_on "redisearch"
   depends_on "redisjson"
   depends_on "redistimeseries"
