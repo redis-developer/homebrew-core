@@ -43,6 +43,14 @@ class Redistimeseries < Formula
     ENV.append "CPPFLAGS", "-I#{llvm.opt_include}"
     ENV.append "LDFLAGS", "-L#{llvm.opt_lib}"
 
+        # Set minimum SDK version for macOS
+    if OS.mac?
+      ENV["OSX_MIN_SDK_VER"] = case MacOS.version
+      when :tahoe then "26.0"
+      when 15 then "15.0"
+      when 14 then "14.0"
+      else MacOS.version.to_s
+    end
     # Build the module
     system "make", "build", "openssl_prefix=#{openssl.opt_prefix}", "OPENSSL_PREFIX=#{openssl.opt_prefix}"
 
