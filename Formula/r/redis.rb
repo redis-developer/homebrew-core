@@ -58,6 +58,7 @@ class Redis < Formula
       conf_content = redis_conf.read
 
       modules = [
+        { name: "RedisBloom", formula: "redisbloom", file: "redisbloom.so" },
         { name: "RedisJSON", formula: "redisjson", file: "rejson.so" },
         { name: "RediSearch", formula: "redisearch", file: "redisearch.so" },
         { name: "RedisTimeSeries", formula: "redistimeseries", file: "redistimeseries.so" },
@@ -95,6 +96,7 @@ class Redis < Formula
 
     # Test that all modules can be loaded
     modules = [
+      { formula: "redisbloom", file: "redisbloom.so", name: "bf" },
       { formula: "redisjson", file: "rejson.so", name: "ReJSON" },
       { formula: "redisearch", file: "redisearch.so", name: "search" },
       { formula: "redistimeseries", file: "redistimeseries.so", name: "timeseries" },
