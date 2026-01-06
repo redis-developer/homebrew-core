@@ -61,7 +61,7 @@ class Redis < Formula
         { name: "RedisBloom", formula: "redisbloom", file: "redisbloom.so" },
         { name: "RedisJSON", formula: "redisjson", file: "rejson.so" },
         { name: "RediSearch", formula: "redisearch", file: "redisearch.so" },
-        { name: "RedisTimeSeries", formula: "redistimeseries", file: "redistimeseries.so" },
+        { name: "RedisTimeSeries", formula: "redistimeseries", file: "redistimeseries.so" }
       ]
 
       modules.each do |mod|
@@ -99,7 +99,7 @@ class Redis < Formula
       { formula: "redisbloom", file: "redisbloom.so", name: "bf" },
       { formula: "redisjson", file: "rejson.so", name: "ReJSON" },
       { formula: "redisearch", file: "redisearch.so", name: "search" },
-      { formula: "redistimeseries", file: "redistimeseries.so", name: "timeseries" },
+      { formula: "redistimeseries", file: "redistimeseries.so", name: "timeseries" }
     ]
 
     modules.each do |mod|
