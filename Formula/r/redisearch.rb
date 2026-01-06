@@ -2,8 +2,8 @@ class Redisearch < Formula
   desc "Query and indexing engine for Redis"
   homepage "https://github.com/RediSearch/RediSearch"
   url "https://github.com/redisearch/redisearch.git",
-      tag:      "v8.4.2",
-      revision: "9e2b676313f417209c3464fe21ae166ef931b770"
+      tag:      "v8.4.1",
+      revision: "4b9dceb2356758a1fa156edf392c970165f43181"
   license all_of: [
     "AGPL-3.0-only",
     "Apache-2.0", # deps/VectorSimilarity/deps/ScalableVectorSearch, deps/s2geometry, deps/friso
