@@ -12,7 +12,6 @@ class Redisbloom < Formula
   depends_on "llvm@18" => :build
   depends_on "make" => :build
   depends_on "openssl@3"
-  depends_on "redis"
 
   on_linux do
     depends_on "python@3" => :build
