@@ -2,8 +2,8 @@ class Redisbloom < Formula
   desc "Time series data structure for Redis"
   homepage "https://github.com/redisbloom/redisbloom"
   url "https://github.com/redisbloom/redisbloom.git",
-      tag:      "v8.4.0",
-      revision: "e1f913a1046f0d715ca755824bb1d468f05e6d75"
+      tag:      "v8.2.8",
+      revision: "174fa970bf7b9e7ccf4fa59c26507a20c97c830f"
   license "AGPL-3.0-only"
   head "https://github.com/redisbloom/redisbloom.git", branch: "master"
 

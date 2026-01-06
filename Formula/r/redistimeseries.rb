@@ -2,8 +2,8 @@ class Redistimeseries < Formula
   desc "Time series data structure for Redis"
   homepage "https://github.com/RedisTimeSeries/RedisTimeSeries"
   url "https://github.com/RedisTimeSeries/RedisTimeSeries.git",
-      tag:      "v8.4.0",
-      revision: "3520a1568ad69076d60885c70711fbdc9b448749"
+      tag:      "v8.2.0",
+      revision: "1439d4a439ca9c063e6ef124a510abff09a5d493"
   license all_of: [
     "AGPL-3.0-only",
     "Apache-2.0", # deps/cpu_features

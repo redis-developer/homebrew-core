@@ -2,8 +2,8 @@ class Redisjson < Formula
   desc "Json data structure for Redis"
   homepage "https://github.com/redisjson/redisjson"
   url "https://github.com/redisjson/redisjson.git",
-      tag:      "v8.4.0",
-      revision: "21a2b4dd37b21f23684795f6f2d8282c224f2b01"
+      tag:      "v8.2.1",
+      revision: "d996646cf6f2106a19454c3fa1aaf3d3558d6712"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-3-Clause", # deps/readies
