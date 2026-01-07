@@ -4,18 +4,20 @@ class Redisbloom < Formula
   url "https://github.com/redisbloom/redisbloom.git",
       tag:      "v8.4.0",
       revision: "e1f913a1046f0d715ca755824bb1d468f05e6d75"
-  license "AGPL-3.0-only"
+  license all_of: [
+    "AGPL-3.0-only",
+    "BSD-3-Clause", # deps/readies, deps/bloom
+    "MIT", # deps/RedisModulesSDK, deps/t-digest-c
+  ]
   head "https://github.com/redisbloom/redisbloom.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
   depends_on "llvm@18" => :build
   depends_on "make" => :build
-  depends_on "openssl@3"
+  depends_on "python@3.14" => :build
 
-  on_linux do
-    depends_on "python@3" => :build
-  end
+  depends_on "openssl@3"
 
   def install
     # Add GNU tools to PATH (required by build system)
