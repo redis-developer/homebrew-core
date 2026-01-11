@@ -62,21 +62,21 @@ class Redis < Formula
         { name: "RedisBloom", formula: "redisbloom", file: "redisbloom.so" },
         { name: "RedisJSON", formula: "redisjson", file: "rejson.so" },
         { name: "RediSearch", formula: "redisearch", file: "redisearch.so" },
-        { name: "RedisTimeSeries", formula: "redistimeseries", file: "redistimeseries.so" }
+        { name: "RedisTimeSeries", formula: "redistimeseries", file: "redistimeseries.so" },
       ]
 
       modules.each do |mod|
         module_path = Formula[mod[:formula]].opt_lib/mod[:file]
         loadmodule_line = "loadmodule #{module_path}"
 
-        unless conf_content.include?(loadmodule_line)
-          ohai "Adding #{mod[:name]} module to redis.conf"
-          File.open(redis_conf, "a") do |f|
-            f.write "\n# #{mod[:name]} module\n"
-            f.write "#{loadmodule_line}\n"
-          end
-          conf_content = redis_conf.read
+        next if conf_content.include?(loadmodule_line)
+
+        ohai "Adding #{mod[:name]} module to redis.conf"
+        File.open(redis_conf, "a") do |f|
+          f.write "\n# #{mod[:name]} module\n"
+          f.write "#{loadmodule_line}\n"
         end
+        conf_content = redis_conf.read
       end
     else
       opoo "redis.conf not found at #{redis_conf}"
@@ -100,7 +100,7 @@ class Redis < Formula
       { formula: "redisbloom", file: "redisbloom.so", name: "bf" },
       { formula: "redisjson", file: "rejson.so", name: "ReJSON" },
       { formula: "redisearch", file: "redisearch.so", name: "search" },
-      { formula: "redistimeseries", file: "redistimeseries.so", name: "timeseries" }
+      { formula: "redistimeseries", file: "redistimeseries.so", name: "timeseries" },
     ]
 
     modules.each do |mod|
