@@ -10,6 +10,7 @@ class Redis < Formula
     "MIT", # deps/lua
     any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram
   ]
+  revision 1
   head "https://github.com/redis/redis.git", branch: "unstable"
 
   livecheck do
@@ -27,6 +28,10 @@ class Redis < Formula
   end
 
   depends_on "openssl@3"
+  depends_on "redisbloom"
+  depends_on "redisearch"
+  depends_on "redisjson"
+  depends_on "redistimeseries"
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
@@ -46,6 +51,38 @@ class Redis < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
+  def post_install
+    # Add loadmodule directives to redis.conf
+    redis_conf = Pathname.new(HOMEBREW_PREFIX)/"etc/redis.conf"
+
+    if redis_conf.exist?
+      conf_content = redis_conf.read
+
+      modules = [
+        { name: "RedisBloom", formula: "redisbloom", file: "redisbloom.so" },
+        { name: "RedisJSON", formula: "redisjson", file: "rejson.so" },
+        { name: "RediSearch", formula: "redisearch", file: "redisearch.so" },
+        { name: "RedisTimeSeries", formula: "redistimeseries", file: "redistimeseries.so" },
+      ]
+
+      modules.each do |mod|
+        module_path = Formula[mod[:formula]].opt_lib/mod[:file]
+        loadmodule_line = "loadmodule #{module_path}"
+
+        next if conf_content.include?(loadmodule_line)
+
+        ohai "Adding #{mod[:name]} module to redis.conf"
+        File.open(redis_conf, "a") do |f|
+          f.write "\n# #{mod[:name]} module\n"
+          f.write "#{loadmodule_line}\n"
+        end
+        conf_content = redis_conf.read
+      end
+    else
+      opoo "redis.conf not found at #{redis_conf}"
+    end
+  end
+
   service do
     run [opt_bin/"redis-server", etc/"redis.conf"]
     keep_alive true
@@ -57,5 +94,22 @@ class Redis < Formula
   test do
     system bin/"redis-server", "--test-memory", "2"
     %w[run db/redis log].each { |p| assert_path_exists var/p, "#{var/p} doesn't exist!" }
+
+    # Test that all modules can be loaded
+    modules = [
+      { formula: "redisbloom", file: "redisbloom.so", name: "bf" },
+      { formula: "redisjson", file: "rejson.so", name: "ReJSON" },
+      { formula: "redisearch", file: "redisearch.so", name: "search" },
+      { formula: "redistimeseries", file: "redistimeseries.so", name: "timeseries" },
+    ]
+
+    modules.each do |mod|
+      module_path = Formula[mod[:formula]].opt_lib/mod[:file]
+      assert_path_exists module_path, "#{mod[:formula]} module not found at #{module_path}"
+
+      # Test that the module loads successfully
+      output = shell_output("#{bin}/redis-server --loadmodule #{module_path} --test-memory 2 2>&1", 1)
+      assert_match "Module '#{mod[:name]}' loaded", output
+    end
   end
 end
