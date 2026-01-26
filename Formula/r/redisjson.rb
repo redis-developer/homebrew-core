@@ -10,11 +10,11 @@ class Redisjson < Formula
   ]
   head "https://github.com/redisjson/redisjson.git", branch: "master"
 
-  depends_on maximum_macos: [:sequoia, :build]
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
   depends_on "llvm@18" => :build
   depends_on "make" => :build
+  depends_on maximum_macos: [:sequoia, :build]
   depends_on "python@3.14" => :build
   depends_on "rust" => :build
 

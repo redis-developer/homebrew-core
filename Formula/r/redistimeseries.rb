@@ -14,7 +14,6 @@ class Redistimeseries < Formula
   ]
   head "https://github.com/RedisTimeSeries/RedisTimeSeries.git", branch: "master"
 
-  depends_on maximum_macos: [:sequoia, :build]
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
@@ -22,6 +21,7 @@ class Redistimeseries < Formula
   depends_on "libtool" => :build
   depends_on "llvm@18" => :build
   depends_on "make" => :build
+  depends_on maximum_macos: [:sequoia, :build]
   depends_on "python@3.14" => :build
 
   depends_on "openssl@3"
