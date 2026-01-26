@@ -11,6 +11,7 @@ class Redisbloom < Formula
   ]
   head "https://github.com/redisbloom/redisbloom.git", branch: "master"
 
+  depends_on maximum_macos: [:sequoia, :build]
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
   depends_on "llvm@18" => :build
