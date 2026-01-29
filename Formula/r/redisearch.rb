@@ -17,7 +17,6 @@ class Redisearch < Formula
   depends_on "coreutils" => :build
   depends_on "llvm@18" => :build
   depends_on "make" => :build
-  depends_on maximum_macos: [:sequoia, :build]
   depends_on "rust" => :build
 
   depends_on "openssl@3"
