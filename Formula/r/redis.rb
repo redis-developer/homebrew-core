@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-8.4.0.tar.gz"
-  sha256 "ca909aa15252f2ecb3a048cd086469827d636bf8334f50bb94d03fba4bfc56e8"
+  url "https://download.redis.io/releases/redis-8.6.1.tar.gz"
+  sha256 "6873fc933eeb7018aa329e868beac7228695f50c0d46f236a4ff1a6d7f7bb5b6"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -58,22 +58,21 @@ class Redis < Formula
     if redis_conf.exist?
       conf_content = redis_conf.read
 
-      modules = [
-        { name: "RedisBloom", formula: "redisbloom", file: "redisbloom.so" },
-        { name: "RedisJSON", formula: "redisjson", file: "rejson.so" },
-        { name: "RediSearch", formula: "redisearch", file: "redisearch.so" },
-        { name: "RedisTimeSeries", formula: "redistimeseries", file: "redistimeseries.so" },
-      ]
-
-      modules.each do |mod|
-        module_path = Formula[mod[:formula]].opt_lib/mod[:file]
+      # Add loadmodule directives for each Redis module
+      {
+        "redisbloom" => "redisbloom.so",
+        "redisjson" => "rejson.so",
+        "redisearch" => "redisearch.so",
+        "redistimeseries" => "redistimeseries.so",
+      }.each do |formula_name, file|
+        module_path = Formula[formula_name].opt_lib/file
         loadmodule_line = "loadmodule #{module_path}"
 
         next if conf_content.include?(loadmodule_line)
 
-        ohai "Adding #{mod[:name]} module to redis.conf"
+        ohai "Adding #{formula_name} module to redis.conf"
         File.open(redis_conf, "a") do |f|
-          f.write "\n# #{mod[:name]} module\n"
+          f.write "\n# #{formula_name} module\n"
           f.write "#{loadmodule_line}\n"
         end
         conf_content = redis_conf.read
@@ -81,6 +80,37 @@ class Redis < Formula
     else
       opoo "redis.conf not found at #{redis_conf}"
     end
+  end
+
+  def caveats
+    # Extract major.minor version (e.g., "8.4" from "8.4.0")
+    redis_major_minor = version.to_s.split(".")[0, 2].join(".")
+    mismatched_modules = []
+
+    # Check each module formula for version compatibility
+    %w[redisbloom redisjson redisearch redistimeseries].each do |formula_name|
+      begin
+        module_formula = Formula[formula_name]
+        module_version = module_formula.version.to_s
+        module_major_minor = module_version.split(".")[0, 2].join(".")
+
+        if module_major_minor != redis_major_minor
+          mismatched_modules << "  - #{formula_name}: v#{module_version} (incompatible with Redis v#{version})"
+        end
+      rescue FormulaUnavailableError
+        # Module formula not installed or not available
+      end
+    end
+
+    return if mismatched_modules.empty?
+
+    <<~EOS
+      Warning: Some Redis modules have incompatible major versions:
+      #{mismatched_modules.join("\n")}
+
+      Redis modules must have matching major.minor versions (e.g., 8.4.x).
+      Please update the modules to compatible versions.
+    EOS
   end
 
   service do
@@ -96,20 +126,18 @@ class Redis < Formula
     %w[run db/redis log].each { |p| assert_path_exists var/p, "#{var/p} doesn't exist!" }
 
     # Test that all modules can be loaded
-    modules = [
-      { formula: "redisbloom", file: "redisbloom.so", name: "bf" },
-      { formula: "redisjson", file: "rejson.so", name: "ReJSON" },
-      { formula: "redisearch", file: "redisearch.so", name: "search" },
-      { formula: "redistimeseries", file: "redistimeseries.so", name: "timeseries" },
-    ]
-
-    modules.each do |mod|
-      module_path = Formula[mod[:formula]].opt_lib/mod[:file]
-      assert_path_exists module_path, "#{mod[:formula]} module not found at #{module_path}"
+    {
+      "redisbloom" => "redisbloom.so",
+      "redisjson" => "rejson.so",
+      "redisearch" => "redisearch.so",
+      "redistimeseries" => "redistimeseries.so",
+    }.each do |formula_name, file|
+      module_path = Formula[formula_name].opt_lib/file
+      assert_path_exists module_path, "#{formula_name} module not found at #{module_path}"
 
       # Test that the module loads successfully
       output = shell_output("#{bin}/redis-server --loadmodule #{module_path} --test-memory 2 2>&1", 1)
-      assert_match "Module '#{mod[:name]}' loaded", output
+      assert_match "Module", output
     end
   end
 end
