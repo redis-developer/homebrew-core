@@ -1,8 +1,9 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-8.8.0.tar.gz"
-  sha256 "88422181efb0c9c0abba332e3e391d409e1e13714b838931669235e5796f704b"
+  url "https://github.com/TalBarYakar/redis/releases/download/redis-docker-8/redis-full.tar.gz"
+  version "8.8.0"
+  sha256 "c378c7e59ceb530f3d3187f0b0abdc592260202f271ef1f9652061af5d79d3c6"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -27,12 +28,27 @@ class Redis < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a0fbaf3633e962f39ef7248321086e1206881a8d1ef141497e482d648e476dd"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "cmake" => :build
+  depends_on "coreutils" => :build
+  depends_on "libtool" => :build
+  depends_on "llvm@18" => :build
+  depends_on "python@3.14" => :build
+  depends_on "rust" => :build
   depends_on "openssl@3"
+
+  on_macos do
+    depends_on "make" => :build # Needs Make 4.0+
+  end
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
+    ENV.runtime_cpu_detection
+
+    system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
+           "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
@@ -58,5 +74,15 @@ class Redis < Formula
   test do
     system bin/"redis-server", "--test-memory", "2"
     %w[run db/redis log].each { |p| assert_path_exists var/p, "#{var/p} doesn't exist!" }
+
+    # Test that all modules can be loaded
+    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
+      module_path = lib/"redis/modules"/file
+      assert_path_exists module_path, "#{file} module not found at #{module_path}"
+
+      # Test that the module loads successfully
+      output = shell_output("#{bin}/redis-server --loadmodule #{module_path} --test-memory 2 2>&1", 1)
+      assert_match(/Module.*loaded from/, output)
+    end
   end
 end
