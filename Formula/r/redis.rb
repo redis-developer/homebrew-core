@@ -72,26 +72,18 @@ class Redis < Formula
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
 
     resource("redisjson").stage do
-      # Add GNU tools to PATH (required by build system)
-      ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
       # Build the module
       system "gmake", "all"
       lib.install Dir.glob("bin/*-release/rejson.so").first
     end
 
     resource("redisbloom").stage do
-      # Add GNU tools to PATH (required by build system)
-      ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
-
       # Build the module
       system "gmake", "all"
       lib.install Dir.glob("bin/*-release/redisbloom.so").first
     end
 
     resource("redistimeseries").stage do
-      # Add GNU tools to PATH (required by build system)
-      ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
-
       # Set compiler flags for OpenSSL
       ENV.append "CFLAGS", "-I#{openssl.opt_include}"
       ENV.append "CXXFLAGS", "-I#{openssl.opt_include}"
@@ -103,8 +95,6 @@ class Redis < Formula
     end
 
     resource("redisearch").stage do
-      # Add GNU tools to PATH (required by build system)
-      ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
       # RediSearch has been verified to support runtime CPU detection for SIMD optimizations
       ENV.runtime_cpu_detection
       # Build the module
