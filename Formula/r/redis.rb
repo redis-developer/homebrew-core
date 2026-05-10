@@ -111,6 +111,20 @@ class Redis < Formula
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
     end
 
+    # Append loadmodule directives so bundled modules are enabled out of the box.
+    # Uses opt_lib so the paths stay stable across upgrades.
+    (buildpath/"redis.conf").append_lines <<~EOS
+
+      # redisbloom.so module
+      loadmodule #{opt_lib}/redisbloom.so
+      # rejson.so module
+      loadmodule #{opt_lib}/rejson.so
+      # redisearch.so module
+      loadmodule #{opt_lib}/redisearch.so
+      # redistimeseries.so module
+      loadmodule #{opt_lib}/redistimeseries.so
+    EOS
+
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
@@ -119,30 +133,6 @@ class Redis < Formula
     # Set execute permissions on module files
     %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
       chmod 0755, lib/file
-    end
-
-    # Add loadmodule directives to redis.conf
-    redis_conf = Pathname.new(HOMEBREW_PREFIX)/"etc/redis.conf"
-
-    if redis_conf.exist?
-      conf_content = redis_conf.read
-
-      # Add loadmodule directives for each Redis module
-      %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
-        module_path = opt_lib/file
-        loadmodule_line = "loadmodule #{module_path}"
-
-        next if conf_content.include?(loadmodule_line)
-
-        ohai "Adding #{file} module to redis.conf"
-        File.open(redis_conf, "a") do |f|
-          f.write "\n# #{file} module\n"
-          f.write "#{loadmodule_line}\n"
-        end
-        conf_content = redis_conf.read
-      end
-    else
-      opoo "redis.conf not found at #{redis_conf}"
     end
   end
 
