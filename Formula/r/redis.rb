@@ -10,6 +10,7 @@ class Redis < Formula
     "MIT", # deps/lua
     any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram
   ]
+  revision 1
   compatibility_version 1
   head "https://github.com/redis/redis.git", branch: "unstable"
 
@@ -42,6 +43,10 @@ class Redis < Formula
       s.gsub! "dir ./", "dir #{var}/db/redis/"
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
     end
+
+    (buildpath/"redis.conf").append_lines <<~EOS
+      # Testing adding a line to redis.conf
+    EOS
 
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
