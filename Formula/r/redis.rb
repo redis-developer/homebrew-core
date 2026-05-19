@@ -44,7 +44,7 @@ class Redis < Formula
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
     end
 
-    File.open(redis_conf, "a") do |f|
+    File.open("redis.conf", "a") do |f|
       f.write "\n# #Test line\n"
     end
 
