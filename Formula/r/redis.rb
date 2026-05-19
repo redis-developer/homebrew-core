@@ -44,9 +44,9 @@ class Redis < Formula
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
     end
 
-    (buildpath/"redis.conf").append_lines <<~EOS
-      # Testing adding a line to redis.conf
-    EOS
+    File.open(redis_conf, "a") do |f|
+      f.write "\n# #Test line\n"
+    end
 
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
