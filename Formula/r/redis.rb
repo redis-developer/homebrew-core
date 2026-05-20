@@ -111,19 +111,13 @@ class Redis < Formula
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
     end
 
-    # Append loadmodule directives so bundled modules are enabled out of the box.
-    # Uses opt_lib so the paths stay stable across upgrades.
-    (buildpath/"redis.conf").append_lines <<~EOS
-
-      # redisbloom.so module
-      loadmodule #{opt_lib}/redisbloom.so
-      # rejson.so module
-      loadmodule #{opt_lib}/rejson.so
-      # redisearch.so module
-      loadmodule #{opt_lib}/redisearch.so
-      # redistimeseries.so module
-      loadmodule #{opt_lib}/redistimeseries.so
-    EOS
+    # Add loadmodule directives for each Redis module
+    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
+      File.open("redis.conf", "a") do |f|
+        f.write "\n# #{file} module\n"
+        f.write "loadmodule #{opt_lib/file}\n"
+      end
+    end
 
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
