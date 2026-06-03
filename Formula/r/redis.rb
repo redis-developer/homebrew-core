@@ -55,7 +55,7 @@ class Redis < Formula
     # Set build flags
     ENV["BUILD_WITH_MODULES"] = "yes"
     ENV["BUILD_TLS"] = "yes"
-    ENV["LTO"] = 0
+    ENV["LTO"] = "0" if OS.mac?
 
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "IGNORE_MISSING_DEPS=1"
 
