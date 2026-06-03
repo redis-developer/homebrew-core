@@ -55,8 +55,8 @@ class Redis < Formula
     # Set build flags
     ENV["BUILD_WITH_MODULES"] = "yes"
     ENV["BUILD_TLS"] = "yes"
-    ENV["LTO"] = "0" if OS.mac?
-
+    ENV["OS"]="macos" if OS.mac?
+    ENV["LTO"] = "0"
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "IGNORE_MISSING_DEPS=1"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
