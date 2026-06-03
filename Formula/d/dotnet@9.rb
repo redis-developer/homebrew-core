@@ -2,8 +2,8 @@ class DotnetAT9 < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
-  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.115.tar.gz"
-  sha256 "4e9bb987d5311395e0d516b2db98bcfe02a7eb8054bb8603b6db0b8ea39b81ca"
+  url "https://github.com/dotnet/dotnet/archive/refs/tags/v9.0.117.tar.gz"
+  sha256 "3f052a13a2fe76ba19a05956b3c9baca954b5d4526818552c91a8563ba2e05b2"
   license "MIT"
   compatibility_version 1
 
@@ -13,17 +13,19 @@ class DotnetAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "d0210ac9abe86301be17f2ef799950b29e673048a5e686c1eff4129f25cf07a5"
-    sha256 cellar: :any,                 arm64_sequoia: "8c50dc8fff007cc4c89e56249b168e98c7733cbcb57ad065a537c5081561035e"
-    sha256 cellar: :any,                 arm64_sonoma:  "0b8c0f69051f57cd3339a6173cf28b65d575ec1acf16f8c3b0613b5abc5a4abc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4f3fedb5b3fdb90696e1b19e25eef83ef312d5d4656f77d91f7f17e12094bfb2"
-    sha256                               x86_64_linux:  "91b020b30ee7c6e901e227c70413a68a85adc96c7e7d52dcae7c53155ec6573e"
+    sha256 cellar: :any,                 arm64_tahoe:   "b997adf801b64b82bc6fc2eee95ba54f3cf88073103ce0af6b7f38d7e7de56af"
+    sha256 cellar: :any,                 arm64_sequoia: "f3c14df9e8cb1847dbe92a76fd623945e2df62889277a701a532111c9abb39d6"
+    sha256 cellar: :any,                 arm64_sonoma:  "a83f07b9eb53942a0bac06a867689666464c66565c7efd69099fb2921e851c63"
+    sha256 cellar: :any,                 sonoma:        "3d989f58f038e411e91b33454942f3d71dcad73347b98ddd87462dbabaa1aa57"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d56d7400a9ab46c4fbc34233da570c4fcf63e532d8dca32ea9d6c0b98c7173f3"
+    sha256                               x86_64_linux:  "12f94a9a676afb43bc1927535e817c4b319ecfcf415d4aa19cc00da95384074b"
   end
 
   keg_only :versioned_formula
 
   # https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core#lifecycle
   deprecate! date: "2026-11-10", because: :unsupported
+  disable! date: "2027-11-10", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -37,6 +39,7 @@ class DotnetAT9 < Formula
 
   on_macos do
     depends_on "grep" => :build # grep: invalid option -- P
+    depends_on "llvm@20" => :build if DevelopmentTools.clang_build_version >= 2100
   end
 
   on_linux do
@@ -53,15 +56,9 @@ class DotnetAT9 < Formula
     end
   end
 
-  on_intel do
-    # Building on Intel Sonoma or later results in stack overflow on restore.
-    # See https://github.com/Homebrew/homebrew-core/issues/197546
-    depends_on maximum_macos: [:ventura, :build]
-  end
-
   resource "release.json" do
-    url "https://github.com/dotnet/dotnet/releases/download/v9.0.115/release.json"
-    sha256 "72b1fa8d56ded253f234741b88985dab54bac7e079b044ce78292405b83d4fd8"
+    url "https://github.com/dotnet/dotnet/releases/download/v9.0.117/release.json"
+    sha256 "fb209a31b902275c877c6a0058aecbb8767b11a479a7f216132d20f91bfbd6b5"
 
     livecheck do
       formula :parent
@@ -71,6 +68,13 @@ class DotnetAT9 < Formula
   def install
     odie "Update release.json resource!" if resource("release.json").version != version
     buildpath.install resource("release.json")
+
+    # .NET built with Apple Clang 2100 (based on LLVM 21) sporadically crashes
+    if DevelopmentTools.clang_build_version >= 2100
+      ENV["CC"] = Formula["llvm@20"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm@20"].opt_bin/"clang++"
+      ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include"
+    end
 
     # Make sure CoreCLR builds with our compiler shims
     ENV["CLR_CC"] = which(ENV.cc)

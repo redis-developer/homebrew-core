@@ -1,8 +1,8 @@
 class Bkmr < Formula
   desc "Unified CLI Tool for Bookmark, Snippet, and Knowledge Management"
   homepage "https://github.com/sysid/bkmr"
-  url "https://github.com/sysid/bkmr/archive/refs/tags/v7.6.2.tar.gz"
-  sha256 "09b3f6db7675d2b036b22b9b1a4856b5ed5eead98fc9da781e5f780e2c1bd845"
+  url "https://github.com/sysid/bkmr/archive/refs/tags/v7.6.4.tar.gz"
+  sha256 "4bb7b63bbf17c146a7588bb982c4bf4bbcbd5bde4baf26455d9f69eae4ab5077"
   license "BSD-3-Clause"
   head "https://github.com/sysid/bkmr.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Bkmr < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e3573e528ecdd67acce010304200e88910c748da4d57c26aca455a7499f8a416"
-    sha256 cellar: :any,                 arm64_sequoia: "42678af503147c19c60dd07bdc9f7c67fc59e626cd06ecf3e47828f6c8420984"
-    sha256 cellar: :any,                 arm64_sonoma:  "2580fb34a65550b98b536f367527b7015e50cd79b3af6e4d628962d0a11040ba"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fca0bfbea683e90e2c0ea473743cae564c4e2f34c7f5348c237c5e40505c5766"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "720173b01baf907d07e7b989e403723edb2b256a8cf36c1324d6790aa4bb7f19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "47b4661576651f6939460d5b99d6bc7ba404e2d4ce71053be55ba7f19944fbcb"
+    sha256 cellar: :any,                 arm64_tahoe:   "8c3fd7fbe2aa85fcf99dbf8007b23e500a8c243789e51303fa9705955102aeec"
+    sha256 cellar: :any,                 arm64_sequoia: "54ef269cdf275a85ab95daec4fe757aa428f7cb84f4670dc0a6ca393b808eca0"
+    sha256 cellar: :any,                 arm64_sonoma:  "529576b868f1ab4fd04889612001dac34ed821d4f420d6f7b15cdddd9b2263c9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ff3eee9fff458104e3fcfc786d43cdac911920671d633d16376fea3c84a650fb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a2b0ea5dae4cd453d52ecfea9be51bf7200ff637c3733b3817f2ad0a5b059711"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3952c74973c36bf045a43067bc492f5c33bea00b6be74a3868ab8ab45703c988"
   end
 
   depends_on "rust" => :build

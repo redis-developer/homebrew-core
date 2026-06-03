@@ -1,18 +1,18 @@
 class Ironclaw < Formula
   desc "Security-first personal AI assistant with WASM sandbox channels"
   homepage "https://github.com/nearai/ironclaw"
-  url "https://github.com/nearai/ironclaw/archive/refs/tags/ironclaw-v0.27.0.tar.gz"
-  sha256 "8060d480f9470db1d850f2b6573693df0df76b61139ae40c37eba8ef1b8c2dd3"
+  url "https://github.com/nearai/ironclaw/archive/refs/tags/ironclaw-v0.29.0.tar.gz"
+  sha256 "3657c9928b6bd81e285783a610a0bc7ad71a2e6aa2e8780452c72f1931260539"
   license any_of: ["MIT", "Apache-2.0"]
-  head "https://github.com/nearai/ironclaw.git", branch: "staging"
+  head "https://github.com/nearai/ironclaw.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8bba4d75077df76ff162e7e0f2af61d4d0672148a3909e878dbdfbd7055fea15"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "87a1a7a2a14d4e653ce0007067f9f06a959e85fd70686e5def7f2848d4b78327"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "64196194e66c4edfd7c60e7298f136f0efc41d23eec0dc3846625e051ccea0e6"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9a79b740923018eb45ed4f0755fd682eaa532fc311d135ef31cceb2cc9aa481c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aee14a4cb5b3994efe2779bd19fe401b069529a56e2f5bb3c5ddac636a87d42b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7581b8d40bbeaaaefac1d13aa18b050a5357ae514a03d8edb5a01b81eae1c29"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1bb0cdbb4fca0f623d3d5d18934bd435b7fb6cc4938385e2cdaac0c6f1830689"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bf6b3f1f7f8514f636c405e70c67e8e19352b1425642770ff6a11fe0d568d5ed"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b3514fcc131a7ffaae67f7bab42da35f32dec5b5dd46c7a45ff39c7d0788d48"
+    sha256 cellar: :any_skip_relocation, sonoma:        "603ecfe1dbf881523a83fbc055453bc2e573962bebdc1b3b5fdf9695d169e58a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c064ed8b1bc92b4ce00cd2b2d2bee8b823126f16347b0c91478606812d5b1767"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c891d3d65154d77360f746c656df16a00f28a52fdf0a1812e9b652e8548856ef"
   end
 
   depends_on "pkgconf" => :build

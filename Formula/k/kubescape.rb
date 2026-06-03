@@ -3,8 +3,8 @@ class Kubescape < Formula
   homepage "https://kubescape.io"
   # Use GitHub repo URL because the version for the build will be automatically fetched from git.
   url "https://github.com/kubescape/kubescape.git",
-      tag:      "v4.0.6",
-      revision: "c36463cdcb4fbe2646e8ebc819059ef48eb752c1"
+      tag:      "v4.0.9",
+      revision: "002e791cd39fed51dd4a86b321c6d184fa672349"
   license "Apache-2.0"
   head "https://github.com/kubescape/kubescape.git", branch: "master"
 
@@ -14,12 +14,12 @@ class Kubescape < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9799199a86487addb997be341d1d9b1de16ba40701bdb32322d4abe39c09ba51"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4db9e61315401136f0c32e69c1db5d02c0f5e6c62ee09f49442010bf0f26bce8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3fc652e0f71c369b28ce999369e8082b8da136f63efdb7da4b3e1896a34c022"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a31f3b16b8f2418bb0bbbef83e1864cc5fcd0956721700d3c0ddb146b486ddf0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a70cf9fc6463aec2e2a71593befb1c1f987d47b652ff9dd123b82320d6c03984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b60545d25d4c53c8bc4da678a47b8f855388bf1d9fea554a3c7c92f7cecb98e4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d0457f46c4bc040aba1540aa8e87283951802b6e504e6b6d1146e041f07384b8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5040d23138bf4c489df05cad718c1b87376d8b52c79bb988531fbb2ff854242c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c49f793b5c3b008595d18ff64b7bdb4eee6ab4c9c8400162aa37319a84bc6c46"
+    sha256 cellar: :any_skip_relocation, sonoma:        "199afeb9c9815366bb20aa5d92adc48a059bc8176931ad789cc6d82c80af7648"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "025438f2e16835ba586996bba968f5fe093aac5e834516ae80907be090fc5c50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cadfe39692bae78be6c6e8085103af2dff2a07fd19df86a2a6886a4d4a5cb97d"
   end
 
   depends_on "go" => :build

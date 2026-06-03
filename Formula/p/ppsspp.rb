@@ -1,27 +1,29 @@
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
-  url "https://github.com/hrydgard/ppsspp/releases/download/v1.20.3/ppsspp-1.20.3.tar.xz"
-  sha256 "70818b8001aebb624b24aedc64a25c1808e23acc4b4b31f020288a732ce8495b"
+  url "https://github.com/hrydgard/ppsspp/releases/download/v1.20.4/ppsspp-1.20.4.tar.xz"
+  sha256 "4de21db3105d9d81a465a8a7e78c68ee3c0e0bf6597d1c1d530f7555f3ad8b31"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "528dccce4420d673cfe8a2d46b744f358c1920af70c2894c2c44e72682b849eb"
-    sha256 cellar: :any, arm64_sequoia: "c8830b54ccaa764ad176f8e260fcfaddcf90c0806e1bf9a549ac447c516aaa67"
-    sha256 cellar: :any, arm64_sonoma:  "13d6861714eb336d5b01c86759d1401b95151d5bafdaf250d0e3443b65795206"
-    sha256 cellar: :any, sonoma:        "230849d007a29cb5802e42f83a0d2160f42da181d27c30bd7964d25fcf2a35a5"
-    sha256               arm64_linux:   "e516f646953e10cc45416c10692c7a432b1dacb7086ea47a56c4eddabd0c24ee"
-    sha256               x86_64_linux:  "9c27458004d7b61c152744a119e1c11ec1d1cc8ff4472ebaf3bd621529e8099b"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "822fe417a8375d4e2c0e5198051f96ca6f26f1f76860eacf3b0646d7fe3b7d31"
+    sha256 cellar: :any, arm64_sequoia: "50582846511f08c2de05611b5ccb9d3c1bb150eadfa995045edf6263df1ffc87"
+    sha256 cellar: :any, arm64_sonoma:  "e066b15fbd67a5e0f5bb5bd963303dc43330e0ee9664765e1c848485e8af9846"
+    sha256 cellar: :any, sonoma:        "5587c7e40e5fec600c02ca548623abe932dc17ba8efa8ae8468a4558b8278234"
+    sha256               arm64_linux:   "f11a8d5c8bffecf29232b54df2ef0673950535742ca3de334563e6d2c3655986"
+    sha256               x86_64_linux:  "2b2a7269d65268764f50754131d9d74cd080d417e57fc4efa70d2e5f5eafc7dd"
   end
 
   depends_on "cmake" => :build
+  depends_on "freetype" => :build
   depends_on "pkgconf" => :build
-  depends_on "yasm" => :build
 
   depends_on "libzip"
   depends_on "miniupnpc"
   depends_on "sdl2"
+  depends_on "sdl2_ttf"
   depends_on "snappy"
   depends_on "zstd"
 
@@ -32,6 +34,7 @@ class Ppsspp < Formula
   end
 
   on_linux do
+    depends_on "fontconfig"
     depends_on "glew"
     depends_on "mesa"
     depends_on "zlib-ng-compat"
@@ -50,6 +53,12 @@ class Ppsspp < Formula
     # See https://github.com/Homebrew/homebrew-core/issues/84737.
     cd "ffmpeg" do
       if OS.mac?
+        # Yasm is unmaintained and has multiple CVEs so will be deprecated
+        # soon in Homebrew/core. The bundled FFmpeg 3 build system is not
+        # able to correctly detect nasm so just disabling x86_64 asm which
+        # matches Linux build script.
+        ENV["extraopts"] = "--disable-yasm"
+
         rm_r("macosx")
         system "./mac-build.sh"
       else
@@ -67,6 +76,7 @@ class Ppsspp < Formula
     vulkan_frameworks.install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
 
     args = %w[
+      -DUSE_SYSTEM_FREETYPE=ON
       -DUSE_SYSTEM_LIBZIP=ON
       -DUSE_SYSTEM_SNAPPY=ON
       -DUSE_SYSTEM_LIBSDL2=ON

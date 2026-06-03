@@ -4,15 +4,16 @@ class Idris2 < Formula
   url "https://github.com/idris-lang/Idris2/archive/refs/tags/v0.8.0.tar.gz"
   sha256 "7b85226098c5dee96a0a77c892932d2e9fab8e5a5c2d08a0525520e1f4405551"
   license "BSD-3-Clause"
+  revision 2
   head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "768acb8421fcfde56de83b7f36637ab31189a939bab606cb6084b04a2e63ec3e"
-    sha256 cellar: :any, arm64_sequoia: "05546943e537df2312e319a916b217a3e0683c353cb1dce499692c5250220201"
-    sha256 cellar: :any, arm64_sonoma:  "e31df26bcafb55dc49d8e547543981045a7f86d4bd9d8132bdf5eeb538147f52"
-    sha256 cellar: :any, sonoma:        "9239b97ee3e0176d9d016f4dc1e194f0e25251bf403aa37776bac289092dcda3"
-    sha256               arm64_linux:   "d26d06c4c596187bf494e48afe507e9d036db5d5ba7d7de91c159fb661619dc5"
-    sha256               x86_64_linux:  "69e8edc3851beb8bfbd130453a8cb49831e443d7f16702c063cfae3ef032ddc3"
+    sha256 cellar: :any, arm64_tahoe:   "b24e19d4055957fccaacd37f3c43d091fd71083cb481e665bacb2e78ec2a4b1b"
+    sha256 cellar: :any, arm64_sequoia: "c26756474e5e042aadd67188a4fe924b82e12537b7df11f872b9d744caf6d26d"
+    sha256 cellar: :any, arm64_sonoma:  "e7e06b93ba0e65360832c4e173e99e8e3d229737e2145c45f6b41981117c983c"
+    sha256 cellar: :any, sonoma:        "4da6358da95a555db8b23255ff05a400486d0766105adc71b776a605727a0dd0"
+    sha256               arm64_linux:   "bd1c838fc77a473d01d9bfae5e310548e2904a77bc6cf454f846a6505694c5c5"
+    sha256               x86_64_linux:  "2a3bf7dd15efa67287b47b5ee5f7befc999d6bc18ccf0c2b045b448260db2c02"
   end
 
   depends_on "gmp" => :build

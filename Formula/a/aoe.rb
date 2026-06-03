@@ -1,18 +1,18 @@
 class Aoe < Formula
   desc "Terminal session manager for AI coding agents"
   homepage "https://github.com/njbrake/agent-of-empires"
-  url "https://github.com/njbrake/agent-of-empires/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "c7897824b863d3c626a8f09c8e142bd85e6c8d8bca80ec598efdd1d5031cbc2f"
+  url "https://github.com/njbrake/agent-of-empires/archive/refs/tags/v1.9.5.tar.gz"
+  sha256 "84effe9ccd322e140d9fc9f4856babaed4b99bd7176f2229e0f7293323590916"
   license "MIT"
   head "https://github.com/njbrake/agent-of-empires.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "85cc733e183731bca4ed019d3edef8ea0fa03e9fff3bf478c951d434959870f6"
-    sha256 cellar: :any,                 arm64_sequoia: "e4f80121b80e5e21240f661c10a6a183f4fb1fb1935b8a9af86661c474ed598c"
-    sha256 cellar: :any,                 arm64_sonoma:  "53cc9c9842c5e353e1f5f68e948c60295ead8162a9b848eb1b7cad8b2c26729d"
-    sha256 cellar: :any,                 sonoma:        "95f8898d6b2dff71fed937e448412867a21f2812c9f530762e83d3c7caac16f8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e758a2fc02067ddc172ba6c41177c9b9a4cba316eed7b2892b1853cc1ccfa3bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dfa1bf7a4f24851d505213abffa8f8d8b93dc56261819959f04e31af47c573e0"
+    sha256 cellar: :any, arm64_tahoe:   "93d6bac81057de6eef19db8bdaadbd3e486414189a71d9799f39281ef2bc09ac"
+    sha256 cellar: :any, arm64_sequoia: "ca70a9c15d00b5b46c159dd86fef4723b1d1faf7b6653309f7b707c61f46fede"
+    sha256 cellar: :any, arm64_sonoma:  "f1cb2d3b4e2c78af1ddef0e3f3f51dcefefcddea49db141a817b22e8462e99f1"
+    sha256 cellar: :any, sonoma:        "3cbfc0544d612c73260619b9a0794fd5e31e63cb001e8282610e920041b6e706"
+    sha256 cellar: :any, arm64_linux:   "2791f86be7c85e77bdc7ffaa71c0e14c47e1722509717e2fdb5a5a4addc82995"
+    sha256 cellar: :any, x86_64_linux:  "46822045cab2fbb5efccde27db6090e817a7f34b984064f0b20136043add1925"
   end
 
   depends_on "node" => :build

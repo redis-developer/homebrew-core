@@ -1,18 +1,18 @@
 class PostgresLanguageServer < Formula
   desc "Language Server for Postgres"
   homepage "https://pg-language-server.com/"
-  url "https://github.com/supabase-community/postgres-language-server/archive/refs/tags/0.24.0.tar.gz"
-  sha256 "6ac763a21162240855cc1695f7aa7ece936db2f5ed3d327ac02266fcff33c491"
+  url "https://github.com/supabase-community/postgres-language-server/archive/refs/tags/0.25.1.tar.gz"
+  sha256 "392b876c67841809d2fc5e1af9d7ad9498d942155d01fcfe7d2f9ee9d128d6a5"
   license "MIT"
   head "https://github.com/supabase-community/postgres-language-server.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5cf8b6caef5a0421f90e047fbe8435819f8d88f63d30e7b5745a069884105c09"
-    sha256 cellar: :any,                 arm64_sequoia: "9b73315963922327ec00df002e64507bad1ad8b36fd2f00d38d0f99e850a0ce7"
-    sha256 cellar: :any,                 arm64_sonoma:  "3d5938f23c6ffb7efef142a22b6ee0bc225cd376ad1cf81ba7ed2ba31d70b595"
-    sha256 cellar: :any,                 sonoma:        "e59610ceb626f61d863539bb4425150e62287c3b12546a4d338a75178d5afa96"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "be62ee39ae38e2aa6019ebb29b94c3982a9d81fbbc6a80186159f01a57889ce0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2291af32c857ea76d95e651a65e52a5fb798e80b376a8535ac6e81dea3688c05"
+    sha256 cellar: :any, arm64_tahoe:   "e3c114ea0a7d85b5a87803e1966498dc3302f5b52abe4433aa64b6aa8c636f4a"
+    sha256 cellar: :any, arm64_sequoia: "9c3c6c8ff18f1935ed3534d73cdc23d950844d46638cf49ce20f355579d45a2a"
+    sha256 cellar: :any, arm64_sonoma:  "2683936ba0d69c1c8bd73ddee5ef29bede60d06f89ab804e5ba10ebb05a2abd1"
+    sha256 cellar: :any, sonoma:        "54fb38ee1867e685c21e587822eb1518b28f5e07d8cf670bda0acc0053d5fcc2"
+    sha256 cellar: :any, arm64_linux:   "9497ca238a0346c22ffcfaf3501eab1708a11d1f5192cd23ef84fc7e1322df99"
+    sha256 cellar: :any, x86_64_linux:  "5b2edb61456e409f77fca09f640fd85effb8e63a9385ac4a6a9d04b0f63aa921"
   end
 
   depends_on "llvm" => :build

@@ -1,18 +1,18 @@
 class Goshs < Formula
   desc "Simple, yet feature-rich web server written in Go"
-  homepage "https://goshs.de/en/index.html"
-  url "https://github.com/patrickhener/goshs/archive/refs/tags/v2.0.6.tar.gz"
-  sha256 "f81de9403644bb6c37a212e495cdd8b12038489cc8cde1919dbbedc54a85ab8c"
+  homepage "https://goshs.de"
+  url "https://github.com/patrickhener/goshs/archive/refs/tags/v2.0.9.tar.gz"
+  sha256 "360cc2b9ca78db2d69ba5b45d09a6279bdf575df1babe306f21c3e619a591c97"
   license "MIT"
   head "https://github.com/patrickhener/goshs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b238f2c33e3e3a85e29a1b15bdce711e88260be8b54a7039e0b32b5a166d3719"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b238f2c33e3e3a85e29a1b15bdce711e88260be8b54a7039e0b32b5a166d3719"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b238f2c33e3e3a85e29a1b15bdce711e88260be8b54a7039e0b32b5a166d3719"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4bd75df430872a4caa60fdb4652626ddd62ae5819e150405d8b071ec18f0e5d3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cfae3755281c072a751b44bae79cdfc5b04877bb4ffc014b5c5df5c1b814b33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79696fa85f6c88068e969be81ea80965a039cb8d4809e1b24925ccba1f334188"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9cf25d1e9e300d7aed814aa65ddb1862eadc3f35b0d4dc62272da84c1d56dd73"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9cf25d1e9e300d7aed814aa65ddb1862eadc3f35b0d4dc62272da84c1d56dd73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9cf25d1e9e300d7aed814aa65ddb1862eadc3f35b0d4dc62272da84c1d56dd73"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8913abad217c63c610781dda464e233227ccf9298502a29e3d1b15fee2a1d4ec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "625534b4f2cf8473542885c9c96a64cf3808f30ec6e27c957832b616ba143010"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c887ebdeb173261aa093cfc1b8764596ef8ee32de2280a912af3cac55b2e75ae"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,18 @@
 class RunKit < Formula
   desc "Universal multi-language runner and smart REPL"
   homepage "https://github.com/Esubaalew/run"
-  url "https://github.com/Esubaalew/run/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "307626f38dd9a13c0f5f28b971c731e46aebf3518020bc049b051170e49944e2"
+  url "https://github.com/Esubaalew/run/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "9faf29540471da65f9481b2fa95aa7513572110d428f7199a27fe04ca1be2896"
   license "Apache-2.0"
   head "https://github.com/Esubaalew/run.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "380199dd143b10971160564c14ef1b13f89c0629c021368b85dad8aa8bb6480e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8e7a08f8b5d944382edfc3db55f203ac19e40cfb97560586c2ebbcc1c6cac86d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee991997710368c2f0d72b806f94964b473c3313b172d9466aa2af0f1bb0b662"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db3484fd43b678e09b5aaad3b59d26be6b80902dde7984de579745042f60404b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "970ebfae6cd274de6e0c0f1d91adadbb0a296f047297107af582386f55f4f0bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3c3f3850f735a848d5ba672299ecb11e7ea248c0dc922262e0dde556e8855d1b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9104ed02ddf561bf06bf75c5db9b7cfb97b4a383af0190e17c9d11fa47ad0910"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47cc94c954b1e6720545f6d8c9e9031071c3b1055d6aff16f84659f4d2d07b15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0436fe0f7ac43a1d21ac673be88458103235854c01fa6ec270fd64fe0ddc8746"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ae79c6e82780675707f7c206faa2ef0d7dd4b17ba9a3a81197ed3351e599ca71"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d5493fca2cb6ceebcc6855f2bffaa5daa03c3f502083c5f7ae6a871e95ed7458"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6c0ce83f8a22619f4ea16cf882080b47b494234655c04a8b5ba07d124d844a6"
   end
 
   depends_on "rust" => :build

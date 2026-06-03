@@ -1,19 +1,19 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2026.05.04.00.tar.gz"
-  sha256 "52594240e779cc01aeac4506489f7435a684b20200b52dd89507d0a35c9f9df2"
+  url "https://github.com/facebook/folly/archive/refs/tags/v2026.06.01.00.tar.gz"
+  sha256 "4e69b95022068ba0d7c6bc4e7b632ce1f53aea77ae2fa0c4bb261bf342f9298f"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "808f2edd6d733c6418f5b130ee7a690383b72370551cfdf03d187f40ff5ccd46"
-    sha256 cellar: :any,                 arm64_sequoia: "1e341f80408892c7d16860958bdd93fa4d6570347a0c9fc2713718a57afde787"
-    sha256 cellar: :any,                 arm64_sonoma:  "400e82356c855a8cf72a8fc9628e61c4a6ac7679bdb5dc06ad9075bdcd15f02c"
-    sha256 cellar: :any,                 sonoma:        "ae7acc08a44bb27f4395f732a46769745dfe8e6d38a71e11c9de42734b1f6b06"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c373cba58a57357481e77645791877bb73075820a638c0f8682a4a8536087f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "665d5bfa58b4917324aeb18d25b0f538492f24f5f7e3d4fc07131e0722d0c715"
+    sha256 cellar: :any, arm64_tahoe:   "507f8c76360a80920d58b559303469a7bd4ae2e4730fb3166d4bd6638986ecc0"
+    sha256 cellar: :any, arm64_sequoia: "dbae5af8719f75eba6ad9232bf4af0ea019e49484a5649ee75dfe65470838878"
+    sha256 cellar: :any, arm64_sonoma:  "c951516369fc674f6c70e6720d952e850081aa1689de13bebf2b2d17abc7c012"
+    sha256 cellar: :any, sonoma:        "5ebca5a2fd5592f3aa3625f657a5a7d127cae56fa5236fcca74a8cec4398a3c5"
+    sha256 cellar: :any, arm64_linux:   "1ee0b90be1c7f2d5575a97c86ea86928dc164b3347923a53d601d40bd640bad6"
+    sha256 cellar: :any, x86_64_linux:  "b13aefc61b34ff788743123c6b4513ba21ed2a8043bbdf8dafa8365d37d4c10d"
   end
 
   depends_on "cmake" => :build

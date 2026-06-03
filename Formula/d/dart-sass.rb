@@ -1,9 +1,10 @@
 class DartSass < Formula
   desc "Reference implementation of Sass, written in Dart"
   homepage "https://sass-lang.com/dart-sass"
-  url "https://github.com/sass/dart-sass/archive/refs/tags/1.99.0.tar.gz"
-  sha256 "5f969b2eedf86384d90a9a339824b6652a4600e9e5f32784a7e48e453e145016"
+  url "https://github.com/sass/dart-sass/archive/refs/tags/1.100.0.tar.gz"
+  sha256 "d4f1fa35b6911c4a3fcb9bb8723e4ed6724c2aea71813dfce49ce65aed20b57d"
   license "MIT"
+  revision 3
 
   # Some tags are used for sass-api/sass-parser
   livecheck do
@@ -12,12 +13,12 @@ class DartSass < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "04b68917e5fa15257e4015a7464bd866627c4676c48f0c9c4f42cbdff47c8f10"
-    sha256 cellar: :any,                 arm64_sequoia: "504e7c9ab687facfd63978bb335f3bc3cddaedb5c0494093e13b503a0f055d21"
-    sha256 cellar: :any,                 arm64_sonoma:  "d0ea9ce1bd01db3b76a7c64edb75da8716883d1eca1e7d9e62a11ebcb4e28b6b"
-    sha256 cellar: :any,                 sonoma:        "74939be86282ef7692b4d0460af6a819aebe8de9efa2ca53d4bff5641bbeb485"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c1452e98b3a7c6bfd511cb657a9e91e709bfc60da565c18b77b6ef8f17c70858"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cedfbfb2a3ac93d3a27c965fe8b235ad56d5b17e3a5396660dac891a01e99ec6"
+    sha256 cellar: :any,                 arm64_tahoe:   "7224e7b6b24b34cdeb0e0186a3853d58cf987d0ef967c7f3b44efda6c9888848"
+    sha256 cellar: :any,                 arm64_sequoia: "196fd41886378a073bfd4f8bcbf9a658b67b49aa6998b4fe4595315e926067b4"
+    sha256 cellar: :any,                 arm64_sonoma:  "758ec341fc2dc881d54b0165fac1c7aae111e194a2b43c20b5d84eccf9a33985"
+    sha256 cellar: :any,                 sonoma:        "0172382b8574a84ed256f501694288f0def9d8dd1e405d073097883e56dcde96"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71155eb9fe36336158a2f1a69b20a8c1cb763425b56b615576fedd9d1c67d350"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afaf1c4c95277a8f8bf28c0f5c3be607172a23f288bb1b69bbca21ac01d91f57"
   end
 
   depends_on "buf" => :build
@@ -27,6 +28,11 @@ class DartSass < Formula
   resource "language" do
     url "https://github.com/sass/sass/archive/refs/tags/embedded-protocol-3.2.0.tar.gz"
     sha256 "4e1f81684bc1666f03e52ddc790d0c2c22d99a5313fa2efe1dde4a5b5733c186"
+
+    livecheck do
+      url :url
+      regex(/embedded-protocol[._-]v?(\d+(?:\.\d+)+)/i)
+    end
   end
 
   def install

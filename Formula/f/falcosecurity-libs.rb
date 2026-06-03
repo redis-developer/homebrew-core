@@ -1,14 +1,13 @@
 class FalcosecurityLibs < Formula
   desc "Core libraries for Falco and Sysdig"
   homepage "https://falcosecurity.github.io/libs/"
-  url "https://github.com/falcosecurity/libs/archive/refs/tags/0.24.0.tar.gz"
-  sha256 "33db1708932affc977c86344dcdbdca3497f92a52dcb86be840aa8c1bda1b10f"
+  url "https://github.com/falcosecurity/libs/archive/refs/tags/0.25.2.tar.gz"
+  sha256 "136327d148154f91f73ff81366bd707a2930e72bbd2e491d68ba7ee62afaffa0"
   license all_of: [
     "Apache-2.0",
     { any_of: ["GPL-2.0-only", "MIT"] }, # driver/
     { "GPL-2.0-only" => { with: "Linux-syscall-note" } }, # userspace/libscap/compat/
   ]
-  revision 1
 
   livecheck do
     url :stable
@@ -16,12 +15,12 @@ class FalcosecurityLibs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "062c84b1c1b9aefd37fc21a24a080696de7628179db68afb476434ec6d1259ad"
-    sha256 cellar: :any,                 arm64_sequoia: "3157dac9f7e18da3c9d69d9063093aa2a24b0da4157c7f6feff07f62e499d90b"
-    sha256 cellar: :any,                 arm64_sonoma:  "fa3501fae74c5571d561f7ee505075e0d639b3ae9b08fa98efe8680623803a5e"
-    sha256 cellar: :any,                 sonoma:        "e55f9c47e82612287daa5dd9f612a5be0333855d61faf015f0e714e490644a0c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e31261a2bc605021245f8dfb524b43ca55ab45c24fe9f7e20e14fd80ae8b565"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e82d7a193ab2fb5e4af7a9e378769696e4e5a9012d09c652e0ec0f194dc71a81"
+    sha256 cellar: :any,                 arm64_tahoe:   "7a5a151013b1dca20761ea0088aab98ee4158eedd4afa3e52e47cd3ace1f4d68"
+    sha256 cellar: :any,                 arm64_sequoia: "f9b280c14d897f3fd5c559f2a06cc0cac31054748b050d9729732ec332fb330e"
+    sha256 cellar: :any,                 arm64_sonoma:  "cf428a479d6e39ac1f1025c72d912845d42a10973528d000380441c01e396e31"
+    sha256 cellar: :any,                 sonoma:        "2cd94d575f66b408586202c3295ae18b26d8d013fa8d6010174654695f8b1920"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "daf2dceb283c0470f0c03d2bd480084b59dd98c1b3e14c25791b2e7bdca2d4dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "144f2e81e88ff8f3a3cf89b22d17b89c9f04f70540f331a203c2066dc528b7c1"
   end
 
   depends_on "cmake" => :build

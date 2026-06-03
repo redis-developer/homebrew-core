@@ -1,20 +1,20 @@
 class Boring < Formula
   desc "Simple command-line SSH tunnel manager that just works"
   homepage "https://github.com/alebeck/boring"
-  url "https://github.com/alebeck/boring/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "c74a771e98750bcd745e282d29dbbd0cc9282adc9674e0ff44381ab2a46dae17"
+  url "https://github.com/alebeck/boring/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "13b5a6df9696f545dd4d2bd82a7d18e5ed80c5eaa5c2adb0373bc05ca0eb6bd0"
   license "MIT"
   head "https://github.com/alebeck/boring.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a2384dc6773cf751772120eda88d4560031950d4a1352919543277214c0b008d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a2384dc6773cf751772120eda88d4560031950d4a1352919543277214c0b008d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a2384dc6773cf751772120eda88d4560031950d4a1352919543277214c0b008d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "dea86e35c0c2c6705dc7c95bf7d3030c28dea712ee494d8136083a99ad0edcd4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "42d37ae685cb3c766845846486a22afb63a828d5805d0229b8fa779051f053d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1801f7f39c1acb1b5fb941fee2e38eb7e06d465e5e59508768cd0e8d3a03a15"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "66247cee164ba7522f7ce1a578ca9009764a44690b944ee697483bfee9127f81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "66247cee164ba7522f7ce1a578ca9009764a44690b944ee697483bfee9127f81"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66247cee164ba7522f7ce1a578ca9009764a44690b944ee697483bfee9127f81"
+    sha256 cellar: :any_skip_relocation, sonoma:        "22982707922325ae26fdbdbe5163a6ea3e6907de23d893f4a7a36c5fc2aaee17"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fb4248ca4eacaac0ecc400fca3fc47d24e12e13a8f7871a0c0e592f99384a094"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0655261923746f8a5af097c979950f1853e92cd375b5c83e47e7264f2acb982b"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.6a/tmux-3.6a.tar.gz"
-  sha256 "b6d8d9c76585db8ef5fa00d4931902fa4b8cbe8166f528f44fc403961a3f3759"
+  url "https://github.com/tmux/tmux/releases/download/3.6b/tmux-3.6b.tar.gz"
+  sha256 "390759d25fdba016887ec982b808927e637070fd7d03a8021f8ef3102b9ae3c7"
   license "ISC"
   compatibility_version 1
 
@@ -13,12 +13,13 @@ class Tmux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "36b24a92e268147bca7ef3e5df3a88affa06512d573e75f1cd1da28e724f4afd"
-    sha256 cellar: :any,                 arm64_sequoia: "9897a0d7b7e0159c1d09818d76e0ab88cc3fcdba8abd2bbbf349f84827ac87df"
-    sha256 cellar: :any,                 arm64_sonoma:  "089dc1f0f166cf72315528890052d4b9bc17cccce023a0449962a11098484300"
-    sha256 cellar: :any,                 sonoma:        "b0ca1f90384e487d2316bdcaef59ba4fdf63cb04fa561d424605f86935599563"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d4d439bc36e2d3814323f14242249fb16b17bef657878ab2d407b3769822f55e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b6b495ea4851f445eb947c60eb0fadaf87f872a0959b49b34303297d654bf81c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "eea20efb40cb19e2c3a55c0607ab171cf4cda5cbfaeb547b4fe13776d7b79f20"
+    sha256 cellar: :any,                 arm64_sequoia: "199b6026e3d8216fb8fc6394ba047e96e177b8283bc832c8fd784a27951aa0b3"
+    sha256 cellar: :any,                 arm64_sonoma:  "239749337e5b4b435670bf05fccc3373a001c0c018078ede8640b3e45203e316"
+    sha256 cellar: :any,                 sonoma:        "367eb4c58e2c4aca023a7331a6649444c6c115658224988654ffecd19a23ce5b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "71a11a462753c538c074fb25784490bf49b9e65cdfedd091a62eea13b22e1665"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "566c10149a1560226818f2cc6a82c3b7a626773d41cca1a96c4013314671a7f8"
   end
 
   head do

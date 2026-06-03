@@ -1,18 +1,18 @@
 class GiteaMcpServer < Formula
   desc "Interactive with Gitea instances with MCP"
   homepage "https://gitea.com/gitea/gitea-mcp"
-  url "https://gitea.com/gitea/gitea-mcp/archive/v1.1.0.tar.gz"
-  sha256 "2dbb255f28a68d5489251164acf930bce803f5d16836dcc50c0c004864dbf826"
+  url "https://gitea.com/gitea/gitea-mcp/archive/v1.3.0.tar.gz"
+  sha256 "1339122b71e806806999f694ade323724d6eea2f86b86528c00660b28415e8ed"
   license "MIT"
   head "https://gitea.com/gitea/gitea-mcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "38f0b6d12b3536ae3cc565705c9b62c1f79888ea3704286e2d8b4cf591c76e45"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "38f0b6d12b3536ae3cc565705c9b62c1f79888ea3704286e2d8b4cf591c76e45"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38f0b6d12b3536ae3cc565705c9b62c1f79888ea3704286e2d8b4cf591c76e45"
-    sha256 cellar: :any_skip_relocation, sonoma:        "548fdbb7ea3e3beba9475d26ce6eca7669556e2bca19ad3a115326f36452fc92"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "55ed2dd1ea5317c4cbf09fb476493eeee64e7b01b504e453e62eb5a6120e0558"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce74ad87d08a9e8f5ec4a6d063967441e9383b8c61f2fde16a23aa9000c49a23"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6d116719a95c0850be5ba1b737916378e952997598912ed24a97ce59e1c5611"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a6d116719a95c0850be5ba1b737916378e952997598912ed24a97ce59e1c5611"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a6d116719a95c0850be5ba1b737916378e952997598912ed24a97ce59e1c5611"
+    sha256 cellar: :any_skip_relocation, sonoma:        "79f36e92e4161ea61c072a16b78eb97bd7d72efe5a5cd8a4197b9c12246cb748"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8a45d828bc58ac263267c3150c31d11adefd93ab80f447aaaf89b1d6881c2da9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ed0fc48edcc7e6e85bf265ce211803a9d3cccdded97a00f738fdc09d9dff746"
   end
 
   depends_on "go" => :build

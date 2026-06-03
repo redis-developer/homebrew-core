@@ -1,18 +1,18 @@
 class Libde265 < Formula
   desc "Open h.265 video codec implementation"
   homepage "https://github.com/strukturag/libde265"
-  url "https://github.com/strukturag/libde265/releases/download/v1.0.18/libde265-1.0.18.tar.gz"
-  sha256 "800478f3bf35f0621b14928ceb317579f3e8b23de4bd2aac29b6cb8be962bbd8"
+  url "https://github.com/strukturag/libde265/releases/download/v1.1.0/libde265-1.1.0.tar.gz"
+  sha256 "afc19dd28e2fc523de5952bba5224ee1d28e286c72436d2843df126cca1181fd"
   license "LGPL-3.0-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e332c5e491ae7f70b8ebae1c9f293585b7752a7afaab7333fb8ef9575812544a"
-    sha256 cellar: :any,                 arm64_sequoia: "46bfe532b550fbee788b2a270af0adddd6814631cfbab5ec8072a731fb3aeb69"
-    sha256 cellar: :any,                 arm64_sonoma:  "03ea2640c729029695efd091b57d981467e9fa10c7cc68e76a26fa34a0fba23a"
-    sha256 cellar: :any,                 sonoma:        "2d42dca33ab978407dcf81e723123edeaa37adefd99c271c620b71195da0fa24"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2fd498520b9d66240acd346b1456d3dd0fe7441467da243cb806db8a79ee3dce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0c17c4d65e7a4c2eafd1c5801d67bf1f6ef8edcd9e79c8dd9a650e07312a4b44"
+    sha256 cellar: :any,                 arm64_tahoe:   "838b17ede87dbff3a4e589fcb2e109560ebbb9f1cc5ef08ff865ab43be8f1811"
+    sha256 cellar: :any,                 arm64_sequoia: "f76f4efc10002384fbec0bd610d0b6673bff1d0c0b0ca3d81a7727c2128e0991"
+    sha256 cellar: :any,                 arm64_sonoma:  "c4876e8006bfd433e800b79774fbf87eba9844753cc65cf52c916aedf31cd578"
+    sha256 cellar: :any,                 sonoma:        "78a4c657c1d140fedb0701514399393b581a9cfd42d2db1a032d882a06302cb8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1e8c04ec0e2854f60f7b5be2c83a2cecb479d8475cd1fa45fb9a80196393afc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2eec369a5bc5e55bc39ec2c44b7fe45e8a95ba09716b65d3b76c0045dcdd8cc"
   end
 
   depends_on "cmake" => :build

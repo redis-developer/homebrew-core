@@ -1,18 +1,18 @@
 class Tock < Formula
   desc "Powerful time tracking tool for the command-line"
   homepage "https://github.com/kriuchkov/tock"
-  url "https://github.com/kriuchkov/tock/archive/refs/tags/v1.9.6.tar.gz"
-  sha256 "b7623bee6e48894171e48b44ba27e3a8111e573f954bbfafe153882f926a9d9d"
+  url "https://github.com/kriuchkov/tock/archive/refs/tags/v1.9.8.tar.gz"
+  sha256 "436f536799abbd6d8b35a1bc33e3cd3a616126d2063f37d3a0e115470246a94a"
   license "GPL-3.0-or-later"
   head "https://github.com/kriuchkov/tock.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fe7a6021541bc0166fbcc6552f20fffce1ef9f8348b79e257f584c710ac855b0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdf567f409cdd4a7a052fade21576b7d885e0e7d76d916087982facb5b028670"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1733bd03c9178c24f0ab610c81f106dc1388fdd8e2e19870ae991674af75fd8b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8bce9335b83d1fef81251e4a9e7e38e69506c8f0de56c266e81e50a4929fa291"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "860eadcaefd90098fa4d4f6ce37a2daeef927b01a3e8a5ee9e8e25d2dcf33a53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "225883961ba0f0ac744110b1c40fbb6a6fe5131ddf8d49d488ad2ea58a62671d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8704bf2409fa260cc1b27d52341706feae54729b229821376e7371ec832b16b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94ecee122c64308829360149f94b5e1f462e97fe96aef2e5131cba0a5ed27f78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b20b05a4f2995c62eb2ea9b50cff204400d2ab434815568857d2f32be212595b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c2ed9b9e1efe28072ede58e281756d9c44f5935bed00bae1736e630d46d52dbc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4c4afca974615c7092073efa5d92f5980ceb02686724be7e0161e003474f7077"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af28987d8382106d04d619cf15c1a5b37cbc1b322a0183a7d87fd9daf9474534"
   end
 
   depends_on "go" => :build

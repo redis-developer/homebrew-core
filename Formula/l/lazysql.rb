@@ -1,8 +1,8 @@
 class Lazysql < Formula
   desc "Cross-platform TUI database management tool"
   homepage "https://github.com/jorgerojas26/lazysql"
-  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.4.9.tar.gz"
-  sha256 "92a36347c064e2440f4f4bf38d3555ed282bb5ca7f0ebe3884d507cbcabaca9b"
+  url "https://github.com/jorgerojas26/lazysql/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "be1ec5b79f42e26536189fbd7116e95288ea4b15bf356e14c548e14dd45a3e33"
   license "MIT"
   head "https://github.com/jorgerojas26/lazysql.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Lazysql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0a93e7c36bfb43ecd21894a000abf0fae7bb4f1fb09bd742fa71b1f224dd66a0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0a93e7c36bfb43ecd21894a000abf0fae7bb4f1fb09bd742fa71b1f224dd66a0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0a93e7c36bfb43ecd21894a000abf0fae7bb4f1fb09bd742fa71b1f224dd66a0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "91bcd278994b31a727acf05744f9dffd878a703503f76a8a693f01a0f15d1d8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "723d435ed81069bbacf325457438c4e90c299d7553b3b2c15ac41f186e063602"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d74b913a732fc028ba714d142425455d04c05e1499f09356337a1a4b5d5f3e24"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1b9ffd5789818b6ac7a93261aa54857d0a3bc40845433a3d52fb4e38f1e3894"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e1b9ffd5789818b6ac7a93261aa54857d0a3bc40845433a3d52fb4e38f1e3894"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1b9ffd5789818b6ac7a93261aa54857d0a3bc40845433a3d52fb4e38f1e3894"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c140b1055379b3efa5d5d7615cdf5250790b043ee50faf26b5d9e84df06f7787"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae2e7836c139d8993089469a44ff9fff869baa4466cc80d010ae9238aa670ca8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c457cdf07a59142ab672ccad31e611767d1acb6bd160e7324383457bec0aa40"
   end
 
   depends_on "go" => :build

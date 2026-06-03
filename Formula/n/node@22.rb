@@ -1,10 +1,9 @@
 class NodeAT22 < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v22.22.2/node-v22.22.2.tar.xz"
-  sha256 "b6bedd3a8cacd5df7df015a5088264b12c74a277ba60684cb9642ae8eb743132"
+  url "https://nodejs.org/dist/v22.22.3/node-v22.22.3.tar.xz"
+  sha256 "f3e6a578db1ab335a4a72785c1e87ad18a2cf6d2fc25747a1d741fb34af0bd0f"
   license "MIT"
-  revision 2
   compatibility_version 1
 
   livecheck do
@@ -13,12 +12,13 @@ class NodeAT22 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "7bfae698e37587beaf70e52f76b9176531a62318cfbf5400aa373b81b58c7edc"
-    sha256 cellar: :any,                 arm64_sequoia: "f802a7e95a4df48df7b7f337e339f50b2df47f6281981960171d4bb376e65003"
-    sha256 cellar: :any,                 arm64_sonoma:  "f076ace0f9a1ab67a79ee7d0509364b9a95ab76b004dce1331db01350a9acfb1"
-    sha256 cellar: :any,                 sonoma:        "64ec464f8f26e87a73d7e438755b19be4b4c290020dd5cb24eb56ae068d27959"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "20e88233331ea969abdf80d95529928f5ab795804cbef4bf6b047015fe4ff630"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20160761c5c0819f3901d834d8fb02467c0e31132a0bc5fde975431bcd325b30"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe:   "b816f097e858bd782fdabaa7c43cdf6d9b61e40798ddd596413b8368c491cf49"
+    sha256 cellar: :any, arm64_sequoia: "2a6149417ac1727912ae188e597bf00a0629a8e513e3f370c5c0c30c59693af9"
+    sha256 cellar: :any, arm64_sonoma:  "382349bf29b095ab27fdfb85b1b22ddd6750237cdd4080dfd23303aea7ecbbb7"
+    sha256 cellar: :any, sonoma:        "8f871c730de49ba722d15bb6c0b29a9d56b9401bea7fb4927144616acdf18ea8"
+    sha256 cellar: :any, arm64_linux:   "9908fc1f7cc87b3b3ff6709a1761c9604d8103056504fa9d252b7b3b9014920f"
+    sha256 cellar: :any, x86_64_linux:  "5ef46a3ae4c97d48ce205bebaa642088783ed58d93fcba5f3a85ff7a86313a14"
   end
 
   keg_only :versioned_formula
@@ -133,16 +133,11 @@ class NodeAT22 < Formula
 
     system "./configure", *args
     system "make", "install"
-  end
 
-  def post_install
     (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   test do
-    # Make sure Mojave does not have `CC=llvm_clang`.
-    ENV.clang if OS.mac?
-
     path = testpath/"test.js"
     path.write "console.log('hello');"
 
@@ -166,5 +161,7 @@ class NodeAT22 < Formula
     assert_path_exists bin/"npx", "npx must exist"
     assert_predicate bin/"npx", :executable?, "npx must be executable"
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
+
+    assert_equal HOMEBREW_PREFIX.to_s, shell_output("#{bin}/npm config get prefix").chomp
   end
 end

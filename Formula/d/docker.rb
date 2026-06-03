@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v29.4.2",
-      revision: "055a478ea9010a19d0d4674c0d0e87ade37a4223"
+      tag:      "v29.5.2",
+      revision: "79eb04c7d8e1d73247cb7fe011eecc645063e0f0"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
@@ -13,17 +13,17 @@ class Docker < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f617fd981c5deb77f6d71c8a9a53f45cc90cf55a0ab970b615c8819a103f024a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3ac768b4dff74523b91075d9a315e5a4d6ac5f9c8a2f4044cd17e7017710a5ff"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4521a47a87d6cfc11ae25c6e176bfbaf2ad5d1480b440fb03f1a08a1670d0890"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad7a068ba0301104009b48aae5868ed6594ddbb0edcb885e635b2e18e0000292"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6a8e0bda1de232de8850983a1dcd9edc82e0e85e4235d264fdcfeea756b7889a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66d7089ba63e204ad8caa042157daca930f4e0868879c5d73d59317fd8431cc1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dd87549832caa868fc769b2ddc9a0142297af04f741685f1e6213c459525ca57"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6bcc923f7f78a07188230a6f044ed91cf008739e3c799f5c80d3419a03585e65"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4900e3000786beac086d8ddd8f55dddaf7eeacfa1ed8f2d4f100bc8a4ac40cf9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3b0db7da24a1713e9d83804e69571c0181bfc2d6b9b808570ae049b77e4b4b67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "366cbe02beb75ceda26392b849e037c08111117f5047f32f2f9cbccee2ece328"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0d5d44efb6ade00bb3aa96f76884382023a6096305cbaebbaebd70b30451218"
   end
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
-  depends_on "docker-completion"
 
   conflicts_with cask: "docker-desktop"
 
@@ -49,6 +49,8 @@ class Docker < Formula
       (man/"man#{section}").mkpath
       system "go-md2man", "-in=#{md}", "-out=#{man}/man#{section}/#{md.stem}"
     end
+
+    generate_completions_from_executable(bin/"docker", "completion", shells: [:bash, :zsh, :fish, :pwsh])
   end
 
   def caveats

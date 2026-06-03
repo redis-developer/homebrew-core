@@ -1,13 +1,10 @@
 class Zsync < Formula
   desc "File transfer program"
   homepage "https://zsync.moria.org.uk/"
-  url "https://zsync.moria.org.uk/download/zsync-0.6.3.tar.bz2"
-  sha256 "293b6191821641d3ed6248206f8f9df0bf46e6ee2cf8b4dd97cfd1d5909edb9a"
-  license all_of: [
-    "Artistic-2.0",
-    "Zlib", # zlib/
-    :public_domain, # librcksum/md4.c, libzsync/sha1.c, zlib/inflate.c
-  ]
+  url "https://zsync.moria.org.uk/download/zsync-0.7.1.tar.gz"
+  sha256 "f521437761d9d19b5ca351f7736f28543cfb8a37391bbdc5b49681403268ff89"
+  license "Artistic-2.0"
+  head "https://github.com/cph6/zsync.git", branch: "master"
 
   livecheck do
     url "https://zsync.moria.org.uk/downloads"
@@ -15,36 +12,21 @@ class Zsync < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7d4a20e196767857208a02278c4b0d5bf3378ae40402d1a67e948bf58cff27d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "39991c4aa022ce2fe1b3d62b30e2c7e130be4e4e98bf6dca844f28ec8afdfe8d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "800299bfc82b2ce9970159a2d0efcbe445c74024a357aa4a3c2f8a74c4ed871b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8fcb43f6827e4c2339a9ec5f365c05372c9d17ca91e9fef076f84b784efcd65"
-    sha256 cellar: :any_skip_relocation, sonoma:        "db75f0fa2e8fd02c11b06fb4a75ac536da7aa768f35df369137bf72d87490c36"
-    sha256 cellar: :any_skip_relocation, ventura:       "54804831f99313425941c41263b6b9e875db47ca171dee2a24d370e335e8fcfc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3b1d6196e007d24f8416604d28391ed198a28f30fe72b98fc8d3623b4952b01c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61c5c7c1ea629dd5b29e60e554bd87b30528abe65e58730a8034c680c4eeb476"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb6952fc8a4fc3c5a17df80920b6994fc4576c5116ba8889afa42dd15a224d2e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb6952fc8a4fc3c5a17df80920b6994fc4576c5116ba8889afa42dd15a224d2e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb6952fc8a4fc3c5a17df80920b6994fc4576c5116ba8889afa42dd15a224d2e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e925f3f807f6b214d77f3fce1734a9feeda9ca86bb6ddd7eeaef9df3145bfbc7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "73084d34de13ab274066e65240c9459ebe0281fa33e2c5806cc7e13b8355e101"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d2bd874f2efd2cccc4627cf9944a24899b6b04345f7616bb05b861ea0339bde4"
   end
 
-  head do
-    url "https://github.com/cph6/zsync.git", branch: "master"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "go" => :build
 
   def install
-    if head?
-      cd "c"
-      system "autoreconf", "--force", "--install", "--verbose"
+    (buildpath/"cmd").each_child(false) do |cmd|
+      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/cmd), "./cmd/#{cmd}"
+      man1.install "man/#{cmd}.1"
     end
-    # Fix compile with newer Clang
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
-
-    args = []
-    # Help old config scripts identify arm64 linux
-    args << "--build=aarch64-unknown-linux-gnu" if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-
-    system "./configure", *args, *std_configure_args
-    system "make", "install"
   end
 
   test do

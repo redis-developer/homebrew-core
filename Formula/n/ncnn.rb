@@ -1,19 +1,18 @@
 class Ncnn < Formula
   desc "High-performance neural network inference framework"
   homepage "https://github.com/Tencent/ncnn"
-  url "https://github.com/Tencent/ncnn/archive/refs/tags/20260113.tar.gz"
-  sha256 "2fdc5c6e37f8552921a9daad498a1be54a6fa6edd32c1a9e3030b27fab253b47"
+  url "https://github.com/Tencent/ncnn/archive/refs/tags/20260526.tar.gz"
+  sha256 "da1ade826bc22858a9fb87ae052789bbd614d042b3ec2c22e6544ca83db6bc04"
   license "BSD-3-Clause"
-  revision 4
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "32a3ae7eca14922823925b1c28d705510320366701f9ae0bf8c41adc408188b9"
-    sha256 cellar: :any, arm64_sequoia: "699a86a1bdeb0c9ee5f96ca2456c2724ecf332e95a82dea148c23af773e9ace5"
-    sha256 cellar: :any, arm64_sonoma:  "3d16f91290dec7ecf6cac1371a3502cd7897c4de8f4d5e411707f8f315712c0b"
-    sha256 cellar: :any, sonoma:        "1df71d2f7c96bb19c3d6c72e1677035b8f7d5b40815bf865a589c8f460b606b0"
-    sha256               arm64_linux:   "4e00671612b1b942aa589e0ff38b6a1ebd7151c1f9d2ad30a9f647d69fd843ba"
-    sha256               x86_64_linux:  "941bd38539d20bb2adcccd1af07157e0c37ef04f50da1c4db5bf44551ccec351"
+    sha256 cellar: :any, arm64_tahoe:   "fc7a60dfe2b4bb70a850581c88b899b8cdb8599234fdb63bd19e57f04e70b5e6"
+    sha256 cellar: :any, arm64_sequoia: "7dc237211fb184b74f0c3c08a036bbe3fbe0c1019a120306f7d023ed991bfb27"
+    sha256 cellar: :any, arm64_sonoma:  "ac9473d5382a3962246d667970372e7a476d27401fbaebc03663f1a8981fb8ee"
+    sha256 cellar: :any, sonoma:        "bd86250c8cc5c6ad997822a2930a4faa6c5c0c6803aa0f5ea99c4f3290cd071a"
+    sha256               arm64_linux:   "229ad51bb9a6fd29d9fed21f33ae4775a5d018a21a866683e1496df2f29cc1ae"
+    sha256               x86_64_linux:  "bc5ff5f68cc4e85a11273877d967e9f8c7ab0524981a622a945084fb44b0e9cf"
   end
 
   depends_on "cmake" => :build
@@ -53,6 +52,17 @@ class Ncnn < Formula
         -DVulkan_INCLUDE_DIR=#{Formula["molten-vk"].opt_include}
         -DVulkan_LIBRARY=#{Formula["molten-vk"].opt_lib/shared_library("libMoltenVK")}
       ]
+
+      # Apple Clang 16 crashes compiling AVX-VNNI(-INT8) and AVX-512(BF16/FP16) intrinsics.
+      # No Intel Mac CPU supports these extensions anyway.
+      if Hardware::CPU.intel?
+        args += %w[
+          -DNCNN_AVXVNNI=OFF
+          -DNCNN_AVXNECONVERT=OFF
+          -DNCNN_AVX512BF16=OFF
+          -DNCNN_AVX512FP16=OFF
+        ]
+      end
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

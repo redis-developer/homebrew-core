@@ -1,18 +1,18 @@
 class Ggc < Formula
   desc "Modern Git CLI"
   homepage "https://github.com/bmf-san/ggc"
-  url "https://github.com/bmf-san/ggc/archive/refs/tags/v8.4.0.tar.gz"
-  sha256 "d319caab311aa70f577ddf23773284f2ad3f3b34685275a2b24ca887fef02f2e"
+  url "https://github.com/bmf-san/ggc/archive/refs/tags/v8.6.6.tar.gz"
+  sha256 "ca77320f81bf535924d68f910ba48cda26d635cda80d86ad99f26e6aeddd93d9"
   license "MIT"
   head "https://github.com/bmf-san/ggc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d83b5901669ea271580a59eaddc7453c829fdf9562fb9c4c25610b9c2d059068"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d83b5901669ea271580a59eaddc7453c829fdf9562fb9c4c25610b9c2d059068"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d83b5901669ea271580a59eaddc7453c829fdf9562fb9c4c25610b9c2d059068"
-    sha256 cellar: :any_skip_relocation, sonoma:        "102bdbe16a42902943ab5e205962dce099a6a1d47805f90f5975428d545d95a1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3fa12bef2c82ad1f1cb48f100f8e426a4db549e46540c00c389739fc9ca79742"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a198a4d4a954b7200ee490f831d625ce07fd20b66077f483fb8eeff9f20969a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dec9cc57a2b118138176af7c107ee69472036c30d746cf2135ad81b424d1a560"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dec9cc57a2b118138176af7c107ee69472036c30d746cf2135ad81b424d1a560"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dec9cc57a2b118138176af7c107ee69472036c30d746cf2135ad81b424d1a560"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b568f83120650dd37329432e19497ff6de33c1cccdcf81be3ff012132968a4d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3a17ae8ec4106ce5734ba646b70007c825f95905abff47cff811db03403d5dc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "04f7bcbfcbebf53a212de2948fc2e5bd6b2edd751c5864ae01f6e2460ded2c48"
   end
 
   depends_on "go" => :build

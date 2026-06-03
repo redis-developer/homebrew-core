@@ -1,18 +1,18 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2026.05.04.00/proxygen-v2026.05.04.00.tar.gz"
-  sha256 "1f42b824552056af697c161d4f8683884066478d34f809fd5a2b2bb305e600a9"
+  url "https://github.com/facebook/proxygen/releases/download/v2026.06.01.00/proxygen-v2026.06.01.00.tar.gz"
+  sha256 "be8fd10646c07b1fa4b37dfc2328f27f80912de2f6fe9a2f91c6cc496c2a0ea1"
   license "BSD-3-Clause"
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fdf161011522c27c673d4c0d7023d6a5a266b0b041f3a7a49c8773e337e01363"
-    sha256 cellar: :any,                 arm64_sequoia: "1dc65de4f7c94e0d26989fd971e77953bebe1990c7599e77ddfcc1aa55fec40a"
-    sha256 cellar: :any,                 arm64_sonoma:  "7837eab2755ebb6df135777f46fdec998cd9a692d2213a62fe772ba799c9a5f1"
-    sha256 cellar: :any,                 sonoma:        "aa4e297e6c145119cafaaf25bc6aaf2621be5ccde0a3a7b50d3e2ee8525b4be3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1aaec18b1fc9774a4a9a6de2c98628bd19a6a0b5b5e28f313234c64d1a7c2c66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cd21787435051fb9d6747ef81f3fa6f75c0e0b43252add99eba12961760e73b"
+    sha256 cellar: :any, arm64_tahoe:   "438139f15f9edba9cac63ca7bb1cbafeee53b57f6fdfa9d5db51d044642e398d"
+    sha256 cellar: :any, arm64_sequoia: "73cd2ec0e900df93b849165d5ffd6c4aa1607703d4b588ce7147a4f7c6de33ba"
+    sha256 cellar: :any, arm64_sonoma:  "99dab02dfe21024b02f53ec675978f5c6bf8a5d78a29fcbe2fd5ec8f006e071f"
+    sha256 cellar: :any, sonoma:        "e14101ee6a20c1d0c81e5376189e076698b418db85275280e28c5c9d954fb1ff"
+    sha256 cellar: :any, arm64_linux:   "dc29514d25a161462609809b36161d740cf4c33d200cffefd29440c450777b28"
+    sha256 cellar: :any, x86_64_linux:  "39e6db32fc1b808afbafec8b8da45d105ac9b2d3e54a59a2f5ee170d88a0acbd"
   end
 
   depends_on "cmake" => :build

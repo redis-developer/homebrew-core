@@ -1,14 +1,14 @@
 class RubyBuild < Formula
   desc "Install various Ruby versions and implementations"
   homepage "https://rbenv.org/man/ruby-build.1"
-  url "https://github.com/rbenv/ruby-build/archive/refs/tags/v20260503.tar.gz"
-  sha256 "115de494e26edb657b664de9b38dcce6a4afe321a54f66ee7a0b1051c65a6c16"
+  url "https://github.com/rbenv/ruby-build/archive/refs/tags/v20260520.tar.gz"
+  sha256 "5ff9f795c3c751eec29aaca25f98d371c1c52c3408d76d8aefb8cc2fcdc8f118"
   license "MIT"
   compatibility_version 1
   head "https://github.com/rbenv/ruby-build.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4f0a898806ec26a593722c5aa0711138792fc50e641b8dd2a766a93ee7b27506"
+    sha256 cellar: :any_skip_relocation, all: "2dfc9d14ce0b4a47e7ebe3ab0b3420eaf6d41cefe403a0e26a6728d4cddeebca"
   end
 
   depends_on "autoconf"

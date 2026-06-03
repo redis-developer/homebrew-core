@@ -1,18 +1,18 @@
 class GitPkgs < Formula
   desc "Track package dependencies across git history"
   homepage "https://github.com/git-pkgs/git-pkgs"
-  url "https://github.com/git-pkgs/git-pkgs/archive/refs/tags/v0.15.4.tar.gz"
-  sha256 "102f529fc19babecc5026b2b55f062153541a60f2d08e3c8b06a7f0ebf76a0bf"
+  url "https://github.com/git-pkgs/git-pkgs/archive/refs/tags/v0.16.2.tar.gz"
+  sha256 "0fddf934169e7cdcc03b9bbee3358f3dbef2582d72bb9f4eddc56611ee9c1df6"
   license "MIT"
   head "https://github.com/git-pkgs/git-pkgs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ddcf5ed07dd57384ad450c9a0ec0493f4d44bf69afc4098d1c121fdcfdbb6959"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ddcf5ed07dd57384ad450c9a0ec0493f4d44bf69afc4098d1c121fdcfdbb6959"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ddcf5ed07dd57384ad450c9a0ec0493f4d44bf69afc4098d1c121fdcfdbb6959"
-    sha256 cellar: :any_skip_relocation, sonoma:        "270128dd3f7cab2752526a5b32e5985e6ab0a4744354006349f479d39523904a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e73f2f2f6e37ff1a6c3e2159a4d191c30f9342b47e0df4a365fa11bfdcda7db5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d16a170439ff0e871ecc75c74d77f7b52efa50e31b640b087947ec4a30071112"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d29ddd8510863231c8122f863c8c7a515c464702822aec333ecc1c4f71876cbd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d29ddd8510863231c8122f863c8c7a515c464702822aec333ecc1c4f71876cbd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d29ddd8510863231c8122f863c8c7a515c464702822aec333ecc1c4f71876cbd"
+    sha256 cellar: :any_skip_relocation, sonoma:        "114f67bf82aaf3b523d549787d4339197d9c4e4c50c11427cde4e2d8ae4eb74d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e1203ef1402287eb3544a7f6eaebca247fb481bbd12ae0d83b32021e4fe02ab4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b38661cc5e398fc8613763aa87db97da5e5a1b8c79a01c5028b450dfaa06676d"
   end
 
   depends_on "go" => :build

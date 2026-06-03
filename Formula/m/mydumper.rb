@@ -1,8 +1,8 @@
 class Mydumper < Formula
   desc "MySQL logical backup tool"
   homepage "https://github.com/mydumper/mydumper"
-  url "https://github.com/mydumper/mydumper/archive/refs/tags/v0.21.3-1.tar.gz"
-  sha256 "a6a6b4db319e67663410f26462597dfe22a0b34600ee35ada4180df07d8c6ce7"
+  url "https://github.com/mydumper/mydumper/archive/refs/tags/v1.0.1-3.tar.gz"
+  sha256 "d6fcd06d0382c7620359189cb060019291df10bba94bacb279e2df1cebd5953a"
   license "GPL-3.0-or-later"
   head "https://github.com/mydumper/mydumper.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Mydumper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6ceae1418a596ebf672a7f921bcbb298b1428408b1fd23e7ef14877c19b3ba39"
-    sha256 cellar: :any,                 arm64_sequoia: "81b5f87b490b85a6d817c153027495a6054d753b5003b3a72b1816343643a44a"
-    sha256 cellar: :any,                 arm64_sonoma:  "d34929334ef51c9f56e40536e16ef56af28957095bbadbdf449f635895e59e7d"
-    sha256 cellar: :any,                 sonoma:        "c1e1e4fe3ccb3b602d2fcf678e9c0626374cc970f53c2c3d9ffd3bd74d19cc9a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "151822263f8176405cf8c3dc1329c1c1736294512d756b5b256c439e0e3bc010"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "83fd06ce8a05b9badcd029600ebe977effdf8146e3718e602d89f39b2b9cf61b"
+    sha256 cellar: :any,                 arm64_tahoe:   "ed381e58aa4bd80a40d35e1d5570015c2253ee3f590e8130610a5f4c6ab9c06c"
+    sha256 cellar: :any,                 arm64_sequoia: "a81408838fae9f8a3597e69b39891608077fa6477b80a047e10d215564681304"
+    sha256 cellar: :any,                 arm64_sonoma:  "322a9011ac037bace2d95dfb52664a38431a453c29e163a0797209737551721a"
+    sha256 cellar: :any,                 sonoma:        "07b6dc566deffe8f2ea70342370e3a703f26fb572a20c391422a4ceb0bbf58f5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "064fcbb4b80e6a8d17bba2b2e41c4fca6a591db8693b7d67727339cc58784897"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edcb404207cb1e73c6ea3a0f385097f44ffe8795b199330de401c7b8755672bf"
   end
 
   depends_on "cmake" => :build

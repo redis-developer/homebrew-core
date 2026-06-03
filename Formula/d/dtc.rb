@@ -1,9 +1,10 @@
 class Dtc < Formula
   desc "Device tree compiler"
   homepage "https://git.kernel.org/pub/scm/utils/dtc/dtc.git"
-  url "https://mirrors.edge.kernel.org/pub/software/utils/dtc/dtc-1.7.2.tar.xz"
-  sha256 "92d8ca769805ae1f176204230438fe52808f4e1c7944053c9eec0e649b237539"
+  url "https://mirrors.edge.kernel.org/pub/software/utils/dtc/dtc-1.8.1.tar.xz"
+  sha256 "23526015a6f1550e0541a53fe7acea1b5a11e3697cdf3a3bdc076abc38f6045d"
   license any_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
+  compatibility_version 1
   head "https://git.kernel.org/pub/scm/utils/dtc/dtc.git", branch: "master"
 
   livecheck do
@@ -12,25 +13,35 @@ class Dtc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "e651c82ed69b6efd392728727fe0a9d4831cbcd1decca9b6a17bf307e44d81cb"
-    sha256 cellar: :any,                 arm64_sequoia: "4b99efbc9d6522d1237038a22fc3417fa282d979e94db58a783a4b0ef934a9bb"
-    sha256 cellar: :any,                 arm64_sonoma:  "20ee0f26c62898f07838b78489cad21b358d329f1dd3fa57bd63916e479db084"
-    sha256 cellar: :any,                 arm64_ventura: "0bc0e5c7f5681e49a92833da2abecfbd10d11d7c938cab0c668df1aedec703da"
-    sha256 cellar: :any,                 sonoma:        "e4eb4991109e9112f5edb62b92cec046239268ecedf2de275e21c9be7302016b"
-    sha256 cellar: :any,                 ventura:       "e3702ff36779cb65af9bf30d5ae6be3bf2a03320567edbf0821251abc66c4113"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca5cc69857d826ebc8b792e60d7fbc695785443f5a03bff22cd6a80d96953e52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a73d1c865cba2244acd9bb059eae7fa4377506b64438ce12608f8f87d01e6640"
+    sha256 cellar: :any, arm64_tahoe:   "c85117d5237ea464866d8712ff9fc264a1701eca34d9d470d720a935c79f61ba"
+    sha256 cellar: :any, arm64_sequoia: "2b800aed01f5ebfc9cbb685536ad1625d1d702ab850bd34639865d3457c4f2e8"
+    sha256 cellar: :any, arm64_sonoma:  "5096223d06fe3abcc5d668b1dbc86c8f9b3b96d96c382afb16dfa580000b3379"
+    sha256 cellar: :any, sonoma:        "12e87f7f007759ce7137f039520358afeb48aae1d8f52c4a4bfe5f1acfb4f31c"
+    sha256               arm64_linux:   "45cf765efbad445c3dbd17ec9caa151a4a0908ba451c0bebbbe19b56e792508e"
+    sha256               x86_64_linux:  "0829b345a6d8fe1529a5676dc569fc5f445085ddf3b20863c787c596f650c358"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+
+  depends_on "libyaml"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def install
-    inreplace "libfdt/Makefile.libfdt", "libfdt.$(SHAREDLIB_EXT).1", "libfdt.1.$(SHAREDLIB_EXT)" if OS.mac?
-    system "make", "NO_PYTHON=1"
-    system "make", "NO_PYTHON=1", "DESTDIR=#{prefix}", "PREFIX=", "install"
+    args = %w[
+      -Dpython=disabled
+      -Dtests=false
+      -Dvalgrind=disabled
+      -Dwerror=false
+      -Dyaml=enabled
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

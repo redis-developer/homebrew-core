@@ -1,18 +1,18 @@
 class Ekphos < Formula
   desc "Terminal-based markdown research tool inspired by Obsidian"
-  homepage "https://ekphos.xyz"
-  url "https://github.com/hanebox/ekphos/archive/refs/tags/v0.20.10.tar.gz"
-  sha256 "536d19bc93c2404bcb031b595e68012a5f369e400157b0637824b9c8b443da5b"
+  homepage "https://ekphos.netlify.app/docs"
+  url "https://github.com/hanebox/ekphos/archive/refs/tags/v0.25.10.tar.gz"
+  sha256 "0f88f0555d1d453458d35fad5779b824288857e95ac039605ac1901733fe044b"
   license "MIT"
-  head "https://github.com/hanebox/ekphos.git", branch: "release"
+  head "https://github.com/hanebox/ekphos.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ccf301529373a873b634deb8f5afc01c61a06ddb8140e2a62cc4074cf7d2f7ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "67e03426e9a9619f9136556b92350f9fc08eb42bdaa931ea52801669a15a5be2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6c9c00694d5272bc33e6a378baa92a75a343c712f0f87aafdd06da7429f6416b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "43f8e742cac3b608e60377ca7d59705d5cf1e7f85240abd44234290665fba439"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ca64eb1e1443d052a3241b1b2a4703407b811d90c397f3ce4d14912538945896"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "85d779ad9e4f45e1c708a0e72be365ee7ddd5a9cb824c7565e45fa81a20a861f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d3ba9674592fbfc527b7cd204c9cc1dc8575cc02304664c85b82b23806f6ab04"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c80a7ab6c5f12ce04accee0cdea02c40788e51ee84146b078c37316ca6dec1eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "80a651010eafcd57fd2e08a65d2e0fd6cb273c5ae2dfa681aac00af9b85aec8c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fee19795d599090fe107827f628744b48c0ae67f08770ef7a4d1ffc005f424f6"
+    sha256 cellar: :any,                 arm64_linux:   "7b808c61a48038f5beb84c96a87f01ad8289ffff6c7025c13bf4652082b52488"
+    sha256 cellar: :any,                 x86_64_linux:  "110ec970c010a9c74a78f16400a82136a879d8424b6a0f5791520bf4fae9bff2"
   end
 
   depends_on "rust" => :build

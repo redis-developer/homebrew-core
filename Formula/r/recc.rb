@@ -1,18 +1,19 @@
 class Recc < Formula
   desc "Remote Execution Caching Compiler"
   homepage "https://buildgrid.gitlab.io/recc"
-  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.4.5/buildbox-1.4.5.tar.gz"
-  sha256 "4fb8f21ff99cb5181bb0b717b54bd4025a19a4c2e4e4b8ccb946e413dcb2a518"
+  url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.4.7/buildbox-1.4.7.tar.gz"
+  sha256 "42bde80a5d3691ed91ff3f4615938d59a74da475eb3d6e47abcc63bb9c4590e8"
   license "Apache-2.0"
+  revision 1
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
-    sha256 arm64_tahoe:   "6b734f309eecc358072cf1b70cb2b2b5b1e9fb25310b3b493e05b8aa0a87b8c9"
-    sha256 arm64_sequoia: "18466d902c9ad832c19defdb8ea43ef118242dee525c35cb577e25f7b6e1ddfb"
-    sha256 arm64_sonoma:  "6b8d90bb12675163688a102526abfaebe45d099af26df43ccb3af7b35a54300b"
-    sha256 sonoma:        "a26ef0fc93ec2f9218c5a2905c255e6be8c26f57285e9dba3de966c5fb59e12b"
-    sha256 arm64_linux:   "88d8306fce8174e29c74cde29f39ac6885bdf2b475f978fa92b9c9568e4f74c6"
-    sha256 x86_64_linux:  "562a64bd46f0b11806359068253a516ff063df5437710406117c40a89e0413d7"
+    sha256 arm64_tahoe:   "67159be60a63e045b3f91dc7803167851eef5646b799ee807e711df140a299fa"
+    sha256 arm64_sequoia: "72eb0bffb9f0f66bcbfba17e2f71df8d297cdda3b31dbe8adf7a0e2b5b61f8ce"
+    sha256 arm64_sonoma:  "beaa8611f8d2cccf366edf8bb451a418c2beb6d8560d50dc2af3c275e43d5c75"
+    sha256 sonoma:        "4b3e4ac63f277848ef7b251f5a887abd7f0813b7246695b3dc5dc46ab7944489"
+    sha256 arm64_linux:   "bfc9e1010842defa46e900e7b350da3677c22139690d4a6d80fe19dd574d97aa"
+    sha256 x86_64_linux:  "1357877a23abe2f29a2bd6d955fcb46a3d03abab8de5761c4867e4681bbd7b19"
   end
 
   depends_on "cmake" => :build
@@ -23,12 +24,15 @@ class Recc < Formula
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "grpc"
-  depends_on macos: :sonoma # Needs C++20 features not in Ventura
   depends_on "openssl@3"
   depends_on "protobuf"
   depends_on "re2"
 
   uses_from_macos "curl"
+
+  on_macos do
+    depends_on macos: :sonoma # Needs C++20 features not in Ventura
+  end
 
   on_linux do
     depends_on "pkgconf" => :build

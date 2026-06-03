@@ -3,18 +3,18 @@ class Octodns < Formula
 
   desc "Tools for managing DNS across multiple providers"
   homepage "https://github.com/octodns/octodns"
-  url "https://files.pythonhosted.org/packages/0b/e4/24ff5f8138e82acff859f50a29fd5a28f7b3cbf0c9c6af44faa062920676/octodns-1.16.0.tar.gz"
-  sha256 "d3b1b24cdccf8d904c5872b7e58a762c939d1411bcfb8e107312e04c0d8e3157"
+  url "https://files.pythonhosted.org/packages/1a/5e/cb46895eda5d929b6488fbab2bcf2658272d60976e033cd9d2832a0fffcd/octodns-1.18.0.tar.gz"
+  sha256 "a00eaa454c9c33375f2b76a4b742158033fba8acd01587ef7317a0657c053c0d"
   license "MIT"
   head "https://github.com/octodns/octodns.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "1f6ecd9be2e8b60c0c1cf3d99c856879d3e83c608a1643846cf6b14599a72de2"
-    sha256 cellar: :any,                 arm64_sequoia: "eed20a9ba1e10a6aa11edfb38883001f4d8b5b6d3203f6300a37daba3c891c43"
-    sha256 cellar: :any,                 arm64_sonoma:  "c8db157343ed92a4445b190ecf65c62374cdd00f413c02ee24c50d5fc16cf8ee"
-    sha256 cellar: :any,                 sonoma:        "b28c3fd110b65b2f520e0d9232e6811161cf46f39339edef93e3e309a6a97a2d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8f8a14f34705b7735edbcdff45c672dce15369f85e60c9bfb62c6efa8592f9cc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63a5c4e19b6075bc5f0bb7741edbdea8c7d27ee20fdfb8ba3a270e20193a8eca"
+    sha256 cellar: :any,                 arm64_tahoe:   "e615e3c8148d44f2d65c0456b8b35a0d124cfa6373b5497e96d4833bb5d605c0"
+    sha256 cellar: :any,                 arm64_sequoia: "1a73784331ae9dc9db4e2ed4565e6390d47ac276b3128e5f6efb1cef283f2d49"
+    sha256 cellar: :any,                 arm64_sonoma:  "24eb81c782dacf5340989279419ecf790e15c70ac5ef02fc27804c1a950c9b00"
+    sha256 cellar: :any,                 sonoma:        "ab408fe49493d056dd17ced83f6e8bb89b23d84a302d9e0bca9775903a34a6db"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0b8a64186fe0e6974272dc1ecad65da8bde9c58da7ae71f3976803ecf6f9e809"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f776babf55db8ba0719e1490a0275b15c829d845d57abe735e21590b2d5242d"
   end
 
   depends_on "libyaml"
@@ -31,8 +31,8 @@ class Octodns < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/1a/88/bcf9709822fe69d02c2a6a77956c98ce6ea8ca8767a9aadcedc7eb6a2390/idna-3.16.tar.gz"
+    sha256 "d7a6da03db833450fca25d2358ac9ff06cd624577a4aea3a596d5c0f77b8e03d"
   end
 
   resource "natsort" do

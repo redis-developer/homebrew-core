@@ -1,8 +1,8 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://github.com/xyproto/algernon"
-  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.17.6.tar.gz"
-  sha256 "9e95d59c0d821e06b7193a115447bd16cd8bfa077538237a17bf508053ef15bb"
+  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.17.9.tar.gz"
+  sha256 "4466f10bbbe278eb79dea571c040e16b154dacca83c736b7c3f8474f5e17f110"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git", branch: "main"
@@ -13,12 +13,12 @@ class Algernon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6c75b3d100dbb2273af4f93598150e85c448a13a78162fead22afb984fe441d8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4dad0691fb5f8254bcd0a00d8efcd567f525474d7f484de065406ae21814f877"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6908449baeedba72e01177442118460b6f56957b3bc8280db3172dce76b17582"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3f9e842badd5076ca326a3c26a636c2cb13d88e5dc6b9707511cba62b45419e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "027ff4b400a3d9a6e811a0728d398e96e01d94fd7e5a955841c4f6fa79e52432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8558e650ba3ff19f980d020debec63fe80245accd613f399a68d7e4be797dee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "82bf51039681cae7b732e91e05a90287f231e52bed1ea5f3bb2500fab4ef8901"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "82bf51039681cae7b732e91e05a90287f231e52bed1ea5f3bb2500fab4ef8901"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "82bf51039681cae7b732e91e05a90287f231e52bed1ea5f3bb2500fab4ef8901"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a637a28aadf3afe682c997dfc3672c0d980d7752c3185aa12631ada02ac6ce18"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ce1729ae56c53fb27a6dc95ce52a6944216a27adc533ed38ef64bac921b214d6"
+    sha256 cellar: :any,                 x86_64_linux:  "f58b176d399d64ad4e2adb87fa0a75009a89a64c1ceefd2e92155efdaf030994"
   end
 
   depends_on "go" => :build

@@ -1,18 +1,17 @@
 class TmuxSessionizer < Formula
   desc "Tool for opening git repositories as tmux sessions"
   homepage "https://github.com/jrmoulton/tmux-sessionizer/"
-  url "https://github.com/jrmoulton/tmux-sessionizer/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "c3205764f70c8e7f94a1b32eccbc22e402cd9ab28c54d06b405073cae185bdd8"
+  url "https://github.com/jrmoulton/tmux-sessionizer/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "186c83b892d29ea7161676c787589a2765c8550fe03d604eb44fd931df5e293c"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9ed8c2b2b44c4a59cd9bf195d3ad1acb7981e450fbe0261d4fe2902f5d103d1d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "99eee27a5e5b7e25cc15e3ca1cc68f502bf27331f5fa40f9a43a8f6298f8de60"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "304beda28af19425e12aa2913298f576cfda84026dfb76327d417dc361156d9f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "85cacea135842182e012520f4d85920105f85da0c63e3aa7b0d7d5b13fd0ccf5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c00fc1402d4707139bf7b6664d53526ef1654e13c650a7ab5208ad61b8c06c76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b5aab4af1e5367b530e729a336708f7296265cfe6430e104324d87a24fbdb6c2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52fc5a69d6267f256d6224f386e2b1e21673695970783397c8b7651c4d4a3ff8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "df1ee713aae26d6d8aba8d9d28acfb95fd3ba7b347b2a779174118cdbe4726dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bf58c2687f60a767467deea5bd9ef5b21a5cd3ba8bbcc9ae9a8579b415aaf96a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fba2821174c650778172f3e212b186fd78807ee016787df2ab3001db8812c529"
+    sha256 cellar: :any,                 arm64_linux:   "efe76142e388c210962bf6e36dfaff4d7d1cf737b7126804a242d67bd8bd3537"
+    sha256 cellar: :any,                 x86_64_linux:  "6800da10228fe8b4f72a3e6a58c3826602b73c18611a814fe8d92d678e7eb666"
   end
 
   depends_on "rust" => :build

@@ -1,17 +1,18 @@
 class Chezscheme < Formula
   desc "Implementation of the Chez Scheme language"
   homepage "https://cisco.github.io/ChezScheme/"
-  url "https://github.com/cisco/ChezScheme/releases/download/v10.3.0/csv10.3.0.tar.gz"
-  sha256 "d237d9874c6e8b0ccf7758daa8286a6e825528b13ce3b2bca56eb1f73cddbc2c"
+  url "https://github.com/cisco/ChezScheme/releases/download/v10.4.1/csv10.4.1.tar.gz"
+  sha256 "2e74952db7bc177f0c3602e2217a341ba677d733eec4cd7726418c3a4e1ef308"
   license "Apache-2.0"
+  compatibility_version 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5fd70e9cfb444bc9a5ff5c872e7af6a625b8812455d08af0594550c890f5215d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b32cc85a153a2455e113b5542b0081abf642707131220539c02e4dba63a91d3a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36a2d7bded5e28332d54e0657a1c291cd60e5aa80bedd51ba4749197dcaddd90"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f2e2ccd0bb129de10fe9129a4b0f1eb1b2fb01a4159f9c62678c49346fe3ef93"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9b5ab9ca95255ace1bab78af45b899944ee8e3c9e3750965536541acc5c5ef9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c507bb094a948903427b7a955d0f1ff52a74907b1ffaecff6af5a31686811600"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1d4b81b7346fa611f3035f53f94320a1f63ab41af0077d30701c31acb9994a66"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c74f9813bf5b89b6b75e771d77b33cd6a58dc91389ed92fd6852e27edc0eca08"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "97076a147bfcc04e3039736cbc0a452479367755165c48a8f5887fd537736177"
+    sha256 cellar: :any_skip_relocation, sonoma:        "756b5dc8d1146dd5061a4a68b9cc5e4fcdbc286ca0cfc81e4bddcb41be79f0b5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "bead4424779d0804becf8c3eb84633ada805679bb79dc07defa5a72e7e2dcbe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9e42873dc1d618f3a5b8935b21ce1ea3f2a398e4a27fb2643a01d8a72a98afb"
   end
 
   depends_on "libx11" => :build

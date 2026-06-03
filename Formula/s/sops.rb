@@ -1,19 +1,18 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://getsops.io/"
-  url "https://github.com/getsops/sops/archive/refs/tags/v3.12.2.tar.gz"
-  sha256 "24b1f23a677535d1e06b63f8b4f7793d4f325b86c5454724fac90f5e73903e26"
+  url "https://github.com/getsops/sops/archive/refs/tags/v3.13.1.tar.gz"
+  sha256 "60408fa04a024328e6142c7dc67d08810a470aaa440b9f6cb7b3a358359636e9"
   license "MPL-2.0"
   head "https://github.com/getsops/sops.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "9b09a92006fe701494f378f8a58faf1c3dfae6932b1ab217725a1728542b8bd4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9b09a92006fe701494f378f8a58faf1c3dfae6932b1ab217725a1728542b8bd4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b09a92006fe701494f378f8a58faf1c3dfae6932b1ab217725a1728542b8bd4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d86665bedc9eb0c2deac9d82c532b0c9155339aef946dbe99b2b210ea227a916"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "04c65a6452f9fe980b379c9aedb1db807c03050f17f492b52f1b4d28b68880dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d076dd279b45587a24becd3b54a0b9974621ef89e3fa7ee880f253cc0994f0f9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "01e0765d3db7c73c3595c979cd6e4633249ea52f5afe5fc00d731c9ccac0ed9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "01e0765d3db7c73c3595c979cd6e4633249ea52f5afe5fc00d731c9ccac0ed9f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "01e0765d3db7c73c3595c979cd6e4633249ea52f5afe5fc00d731c9ccac0ed9f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c77e5ae27b25d89ce1110ce377e450e933e12770bf461d5f8e60e37d41e1c4c4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1c6b9fffcf763da6b0e93215c3d006c98b8512f45e65adae805bbbdca58a2f4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44414b8e47da7cd4eba3b904151f281cd23014d6d80558b3667a55cd0300e139"
   end
 
   depends_on "go" => :build

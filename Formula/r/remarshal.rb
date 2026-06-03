@@ -3,19 +3,18 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/remarshal-project/remarshal"
-  url "https://files.pythonhosted.org/packages/8a/60/3847a729b9502f176d85b0e7f81dbe27b8124cbb43e896f3c79cc74e5faa/remarshal-1.3.0.tar.gz"
-  sha256 "21778b0839d691c141cd3325ab70be8529f1ce1c5fcfac8b4673fd1b2dec2f85"
+  url "https://files.pythonhosted.org/packages/20/e5/e4ccfea50d705b6ca5984634da0ff27c9b4ccf83ed698642d2ee5bdbca94/remarshal-2.0.1.tar.gz"
+  sha256 "0955d26a8596e9b9d1a47c30b823eea13336016b20eea9fca0195ff32c65e193"
   license "MIT"
-  revision 2
   head "https://github.com/remarshal-project/remarshal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af9f6e878525d8c12ede7c9c08255d4f03e039fcc8cafb0c19f50db5f88d3c21"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4a356f57b5445201b305cd82e5289f5335739df5a6329616c0e7380a72e7b88a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f67ced465f831b1395bf7b97094b9b3b8eca270873a7bf8232110e654537294"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b0ffeb86a192ee6fff3c4d19c71ca41c6e4210df1e60c2351ef9b5d51076d69f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5a3c6bd2a9ac7ef916606f9d94ba610d9303b2b9974de46c504bccb4f6489eaf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c1d0a595861b0e337a28f2576d0b1cf202d53aa2e73901a3e422b8ea5d610f7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0c6e4f0a5cbb27a41bb15017f2c6baca64e52ca42e04ce3dabd000f0efd5be06"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cee53f83bce0af2f50c41945dd98e097c1d19f9854eadfacab5a0a4db2788f9f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c50704ea8e88b990129e150e2ba0cf543c536136607a907d850e275fda3b8a8e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "191cd4b08996bc16c386aaf9a546659b7f76b4589cf151bea77f69592b011d2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "06d92ebbf1d2bd78199678698f07bca9f410f7d5a144d4dcb5e613b87b0fc10f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3d4c0a71cf4633e674e6674792f5b16bf3483a39a44f34f2d7265a747696bba"
   end
 
   depends_on "python@3.14"
@@ -35,8 +34,8 @@ class Remarshal < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -50,18 +49,23 @@ class Remarshal < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
-    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
   end
 
   resource "rich-argparse" do
-    url "https://files.pythonhosted.org/packages/4c/f7/1c65e0245d4c7009a87ac92908294a66e7e7635eccf76a68550f40c6df80/rich_argparse-1.7.2.tar.gz"
-    sha256 "64fd2e948fc96e8a1a06e0e72c111c2ce7f3af74126d75c0f5f63926e7289cd1"
+    url "https://files.pythonhosted.org/packages/6a/e5/1064c43203a357d668cd42435f7a15fe6af51512d85b2104fecb937aa861/rich_argparse-1.8.0.tar.gz"
+    sha256 "679df3d832fa94ad6e4bdb07ded088cd7ea2dddc58ae9b2b46346a40b06cbc0c"
   end
 
   resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/c7/3b/ebda527b56beb90cb7652cb1c7e4f91f48649fbcd8d2eb2fb6e77cd3329b/ruamel_yaml-0.19.1.tar.gz"
     sha256 "53eb66cd27849eff968ebf8f0bf61f46cdac2da1d1f3576dd4ccee9b25c31993"
+  end
+
+  resource "starlark" do
+    url "https://files.pythonhosted.org/packages/53/eb/6331a20af01bebc7a9894b755c8aa063add289b26c95b22e3fca0ceab8fc/starlark-0.3.0.tar.gz"
+    sha256 "9e775bd6016545e30e4626c0499b7a3bff718fe2fbbe7221a57aaaa520bce282"
   end
 
   resource "tomli" do

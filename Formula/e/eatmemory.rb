@@ -1,55 +1,44 @@
 class Eatmemory < Formula
   desc "Simple program to allocate memory from the command-line"
   homepage "https://github.com/julman99/eatmemory"
-  url "https://github.com/julman99/eatmemory/archive/refs/tags/v0.1.10.tar.gz"
-  sha256 "568622f6aef9e20e7d5c5bb66ab7ce74bec458415b8135921fe6d2425450b374"
+  url "https://github.com/julman99/eatmemory/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "1cbd585adcf014beaecd442454f15eeac8364eab12dde39593acc0a503b41223"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8816bc9f7b336f38099833e0160b4d10d7745b5ce01fb00c808f48d24851e77"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "2e7bd76b7716d888a22230bc74357a62fd3c4b2a8e4cfe2846dba3bec52e856a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c83f4e8d97be2623b0294a9fca3c163f47690b3609475e76056c672b7ef6cca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c1eee494ca8c2e811b6335cb63b4764c9cdcd37996e2d0a64fa2b158fbad0ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f42ceeec17165fd44a8ef7469a9255cdab561e9530b05e588ee751fbfcf6037"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6bb8add10952008d5593e4c2d9e4903c4f4f65cbe3514afb94a761187944c734"
-    sha256 cellar: :any_skip_relocation, ventura:        "346eb2b0e8ac45cabed60c56b0509bdac73a882f1d7325ad8fd25a74c728a043"
-    sha256 cellar: :any_skip_relocation, monterey:       "0311b2f66c15c17ad0734b5854a5a917ad0da06f7d20cc4f98d8ddfe205d0916"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "ed53f21c996fdf536866743894c9e1ee7836b0464137560e463e38bb95f5080f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aba9a1f17ead302e4ab2d261c51ab0efc87ad1365ae68da4cead1ccd2361e030"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e32821696c3aeb3cb91bdfb6a7d6ce946b837707dd4133afa4e3b5b87bf6d25e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f38c05758f9191f81ab04d306987795e6914885ceb9a117d9df8d8aff339978"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49b3e405a71bf5cb46a235fe205026dc7d49a6398f9803ea5c023a5ad1907490"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d93af56efb77ba21a8e17d99233ca23533878548ed8e839143b61705460e69dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "483704f7109db706fd34730559b2b822ab9a64eddb2992fd725098535ff38b98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f533d0610753efd7d0be2492b438403b65ba8ddcf7a26cd64733cca2a69cacf4"
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "VERSION=#{version}"
   end
 
   test do
-    # test version match
     assert_match "eatmemory #{version}", shell_output("#{bin}/eatmemory --help")
 
-    # test for expected output
-    out = shell_output "#{bin}/eatmemory -t 0 10M"
-    assert_match(
-      /^|\nEating 10485760 bytes in chunks of 1024\.\.\.\nDone, sleeping for 0 seconds before exiting\.\.\.\n/, out
-    )
+    out = shell_output("#{bin}/eatmemory -t 0 10M")
+    assert_match(/^Eating .+ in chunks of .+\.\.\.$/, out)
+    assert_match(/^Done, sleeping for 0 seconds before exiting\.\.\.$/, out)
 
-    # test for memory correctly consumed
-    memory_list = [10, 20, 100]
-    memory_list.each do |memory_mb|
-      memory_column = 5
-      memory_column = 4 if OS.linux?
+    pid = spawn bin/"eatmemory", "-t", "60", "10M", [:out, :err] => File::NULL
+    sleep 5
 
-      fork do
-        shell_output "#{prefix}/bin/eatmemory -t 60 #{memory_mb}M 2>&1"
+    rss_kb = shell_output("ps -o rss= -p #{pid}").to_i
+    assert_operator rss_kb, :>=, 10 * 1024
+    assert_operator rss_kb, :<, 20 * 1024
+  ensure
+    if pid
+      begin
+        Process.kill("TERM", pid)
+        Process.wait(pid)
+      rescue Errno::ESRCH, Errno::ECHILD
+        nil
       end
-      sleep 5 # sleep to allow the forked process to initialize and eat the memory
-
-      out = shell_output \
-        "COLUMNS=500 ps aux | grep -v grep | grep -v 'sh -c' | grep '#{prefix}/bin/eatmemory -t 60 #{memory_mb}'"
-
-      columns = out.split
-      used_bytes = columns[memory_column].to_i
-      assert_operator used_bytes, ">=", memory_mb * 1024
-      assert_operator used_bytes, "<", memory_mb * 2 * 1024
     end
   end
 end

@@ -1,18 +1,18 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.9.tar.gz"
-  sha256 "8a3e7af8e203e561527e07be09aa98b94fb8f6befd7ec4c884e3bbac6bc8c744"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.24.12.tar.gz"
+  sha256 "331549c8d90e822b82e1da68913bbfa0ce6bdbba525f17eafdc642cc87c4986e"
   license "GPL-2.0-or-later"
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "8d0332213c26540e5b26aa2b6603bf123b3650c8a1fc00d1ca5b89200aa7322c"
-    sha256 cellar: :any, arm64_sequoia: "fd96e5bca800e7563e4a770e7aa4c8591263c8a41124cdf6573fa0c5948c449c"
-    sha256 cellar: :any, arm64_sonoma:  "6dd4d39f7e6844bd15eca3b0c97b5c9a39324ed2a419fd04342e9ac12c0db116"
-    sha256 cellar: :any, sonoma:        "c3af6ecf454b0194a244eede1db75fb2fc17e1f05bab36189479ae68b0789f98"
-    sha256               arm64_linux:   "8ee5978ec6ae1385d82153344e06e03b30690aa4b7e79cf653aa9e777b592d06"
-    sha256               x86_64_linux:  "52180e68ad44aa59725ad53e1401e5db04000d6f5f331101c0a08b8f9e5e9aef"
+    sha256 cellar: :any, arm64_tahoe:   "ee5ff46aa079b3ef7a04fd40cf40b2014c8b8993054298b142ee65859774d2df"
+    sha256 cellar: :any, arm64_sequoia: "9f8bc491495e652b96268426e4c15638a2778f59f4679a0b9916530e835d2a12"
+    sha256 cellar: :any, arm64_sonoma:  "bc0a0a772e727687eca607c3b2e690b95db0146f59d2474b222649bf24bd5080"
+    sha256 cellar: :any, sonoma:        "bc8b7d0bcd00f972bc63f70d4cdc0684e6f519e773b4d548058074344b9bfaf4"
+    sha256               arm64_linux:   "3710ea1142072c76435bcaa88bf68709627d32946ef6defc085129a7db60e78f"
+    sha256               x86_64_linux:  "e35aaf35cef4914eb9ed7a6abb23c0973919a01ce54ca43f97fe62c9129eca73"
   end
 
   depends_on "meson" => :build
@@ -64,6 +64,7 @@ class Mpd < Formula
     depends_on "alsa-lib"
     depends_on "dbus"
     depends_on "jack"
+    depends_on "pipewire"
     depends_on "pulseaudio"
     depends_on "systemd"
     depends_on "zlib-ng-compat"

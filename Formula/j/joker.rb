@@ -1,18 +1,18 @@
 class Joker < Formula
   desc "Small Clojure interpreter, linter and formatter"
   homepage "https://joker-lang.org/"
-  url "https://github.com/candid82/joker/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "4584505068bb63601bae8e1eef555e08a7ed01117d25fae2e87a1a101c439b99"
+  url "https://github.com/candid82/joker/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "a9fc641ff964854d575c5dd133c4a46825b509938b864c115df5b17b00221a80"
   license "EPL-1.0"
   head "https://github.com/candid82/joker.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1805aad8f4f7b6ab15f5c10de7101a9e1649e6d962f3fbcdabda182d0c207a47"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1805aad8f4f7b6ab15f5c10de7101a9e1649e6d962f3fbcdabda182d0c207a47"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1805aad8f4f7b6ab15f5c10de7101a9e1649e6d962f3fbcdabda182d0c207a47"
-    sha256 cellar: :any_skip_relocation, sonoma:        "74a8c7af4675c0407f6300ef51d585aca9be02e804bf7c45b5fd493a1de94753"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f99d039123ed57a7f1503d6dbf363a2f3bf67f500f810c64f402ab3f036a32e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16d2af5806fb3aea5cf33cb60251d76cb83248f1cdf56b692fb963c51b2a0971"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0d790ab7dce14d777bfc685c74c1e529e05141d920676f5cb5b384d9565af30c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d790ab7dce14d777bfc685c74c1e529e05141d920676f5cb5b384d9565af30c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0d790ab7dce14d777bfc685c74c1e529e05141d920676f5cb5b384d9565af30c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9a5de14c0944e155d48730d33aa765de954e5484f1a33874c000a6afc21f5b9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "923605e8d1b9aa1ec50e2845cfae7314849848dce3137d85e5d9412cd406b6e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8d3bec238ed70f1431f8da9dbe53760e0babe38c037818b4513ac40a052ed7f2"
   end
 
   depends_on "go" => :build

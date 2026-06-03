@@ -1,17 +1,17 @@
 class HelixDb < Formula
   desc "Open-source graph-vector database built from scratch in Rust"
   homepage "https://helix-db.com"
-  url "https://github.com/HelixDB/helix-db/archive/refs/tags/v2.3.4.tar.gz"
-  sha256 "9e18fca307763d13798332507adbb19d2fc1ef77d2fc022f3be01769d4ad47c3"
-  license "AGPL-3.0-only"
+  url "https://github.com/HelixDB/helix-db/archive/refs/tags/v3.0.3.tar.gz"
+  sha256 "a9bcfcd879449f5aa523865d794d74ed6b82bf50d588ef3670c71380758eb6c2"
+  license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "04ba6df0ab32b8743bc4a88e90c68164b99c3cc80b09383850f63ca431f3779a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29077fc0125cb6a7eddd23bf197ffdb9df8e22823bfdf1e3faad95cb39a4247d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37db147e17cfb316f2f86977b6268b0d092b6b8b84de0b466678c5dabd639643"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9b8377a99c121bf9f84548f8d7ebca60e447b0f2ffca5e7f1eeb6ce37e6a1d10"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "712acc409087490443bb52a562fa7df17971e4ed8f52be0ad1cc455db18702db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e541ada036d3f575c97480c75b0452a5ddb47394cfffd9676b9b67000e10449"
+    sha256 arm64_tahoe:   "d4a2438d88fbd3adcec505d02afffb9300cfe97b52732f788fbbab96dc72a3ee"
+    sha256 arm64_sequoia: "296f6e07ddd66750d4c2db3607ed9d1517815d33fccf1795ab4a16ca21178de7"
+    sha256 arm64_sonoma:  "dedeb9885f6649443173a049530a83736d4460f6da83009743e21e635d930b5a"
+    sha256 sonoma:        "41c0f53cff257ad741cb6abb8eed610786564424740ef7131fe36a68a5a3fd39"
+    sha256 arm64_linux:   "0917c4137b3abd9393c5340d322f9865d2658d081c9c7274b4fa766698b27126"
+    sha256 x86_64_linux:  "b27126eb0d96bab51a612068803967bb40ada008dbae95ee5dfc26b89f918f30"
   end
 
   depends_on "rust"
@@ -29,14 +29,10 @@ class HelixDb < Formula
     assert_match "Initialized '#{project}' successfully", shell_output("#{bin}/helix init")
 
     assert_path_exists testpath/"helix.toml"
-    assert_path_exists testpath/"db"
-    assert_path_exists testpath/"db/queries.hx"
-    assert_path_exists testpath/"db/schema.hx"
 
-    assert_match "Added '#{project}' successfully", shell_output("#{bin}/helix add local 2>&1")
-    assert_match "already exists in helix.toml", shell_output("#{bin}/helix add local 2>&1", 1)
+    assert_match "Added 'test' successfully", shell_output("#{bin}/helix add local --name test 2>&1")
+    assert_match "already exists in helix.toml", shell_output("#{bin}/helix add local --name test 2>&1", 1)
 
-    (testpath/"db/schema.hx ").write "N::User { name: String }"
-    assert_match "error: helix.toml already exists in #{testpath}", shell_output("#{bin}/helix init 2>&1", 1)
+    assert_match "helix.toml already exists in #{testpath}", shell_output("#{bin}/helix init 2>&1", 1)
   end
 end

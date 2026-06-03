@@ -1,20 +1,18 @@
 class Inlyne < Formula
   desc "GPU powered yet browserless tool to help you quickly view markdown files"
   homepage "https://github.com/Inlyne-Project/inlyne"
-  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "0473d154469c4f078029c2fdb58dca19b8d415633934773c41930536b54e71e0"
+  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "4a2f426e88cf192f6aad1bd927640b97350bf6447620d7252bf0d6d01d6d3f40"
   license "MIT"
   head "https://github.com/Inlyne-Project/inlyne.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b032f9a33f0c8c3c9a1ca03cb6cf0453740b45756ffb0843eba0676f69b71426"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "08618c2b26c159f199bb3b0ec92f989d0cc101f615288f1eec2a587f60fb0622"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "93ba8afea50e4112475f7d41b4a4a952b242f48e6791550dcf4459430b0c6d70"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "ce4fafe2f79643c467a358a1ad72309be4f791eade01de70dfb7e91d4ef41298"
-    sha256 cellar: :any_skip_relocation, sonoma:        "420ff2e57ec6742be5eb6074b489dd8a04a5811a471ba3448ddfedf821447de8"
-    sha256 cellar: :any_skip_relocation, ventura:       "34aee2a7ddd8c4b85a2f4187a0d380f69a9830ef00e2c57d3165f7e55319056c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2a1671d0354386d01527ce7fceb5d00eebbe9ed629760c8a4aff044b38be002"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1c1df3c19155248403249b2d8f39a1633c058142eaa20c9023925a21d18d5c48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c71558219e2155f46b8368e86a2c94d2cfcb1343a6c778206352f756b1132979"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "172410bd8d667ac189b83239ae9a69416841149ccf7c342fd48f465624da5736"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c8ae3b7cc6bd72e08fd3136afbbc206c765f342e9e0cfa6d8b781b4b6b94d297"
+    sha256 cellar: :any_skip_relocation, sonoma:        "022ee6bf5416aa56b541a523e22f6a05c5e2c33b9e22cb75479010abc5f46545"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f893fe36cef927e593c9bc6a64e5fbe926c8e784c3332225fc9203bb8c38c999"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7db12f52dd1c64cd4578f9474b5f36d4869fd2ffd57c0521fb252e4c895c1b8b"
   end
 
   depends_on "pkgconf" => :build

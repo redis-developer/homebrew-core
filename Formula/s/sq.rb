@@ -1,17 +1,17 @@
 class Sq < Formula
   desc "Data wrangler with jq-like query language"
   homepage "https://sq.io"
-  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.50.2.tar.gz"
-  sha256 "ad39478132f1f056ec894cc36fb7d090eb1131aab8e42e108454bf46ea18f0ee"
+  url "https://github.com/neilotoole/sq/archive/refs/tags/v0.53.0.tar.gz"
+  sha256 "6b0f2862977eb7093be30a0f10b00170d054e51c46a7fe3d53e5d0ac0b0f83ba"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b2309132f02d23948bbd2824aca21ba1bbaa63429fbacd73c09a626ce6d997af"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "86ff35699927f1222138ca91bbc1ae39b94b45418009a9506f75fb4b18ceff0c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b51980a0cd57d177afccafbab78cd0a3f33087d322000dad04ea2466203d5775"
-    sha256 cellar: :any_skip_relocation, sonoma:        "37e4276bee75bc62079e695841b573fed2c8a43d78234503eb03e7cd3981329f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75568138a93cea1de32f9429e5362f02d7d432487fc8268daf201e534c26b373"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a520c7a5e7850c33c79c6a60451843c93cf669578794fcbc74789f157a75e6b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcf0ffbac5252a20197148725ee0e8a80a975fc05b2a4ee7e6691c5f57adbd7a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c5fd0da4221bf6c87e0ea6576d3529907b851401982d884fbaf3765f4c52b2f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3634bf77df10e48f1eafd6c08c34a3223a5c52ba5fb701cbd3896e0d5985368c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "096aa6ebdf49a79f0024b34e85245e81ed37f275c29f33ee360c7e74daa30270"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ab6b1c080e1a3056f45e8096602a244dc473d3b2667a9a5cbce847fd347e05bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "468263f38ff7410de1a277cde1a40cc689a8623d9af35194acf76ff554e19ad0"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,7 @@ class Sq < Formula
       -s -w
       -X #{pkg}.Version=v#{version}
       -X #{pkg}.Commit=RELEASE
-      -X #{pkg}.Timestamp=#{Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")}
+      -X #{pkg}.Timestamp=#{time.iso8601}
     ]
     tags = %w[
       netgo sqlite_vtable sqlite_stat4 sqlite_fts5 sqlite_introspect
