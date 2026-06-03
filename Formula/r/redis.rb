@@ -52,7 +52,11 @@ class Redis < Formula
     ENV.append "LDFLAGS", "-L#{openssl.opt_lib}"
     ENV.runtime_cpu_detection
 
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes", "BUILD_WITH_MODULES=yes", "IGNORE_MISSING_DEPS=1"
+    # Set build flags
+    ENV["BUILD_WITH_MODULES"] = "yes"
+    ENV["BUILD_TLS"] = "yes"
+
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "IGNORE_MISSING_DEPS=1"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
