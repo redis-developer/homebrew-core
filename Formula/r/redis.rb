@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-8.8.0.tar.gz"
-  sha256 "88422181efb0c9c0abba332e3e391d409e1e13714b838931669235e5796f704b"
+  url "https://github.com/dariaguy/redis/releases/download/8.8.0/redis-8.8.0.tar.gz"
+  sha256 "f286dc0cf5005d8503f30851a25ea657b8cca212afb4d936d3ebeae48531962e"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -46,59 +46,15 @@ class Redis < Formula
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
-  resource "redisjson" do
-    url "https://github.com/redisjson/redisjson.git",
-    revision: "107144fd2c0a6b325108352bf83ed6e6f731a20f"
-  end
-
-  resource "redisbloom" do
-    url "https://github.com/redisbloom/redisbloom.git",
-    revision: "60c96b3f11dcf71d4707137a3452bbb6941493dd"
-  end
-
-  resource "redistimeseries" do
-    url "https://github.com/redistimeseries/redistimeseries.git",
-    revision: "5d7c61c9f861b5cb83989463595c2c9f6b2bfe63"
-  end
-
-  resource "redisearch" do
-    url "https://github.com/redisearch/redisearch.git",
-    revision: "30204860f145da013ba042e0824df6d344aef4ce"
-  end
-
   def install
     openssl = Formula["openssl@3"]
+    ENV.append "CFLAGS", "-I#{openssl.opt_include}"
+    ENV.append "CXXFLAGS", "-I#{openssl.opt_include}"
+    ENV.append "CPPFLAGS", "-I#{openssl.opt_include}"
+    ENV.append "LDFLAGS", "-L#{openssl.opt_lib}"
+    ENV.runtime_cpu_detection
 
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
-
-    resource("redisjson").stage do
-      system "gmake", "all"
-      lib.install Dir.glob("bin/*-release/rejson.so").first
-    end
-
-    resource("redisbloom").stage do
-      system "gmake", "all"
-      lib.install Dir.glob("bin/*-release/redisbloom.so").first
-    end
-
-    resource("redistimeseries").stage do
-      # Set compiler flags for OpenSSL
-      ENV.append "CFLAGS", "-I#{openssl.opt_include}"
-      ENV.append "CXXFLAGS", "-I#{openssl.opt_include}"
-      ENV.append "CPPFLAGS", "-I#{openssl.opt_include}"
-      ENV.append "LDFLAGS", "-L#{openssl.opt_lib}"
-      # Build the module
-      system "gmake", "build", "openssl_prefix=#{openssl.opt_prefix}", "OPENSSL_PREFIX=#{openssl.opt_prefix}"
-      lib.install Dir.glob("bin/*-release/redistimeseries.so").first
-    end
-
-    resource("redisearch").stage do
-      # RediSearch has been verified to support runtime CPU detection for SIMD optimizations
-      ENV.runtime_cpu_detection
-      # Build the module
-      system "gmake", "build", "OPENSSL_ROOT_DIR=#{openssl.opt_prefix}", "IGNORE_MISSING_DEPS=1"
-      lib.install Dir.glob("bin/*-release/search-community/redisearch.so").first
-    end
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes", "BUILD_WITH_MODULES=yes", "IGNORE_MISSING_DEPS=1"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
