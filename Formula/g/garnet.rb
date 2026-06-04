@@ -1,17 +1,22 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.1.6.tar.gz"
-  sha256 "c6c5ffa68441b6f226053e6c1b6a74f9b951959aef5c9e0a5ace405244bebdb1"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v1.1.10.tar.gz"
+  sha256 "aa0603a4a473fd0358f6597f237484f96a0ea9d92b1c1efd271dbd6cd94f9387"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "06c254e075e022d8a4893c6ed74977542b8240c1cf7abcaaded9997bffdbc19e"
-    sha256 cellar: :any,                 arm64_sequoia: "9127622f7a447cf16d1228176bcf456e1d42ed22811dad050c7f18ecd5135b73"
-    sha256 cellar: :any,                 arm64_sonoma:  "46bb278aa694a0d3eafa9b82ecfde7a974e3962379bf26b1309745363e1ea9a0"
-    sha256 cellar: :any,                 sonoma:        "c758000b5d7d6cabaef59b4fadc25d59c068cdaa6891ffbd4ad9971c6ad689e1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4948e08806c463b570190d0ed87760d41cd286fb654b37112fec189cec5bf6e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6473c5f2e0923624ae4d3e970b3af626ea494a116f688030b375534cc32b04a7"
+    sha256 cellar: :any,                 arm64_tahoe:   "7dfcbab24928dc57256b030f7ca02f728b80fb3f6c0c494de9568b71321b816f"
+    sha256 cellar: :any,                 arm64_sequoia: "ef76776f22f082e8dfd21b1bea7126c45b7b028c3a0d685f812f2d677df62871"
+    sha256 cellar: :any,                 arm64_sonoma:  "6dd38bad6a5e2aa8c59e4c12d9c0e38870d8e923dd48e590bcaa1633a5cf2900"
+    sha256 cellar: :any,                 sonoma:        "fc8941000b281627319955e424ef6a13708045ebb5a076b7dfa0490b18a39943"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c4fc7740d2fccff41eccd365d94948484dd16397490b5ac6c942ec5c39063124"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e31e5a8b38b199f13c3d27f630c32a392d5d05e5a3a553e831b1321ee8b02a0f"
   end
 
   depends_on "valkey" => :test

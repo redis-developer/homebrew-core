@@ -1,9 +1,8 @@
 class Renovate < Formula
   desc "Automated dependency updates. Flexible so you don't need to be"
   homepage "https://github.com/renovatebot/renovate"
-  # TODO: Switch to npm registry URL when https://github.com/renovatebot/renovate/discussions/42965 is fixed
-  url "https://github.com/renovatebot/renovate/archive/refs/tags/43.165.0.tar.gz"
-  sha256 "b8a3731d14cd5c268b97ff0975c151f58de7f2a7035f7a5439163b43ff198afb"
+  url "https://registry.npmjs.org/renovate/-/renovate-43.209.0.tgz"
+  sha256 "d7bc7eef332685fa0664c72bbabefee338b91adca8c35d00281a90c3dc45bf07"
   license "AGPL-3.0-only"
 
   # livecheck needs to surface multiple versions for version throttling but
@@ -19,23 +18,21 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "76405126de0af1de8f0a43e8a45a61a5155280511ee4e2c0cbbf4be3c9509e0d"
+    sha256 cellar: :any_skip_relocation, all: "3c9930dc68ce84cc2333dff0d90e72255a798398e9b9ec07685b8d950a242dd6"
   end
 
   depends_on "node@24"
 
-  uses_from_macos "git", since: :monterey
+  uses_from_macos "git", since: :monterey # needs git >= 2.33.0 (Apple Git-136)
 
   def install
-    # TODO: switch back to `system "npm", "install", *std_npm_args` when using npm registry URL
-    system "npm", "install", *std_npm_args(prefix: false)
-    system "npm", "run", "build"
     system "npm", "install", *std_npm_args
-
     bin.install_symlink libexec.glob("bin/*")
   end
 
   test do
+    # Renovate filters child env vars, so Homebrew's git shim cannot run.
+    ENV.remove "PATH", HOMEBREW_SHIMS_PATH/"shared"
     system bin/"renovate", "--platform=local", "--enabled=false"
   end
 end

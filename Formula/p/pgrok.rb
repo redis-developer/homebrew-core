@@ -1,8 +1,8 @@
 class Pgrok < Formula
   desc "Poor man's ngrok, multi-tenant HTTP/TCP reverse tunnel solution"
   homepage "https://github.com/pgrok/pgrok"
-  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "e0dac3df791e9727c850a18874c7888544b548345b27a1a94914fcfc10f05e9c"
+  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "9d5173d71e223fe77cfbbc9e22dd49a81e2d6452c1d1697b448de81053906213"
   license "MIT"
 
   livecheck do
@@ -11,12 +11,12 @@ class Pgrok < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cf15fcb2cdcc2f5be2f04781be608941f86663e90d3ee1ff48d970281263aa8c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf15fcb2cdcc2f5be2f04781be608941f86663e90d3ee1ff48d970281263aa8c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf15fcb2cdcc2f5be2f04781be608941f86663e90d3ee1ff48d970281263aa8c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "68efbbd93c7aae98d6cc6a0c15f8cd4dce013eac925aa8d482eb2276e878ad32"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "419e8c45a8430f1b6c793a8e7ad3e5dff7d539e3ff19b6abb8ffacdaca86fb45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2e303842681daf112dc720aaa3d091096b5e5cb0bd6771a42ad9d84ea631487e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3cc4316588fc9dd8256529e2603af087cb25a773c75edfe144cdcdcb9eb4b3df"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3cc4316588fc9dd8256529e2603af087cb25a773c75edfe144cdcdcb9eb4b3df"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3cc4316588fc9dd8256529e2603af087cb25a773c75edfe144cdcdcb9eb4b3df"
+    sha256 cellar: :any_skip_relocation, sonoma:        "65a83fa6b41e44398de7b7483ebb76cb42364af6f6aeaf8b87aed387e34392cd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "417bcb806c49c3558edf96cd78c65f59c45ad6e9e0ce88cdee17cd9bab36536b"
+    sha256 cellar: :any,                 x86_64_linux:  "313a290f8352249c5febcd021621a41ddd78c3a66e8cefc778147e8535e94e23"
   end
 
   depends_on "go" => :build

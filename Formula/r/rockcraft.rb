@@ -5,8 +5,8 @@ class Rockcraft < Formula
   homepage "https://documentation.ubuntu.com/rockcraft/"
   # git checkout needed for setuptools-scm
   url "https://github.com/canonical/rockcraft.git",
-      tag:      "1.18.0",
-      revision: "0bd0727378641e04184a0bb4d63d9b014955c824"
+      tag:      "1.19.0",
+      revision: "77be1bab830d1683791c004b3c0df856f294d805"
   license "GPL-3.0-only"
   head "https://github.com/canonical/rockcraft.git", branch: "main"
 
@@ -16,12 +16,12 @@ class Rockcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "17805fb82ebdd255a5282aa0fe12bd0a0e5858da288bf51629e09173efc5d415"
-    sha256 cellar: :any,                 arm64_sequoia: "cf06d3a6e22b1b32aeb9c3e538c8fdee799aad01a3522f40a31114154a6d4ffe"
-    sha256 cellar: :any,                 arm64_sonoma:  "f4322d86fe03554bdbf4faa68518b681b520d8167eabcec437c6d66f3176d849"
-    sha256 cellar: :any,                 sonoma:        "4d13fb0d8a23aab192d666f0cda352f6cdbadb650900b73ae7fe718b3d547024"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e180175b5d55bc50569250759479dfcfd1e9602df99a4965ff9e95139909d22d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4394c45a26db7323fc16e76a7e00d5ca1ca86bdab8371c9df7f41bc6bc96b7a0"
+    sha256 cellar: :any,                 arm64_tahoe:   "0992e3004a0840a83927bbded20bec9573373353b4be69d87eef0533557dea3d"
+    sha256 cellar: :any,                 arm64_sequoia: "3010ad0efbc8d85f09d7bd3ae85a8c841c236f570769544f3f086ec5baec737b"
+    sha256 cellar: :any,                 arm64_sonoma:  "6b50a4448346e810a45267c53b36ab72c5a6ee712728f6e288c12529e2851dff"
+    sha256 cellar: :any,                 sonoma:        "395ae769488a0d57566479e82d8e27ee57b112c90d366819ee8495048f6aa0d6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2edf8bd5563ed1920ce78ab1e896ffc5d22832c95eb1c4b7b4f6085e91264ae1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6efcd86aacae528026bff4dd84c97850340e45eff6cc0cab0bffbb446a764117"
   end
 
   depends_on "certifi" => :no_linkage
@@ -81,8 +81,8 @@ class Rockcraft < Formula
   end
 
   resource "craft-providers" do
-    url "https://files.pythonhosted.org/packages/67/aa/6b13820287028621529ba1786b771675105bedc8bcacdf9945bacd11e9ab/craft_providers-3.5.0.tar.gz"
-    sha256 "90c3a0eb2de6b7f803d7fc8cd58f2a665f3e0b9d4ef74aa8f6f0830e5cc26389"
+    url "https://files.pythonhosted.org/packages/47/bc/db06baf74ff9538282eb265f99b0147f3b8b775da583a9c6aa88a9d59227/craft_providers-3.6.0.tar.gz"
+    sha256 "dfffebb4a9f09f763b293fe396f9f4f17d917e18167d98b61f76cffd55556250"
   end
 
   resource "distro" do
@@ -101,8 +101,8 @@ class Rockcraft < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
-    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
+    url "https://files.pythonhosted.org/packages/1a/88/bcf9709822fe69d02c2a6a77956c98ce6ea8ca8767a9aadcedc7eb6a2390/idna-3.16.tar.gz"
+    sha256 "d7a6da03db833450fca25d2358ac9ff06cd624577a4aea3a596d5c0f77b8e03d"
   end
 
   resource "jeepney" do
@@ -136,8 +136,8 @@ class Rockcraft < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/28/30/9abc9e34c657c33834eaf6cd02124c61bdf5944d802aa48e69be8da3585d/lxml-6.1.0.tar.gz"
-    sha256 "bfd57d8008c4965709a919c3e9a98f76c2c7cb319086b3d26858250620023b13"
+    url "https://files.pythonhosted.org/packages/05/3b/aab6728cae887456f409b4d75e8a01856e4f04bd510de38052a47768b680/lxml-6.1.1.tar.gz"
+    sha256 "ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40"
   end
 
   resource "markupsafe" do
@@ -196,8 +196,8 @@ class Rockcraft < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "requests-toolbelt" do
@@ -256,8 +256,8 @@ class Rockcraft < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "wadllib" do

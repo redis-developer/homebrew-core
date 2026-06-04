@@ -1,8 +1,8 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://ifdo.ca/~seymour/runabc/top.html"
-  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2026.04.26.zip"
-  sha256 "eb17e3d0fe659f4465bbdf5dfe8f56e6a71e1ef41e664e4c40dc2dd31375026f"
+  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2026.06.01.zip"
+  sha256 "fd6097aa758818a1d786ba51475fb0cdbe4ec0a0a0321730206046dd6a0a99ef"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,20 @@ class Abcmidi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cda7cc5ac343010b49ed96e8e4fb2c948b3d6d0102189c8064c9c3858c03d3ed"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "883b256a2beae9d30e057f5a5f2fc611ea31616079119c56752e8141c5b32284"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "73332714da4fa3ddff5900a2791524e95318f0c174970277d2469819542afbe9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5f94b056e065c1d3864c3aa120f4149d6d7e7896ae2fff483bb46688ccef4f9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "4fde65f3474418d0a052f79fae7b87a9a29127b8ff37261af5a83e3a702423d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8379b252f578ccfc617b4368862f0d08bc72ff1d7ecd0d1b13488915d294ee1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2fd84fff250c25e5152115fdeaac97426fc0825e88deb79cc5537048dd90b273"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb82ad704bdcf8beb042258317ad60121de6fc84a2df22cc003559253f990ef1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14898746351c37c7c852f6734fb15f94fd39a4f11d0e88423566eb1297df2fc9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "873aed02cfdbbfd216988126a4eaddd91ac89c522fe0fff58eaa09aaf8fb5aab"
+    sha256 cellar: :any,                 arm64_linux:   "e0eb0d57541afd5ca496f5c4ec72d39daec88d77496dbb2c088952172a720af8"
+    sha256 cellar: :any,                 x86_64_linux:  "9a7f2b7ded54f642f6ace343cfe92fdf9566f4f6d25f350d0abd46f857c65d27"
   end
 
+  deny_network_access!
+
   def install
+    # Work around incompatible function pointer types with newer Clang
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     system "./configure", *std_configure_args
     system "make", "install"
   end

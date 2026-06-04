@@ -1,19 +1,17 @@
 class Serpl < Formula
   desc "Simple terminal UI for search and replace"
   homepage "https://github.com/yassinebridi/serpl"
-  url "https://github.com/yassinebridi/serpl/archive/refs/tags/0.3.4.tar.gz"
-  sha256 "d3765e273f54bf2e268f9696eef5e5459ffe46310af8ae48eb6ebe4c279deb62"
+  url "https://github.com/yassinebridi/serpl/archive/refs/tags/0.3.6.tar.gz"
+  sha256 "d794e020e3e6535ac2c0cee3613ffb9122e4df7a47d4e5c466e8b35e59e08312"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "17d66f0a6070402ad1ca996de2076bcaff6ef5f4c474bfab7fcc0952de0978d9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7170f6c039d004e719e86934352f1fc0a30929749c853e71f8ad6db97689511f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a78316d3e051f3eaeeb2b26263c24135382dd8038222eb5ca14253e80fe96790"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a87b7d3d19d97b7aa33dd296a4ba5f0b98057c3b0f4ecf345d2495148f3dec7f"
-    sha256 cellar: :any_skip_relocation, sonoma:        "90dd2fc2f33f9ba2d8122097e8b9f891f084f9038a4a2e5e26bf65fbb1c62335"
-    sha256 cellar: :any_skip_relocation, ventura:       "7128ef970ad0e5c428037dbeae24bf722dc57c19706ef05cb626d72bbdb619f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "bfc0a698cbce4d7894689a991e6f8e72645cf22ffb5e03a10444b721cd8b20ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "823f676ecea17d9ff2f20448c5a42963fcdc7378e89a6eff3a250e161d17ddd0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "691d73b56ebd15a6b95cfb0290639a2b708d58cb4dcbd896689fed79f3f3f2ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8cc7b7dad763673aae27fc5dba3c4a95bd6c170ce52e497111110dfa374a3959"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "88bf27db3054865d754aeb1ef375dc4251562bcbba7c1141130309603ef67169"
+    sha256 cellar: :any_skip_relocation, sonoma:        "69998a4447ab18444ee915ddf89869dcf47810b94aa33bc84ae54f722b98f979"
+    sha256 cellar: :any,                 arm64_linux:   "b6b72ecbe27cdb0daac5649d0a4d350f3eb3e8785a790b1363c83e7bcf6f1fee"
+    sha256 cellar: :any,                 x86_64_linux:  "55f90b322c27459a3e3d113b1a8f6bed4d34df6f8cca622b68039c72c4c34849"
   end
 
   depends_on "rust" => :build

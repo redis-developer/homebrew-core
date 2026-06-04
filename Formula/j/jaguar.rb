@@ -1,8 +1,8 @@
 class Jaguar < Formula
   desc "Live reloading for your ESP32"
   homepage "https://toitlang.org/"
-  url "https://github.com/toitlang/jaguar/archive/refs/tags/v1.64.0.tar.gz"
-  sha256 "159e4be1d5e44558236d89b0966b455a24c9ba82889e557f1e590ba713670acc"
+  url "https://github.com/toitlang/jaguar/archive/refs/tags/v1.66.0.tar.gz"
+  sha256 "8e8f5460ebf89d244ca92711374c9425a09add692af9744d55d14a9bc37686b7"
   license "MIT"
   head "https://github.com/toitlang/jaguar.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Jaguar < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "12f4ae01f3deb480a5c081d589a3370ff5a913ab24782445efcda673786efcea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12f4ae01f3deb480a5c081d589a3370ff5a913ab24782445efcda673786efcea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "12f4ae01f3deb480a5c081d589a3370ff5a913ab24782445efcda673786efcea"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a9606d6a460918e55a0c31fd2ce4ba08c32b0d0a55bd35c6d59045680816c1dc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "db94b074f0b110b1deace0cdb1aaff0769803fd98c8db07a0a76f63202fdcffd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5f24189df216f08656011ad760e0f81055a1b992a46fc50ad4fceeb7460b292"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e28df261194c4e75af8ec6e2e311209616e41d49c7ad6c1d171652b3f6354300"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e28df261194c4e75af8ec6e2e311209616e41d49c7ad6c1d171652b3f6354300"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e28df261194c4e75af8ec6e2e311209616e41d49c7ad6c1d171652b3f6354300"
+    sha256 cellar: :any_skip_relocation, sonoma:        "c87bb2188d2c2d6dfc9e027e348759b0ff89ccbb49b77f6a016ce71bdc1ed63d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e4f341f76323570de8425600a35c370267bbe93ee302715890a71f1730bc141b"
+    sha256 cellar: :any,                 x86_64_linux:  "929b668180f7e50c837d796f1e471ef7ef854da21392851e9d3b7e72c1c83f64"
   end
 
   depends_on "go" => :build

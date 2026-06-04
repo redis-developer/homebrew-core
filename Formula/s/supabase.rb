@@ -1,34 +1,24 @@
 class Supabase < Formula
-  desc "Open source Firebase alternative"
+  desc "Postgres development platform"
   homepage "https://supabase.com/docs/reference/cli/about"
-  url "https://github.com/supabase/cli/archive/refs/tags/v2.98.1.tar.gz"
-  sha256 "343ce437baffc3f930e3c735956d24d206b4efe3ce929cead9c1e62e8995c788"
+  url "https://registry.npmjs.org/supabase/-/supabase-2.104.0.tgz"
+  sha256 "693df8c4d3d559a5219d190e75f08735f96d64a77765f2f06f6662f4c17f5e88"
   license "MIT"
-  head "https://github.com/supabase/cli.git", branch: "develop"
-
-  livecheck do
-    url :stable
-    strategy :github_releases
-  end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "96000ecbfb9d43e29886f67b5d5b1b8a6aa3b6571d0cc264cec43e8bb95d537a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c820cd0b60fa15a3886a16e6cb8b27a1d6de09a0c8d906af5ea47d9a08d4e909"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5367af140ee49ec89185470a9dd78c0e55a8506ddbe6df3dd279f66a7ebdd6fc"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2e446d289fbf6c2a9c9c43c51a3e646c34f79ada6f59639192194e376f289199"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3284f2cb9ca1297fd0d9e9ee940e61bfa00ef677dcacb83bb53ec3234dce27f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "52020a97e67896ec6430eacff1b9e8609221c30cc6aa4ef675b2316db715fa3c"
+    sha256                               arm64_tahoe:   "d1886c583bf1bf109782fc5d85b07e467858889188db77ff12d1007ece30c247"
+    sha256                               arm64_sequoia: "d1886c583bf1bf109782fc5d85b07e467858889188db77ff12d1007ece30c247"
+    sha256                               arm64_sonoma:  "d1886c583bf1bf109782fc5d85b07e467858889188db77ff12d1007ece30c247"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4a85089ac9ec4aff87138478bb69df60cfa0e56738b0302a72bdc2d1ad86dffa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "cde3a734137edb3da9e86ef156c6423b1f54e8bd3af4c859456b7426c85fae8c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b1c5fc383034a66002b76be34c64d0b2607267a81a4cb3effff17b39d75b8f7"
   end
 
-  depends_on "go" => :build
+  depends_on "node"
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/supabase/cli/internal/utils.Version=#{version}
-    ]
-    system "go", "build", *std_go_args(ldflags:)
-    generate_completions_from_executable(bin/"supabase", shell_parameter_format: :cobra)
+    system "npm", "install", *std_npm_args
+    bin.install_symlink libexec.glob("bin/*")
   end
 
   test do

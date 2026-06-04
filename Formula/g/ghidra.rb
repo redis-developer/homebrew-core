@@ -1,8 +1,8 @@
 class Ghidra < Formula
   desc "Multi-platform software reverse engineering framework"
   homepage "https://github.com/NationalSecurityAgency/ghidra"
-  url "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_12.0.4_build.tar.gz"
-  sha256 "2650b5c5f2615883db347157f88d15f6f06cd14e223156cd6b6034264081f5b4"
+  url "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_12.1.1_build.tar.gz"
+  sha256 "1f90a518204bf7c2d553631baa7229e66bbf33fdff5a73f8a50ca89840bfa999"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,12 @@ class Ghidra < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ebf487d4b8d81dce759bf069f43008788d3f79de534e1a3c658ecd7cad97d58b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "74a0188d43ca6b1e108752381a1f9b0f8dc4f3424c0151b0daa21896d480257b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a589ce90ef47f1971fe87b5f12f93abac50cad69b5583f1a6a96e9f51f369b0a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "52bce83f468089abc2cdc4f7ec37c3da201fbfea86b1a18caac02ffc08d15e6a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "99b14662788f6044b1aaeb82bab63d70894ebf725a405efb5f1b0addd2174168"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c304a0f8fc1d50ef2eb74e862109aa1338af079d2ee992562ec4521efca419f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "422acf3ce37fa17e3bb4cf505c3d0fada63c900a415a661f8d8fcacaaf9ff262"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4095fe09c70a02d913fdd25ce34c6ac79ac1c474337d57a73c92cea57327142c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba15c77d8ee1e61f2940dd631588d8691a46e6b4871838edcd3b87eac27e94d4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2e3e494aab5199a43d32b1fd3a7a482b1028d636ef8f4760f8ad40d8b8f8f57c"
+    sha256 cellar: :any,                 arm64_linux:   "b466fce55e8ea28f5e6706a123369ad152b3fc344deb46bfdbb4ebf85a87dd96"
+    sha256 cellar: :any,                 x86_64_linux:  "530180b9b09ad36ff7a02bf57c1f461ce40c7619e6cb50733fe0efdf170128ea"
   end
 
   depends_on "gradle" => :build

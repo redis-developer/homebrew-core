@@ -3,17 +3,17 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.com/github/spec-kit"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v0.8.5.tar.gz"
-  sha256 "d7eb0278af15a1d2bf3bc6289e7c904ad694c6bc9f5b9251df8b82a5f41e2572"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "99e25c42a2a2b8a90995c223f213961effb2b64a375e5a602b3d81c62b442494"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a5f9573476a340c748f66e7bac19536321c12a22065899351e6a680df68f6673"
-    sha256 cellar: :any,                 arm64_sequoia: "08b6c92ed47ab9592377542ad674b9d935e336e8f2c51d7dab58cad53ed6378b"
-    sha256 cellar: :any,                 arm64_sonoma:  "bcbc83d59e29f829016857ca0beabe6f8dc6ecc8fe913e1027b147ad8f62e218"
-    sha256 cellar: :any,                 sonoma:        "fce2005a745c2573eb776de0200c0e3fdf3af3ee0a8e507d98b116a591017ae1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "26484e5382c6e3fd82dc033ef22e8c1b69832624b543529a8aa9a843c72a2cda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c633e9aae4ae751d1e7949cbaa191de2b737c03d3d4537cbb2e0f202b38cb8cb"
+    sha256 cellar: :any, arm64_tahoe:   "e53e60918ef8854f621a68bc3d9433703b03b568f5126525f59dbe78d51c69df"
+    sha256 cellar: :any, arm64_sequoia: "9babf863764cc4bdd55c4f8f139fc60a71a61a6e6f502ee10bfab6b09c4f6a07"
+    sha256 cellar: :any, arm64_sonoma:  "205b715f4af92616e1e23359b7b919ecea02dcafa8c39f81d4965de6e0836be4"
+    sha256 cellar: :any, sonoma:        "90837f549bac739d09d5f572399f62092e23a1a8df96c3d54672868aa919454c"
+    sha256 cellar: :any, arm64_linux:   "64d78afd3f8b687aca2d991b0d4b3c9a7cafc9f6682478fca6bc83ff4a910c10"
+    sha256 cellar: :any, x86_64_linux:  "57bba5d95b8b6c9c93454c59afcae4a806f8cf2f6cdc7d5928751ca8a47600b9"
   end
 
   depends_on "certifi" => :no_linkage
@@ -28,8 +28,8 @@ class Specify < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "json5" do
@@ -38,8 +38,8 @@ class Specify < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -58,8 +58,8 @@ class Specify < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
-    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
+    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
+    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
   end
 
   resource "pygments" do
@@ -88,8 +88,8 @@ class Specify < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/7b/27/ede8cec7596e0041ba7e7b80b47d132562f56ff454313a16f6084e555c9f/typer-0.25.0.tar.gz"
-    sha256 "123eaf9f19bb40fd268310e12a542c0c6b4fab9c98d9d23342a01ff95e3ce930"
+    url "https://files.pythonhosted.org/packages/eb/1a/2cf40b65b1d9c254fe5814bb0519f9b8f2ac38059df0810f9b866300c04a/typer-0.26.5.tar.gz"
+    sha256 "9b9b39e35c3afc9e1e51a06f21155246e457c0911279b09b35d8210ca74b935c"
   end
 
   def install

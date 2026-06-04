@@ -1,19 +1,19 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/archive/refs/tags/v2026.05.04.00.tar.gz"
-  sha256 "6b5d5fcde20ab2a12a4c01a7fc4ddf2f3890433314e6358c1552467afae7786f"
+  url "https://github.com/facebookincubator/fizz/archive/refs/tags/v2026.06.01.00.tar.gz"
+  sha256 "c59640372e10c687c5ddd362f79ea47e24827bb5b491de75a1969e827f7b06d7"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a29ce7deaba0434adb2fefb3ff6a6c1cd1fdd84d55ec2d2c885cc429ac7d4817"
-    sha256 cellar: :any,                 arm64_sequoia: "3c89baa97542626649abbeddac47e5bdc2cedf093c3ce379a8296dcec15e45b4"
-    sha256 cellar: :any,                 arm64_sonoma:  "622e12209aa499dca656286954fc410b9a4772ed1d059d15fe66d16376d25b0c"
-    sha256 cellar: :any,                 sonoma:        "313ed47eaef9128a45c9c4a6fef32fc7de193fcfba7d710b2e5d39a79a9872e2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b171771796f4b36a1bfe57e61530493d7198375816a60e40d5ddb4594f53e7f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9815c271433a294379023ee2f363752f5b5fc679eae56e83131c7e30b0679d36"
+    sha256 cellar: :any, arm64_tahoe:   "4d7aa53a8dcf3496dab90d4903468e24050efff1bd7f7b8eaec0805793d59382"
+    sha256 cellar: :any, arm64_sequoia: "b1a1576e28005c0b51094a72a7c2cb2cdaffadd4425bda97d7ba592f1b57f23a"
+    sha256 cellar: :any, arm64_sonoma:  "01cf3d4a7d41264ffbbc1a83445ac4c2063a1f175e79b6ed81d2e6839e79ae2a"
+    sha256 cellar: :any, sonoma:        "f85fcd25a05bf6c0948eafd16c093e6843cc0f682572d4101837f90072148034"
+    sha256 cellar: :any, arm64_linux:   "0ba80d21362bd09c55c4d73e50b45018ace0c8217e0676e9ef8728d9763171f1"
+    sha256 cellar: :any, x86_64_linux:  "a9d9fb6cd0ce82ad2e238aa87cc0185a80975bb71cbd5acffd19aa167a8a74ce"
   end
 
   depends_on "cmake" => [:build, :test]

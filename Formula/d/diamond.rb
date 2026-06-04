@@ -1,17 +1,17 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://github.com/bbuchfink/diamond"
-  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.1.25.tar.gz"
-  sha256 "4d65c2cc796c158f3a315af14f2a1cfe0a0917326bc2bf394da235bb7159f9d4"
+  url "https://github.com/bbuchfink/diamond/archive/refs/tags/v2.2.1.tar.gz"
+  sha256 "36a70540039c50e4afa1d36587eb80d1a85113288c2a49731cdaaf90e3de7d02"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c2c7d6550638d64e9ca789189c4f822d694fcca0e765443c0fa2998b4da2f9a6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "62ba0c94bd28e548161cc2179897d2b75811d532b3098dcc9f67ebb62c480192"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dae7f8e7e157c0a77d0817c2950d9d7f531bbc2ca1ed128fd77ab7d78f2057c2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c1e45f4be99cdf36eba4278ac870af45bac8c5010ac744aa224a181db6693aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a7c92e642405a3d76a9e8b433a096664acb38c8b06b43285e077e2a9d1ed220e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8be2b64ed4a75914c642b82fa579a035182eacce99dbf302c8d29220682b4333"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "33d8634e253416486c0717dbf7945adeba463a3cc862d1ec2310540b8e832e70"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "843466c95aa78ccbb38e76f55b4b7e922ff85885dc0652ae4f592038bfebaff9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ad1648a27865a1af52fc8b5df140f6bb04d0fd7fa2c63769c9fe84b8266a5b0d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "55843f6ed3b108418a3ec7d99af627eadce2a2186f18b7258842c2657a42dbe3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c87fd72d8bd8b7f17f9fb0a6bde40230a24a801dccb10514bc64d89f8f77b8f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ba73eae826e76eaba1cca737dc0fe9cb7dd58a37965193871d4b9f03f2038221"
   end
 
   depends_on "cmake" => :build
@@ -20,13 +20,6 @@ class Diamond < Formula
 
   on_linux do
     depends_on "zlib-ng-compat"
-  end
-
-  # Fix build failure due to missing `<algorithm>`, upstream PR:
-  # https://github.com/bbuchfink/diamond/pull/953
-  patch do
-    url "https://github.com/bbuchfink/diamond/commit/7b994bd0ef33c968c2f3ad20c039b68f61495ea1.patch?full_index=1"
-    sha256 "1f30d68661493e52d72eac7115c0dc7b39afc828f39f7cb24a3142fe5df7f9d5"
   end
 
   def install

@@ -1,19 +1,18 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/refs/tags/v1.56.2.tar.gz"
-  sha256 "3e7be4252c76565f6d71b34bd07d26e1444b9ac2e1c8271c724f6e866fe75565"
+  url "https://github.com/Canop/broot/archive/refs/tags/v1.57.0.tar.gz"
+  sha256 "28d576f218a92bbb3543124296fb24b40a323b21f586017d073155c44f1cb786"
   license "MIT"
   head "https://github.com/Canop/broot.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4c3f44c63c335e67ccbb18d3f434ef53f35f415d454c22756fa5ea70c1cbe257"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b53b0aa9c2a73c86e5fb65cc5a62b1c4feaffdbbd158e29effe1791b77e4a7d4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32bf11832c25c8959b9bc0d03a8fdffe4294c4955c64c6b9bd05aad2d54b7744"
-    sha256 cellar: :any_skip_relocation, sonoma:        "091053c173bca639071ab5581a5400e9f6c9f15681176712faf850c0858c82cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c65cbf84becefe4628874c041cdb73b6279fd6c2ae8bfafd3a9a2b7073dff7b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "423d9e73268d6a02b0d00c3b45a29e06c84caa66caa55c9f39c1ed3d7d47a74f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a02fc825e87ee81b19f6184917c85217000cee934e63907d31527fcb19fdc0a9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0fc3bcdd26bb8d5d92ab72c93686717088289cf2789fb759f3b80a1560bc7c45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38b8eef935b48366070335da13f513b0ace8880f22e64e10bc453dd21ef4cff3"
+    sha256 cellar: :any_skip_relocation, sonoma:        "444ca89cc21a5dcbcf98483a2594b5e7e7aa1cffd76e668b380b1635436e9cee"
+    sha256 cellar: :any,                 arm64_linux:   "39f1643a041cb3850cd02a5ee8bee06a72b43e8e020e307a0e17213d9e5ee4a2"
+    sha256 cellar: :any,                 x86_64_linux:  "bdfd4131276d204331494a55696a3f330cec512d6fe42dafbc44d5f9c61151c1"
   end
 
   depends_on "rust" => :build

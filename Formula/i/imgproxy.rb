@@ -1,18 +1,18 @@
 class Imgproxy < Formula
   desc "Fast and secure server for resizing and converting remote images"
   homepage "https://imgproxy.net"
-  url "https://github.com/imgproxy/imgproxy/archive/refs/tags/v3.31.3.tar.gz"
-  sha256 "bd01ae3f0c800ef6c7f6bcf879d919e14d98a65439c54972d8bc30c9bccce6aa"
-  license "MIT"
+  url "https://github.com/imgproxy/imgproxy/archive/refs/tags/v4.0.3.tar.gz"
+  sha256 "8cd18c13a85d5c05c912cae5b3641a606ce2ca0bf70ef5c2ed26dcadcefd7f31"
+  license "Apache-2.0"
   head "https://github.com/imgproxy/imgproxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "f72239fa74690b1b71ae7bdd39f9985d06e0c7acb520dc8f618320df82188406"
-    sha256 cellar: :any,                 arm64_sequoia: "04623950f6589e69bf52ba26907c5da68a549b93d8442e96517a595d22b01262"
-    sha256 cellar: :any,                 arm64_sonoma:  "b0af62bee29d1e89c763021823928297c91eafde4db82785e893ca02263bc978"
-    sha256 cellar: :any,                 sonoma:        "4a538d37a5920dbb59ea5653e4e4e8dc963ab8a21080c232588a6d2dbb70eba9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "54fed4133baf59a7dea57e8544830b8989ed0e93a60ad15e7f3d15dfdf8f1868"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9def25a5be8fc77de95ad90a5040c8d8b5eca0e160469faa36c05527de9469bc"
+    sha256 cellar: :any,                 arm64_tahoe:   "7716ecdb680c80bed913ee4c8440d64e0fa88debb86f76a29cf08ca0dc093b58"
+    sha256 cellar: :any,                 arm64_sequoia: "b549c67f81689e7e1e126c0401272ab0166efef731874d4e0881fc7bcfcc7f9e"
+    sha256 cellar: :any,                 arm64_sonoma:  "a1963c13218db6e9e405751614cd0fbce29dae70a962e0043b8e3d73aeea0664"
+    sha256 cellar: :any,                 sonoma:        "e2088991fe7e7b9290a24e0d3f3ad20ea3b1b5160ddbf6deb7debd51f3a5f767"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "293e77d43390e971745ef91ac785d1468548e60e0a51475a3cd8452b82b46ded"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b01262c1d5564a1fa4a42d46d6d6cb45ebe2f8186f9587b97e3c404c0785b5e3"
   end
 
   depends_on "go" => :build
@@ -35,7 +35,7 @@ class Imgproxy < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli"
   end
 
   test do

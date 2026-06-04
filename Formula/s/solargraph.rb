@@ -3,17 +3,17 @@ class Solargraph < Formula
   homepage "https://solargraph.org"
   # Must be git, because solargraph.gemspec uses git ls-files
   url "https://github.com/castwide/solargraph.git",
-      tag:      "v0.58.3",
-      revision: "d1669eb68f1fb542e999ddbcf7707726ca2b4612"
+      tag:      "v0.59.2",
+      revision: "43f4caa0da9415db37454ad9b9b3f992e9a3bec4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "3198bfaa8d68f01d16e0c77643ed445d7409cc9d307638bffe74fae7f9bd86d3"
-    sha256 cellar: :any,                 arm64_sequoia: "a5a12378fb568c36cb123f65e9cbc16055690dd61b0a90547b6c9fdc8022ad90"
-    sha256 cellar: :any,                 arm64_sonoma:  "51b998fda9cffcd3f9e3ca5eecd9cd12770a93b6860fc6aa3d2fe69f01919b9f"
-    sha256 cellar: :any,                 sonoma:        "bd086d0bec28ebe9b4231205be150438dd89d868dba8aef9141954aec7da787a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf5527026033d2be9fbc281e749ebf279d0d033a5dd9d2e8f6592dc077e5bcc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "48a89d68665b532441aba666dabb1bc2a72da08b847141bc62eaadad45430a7a"
+    sha256 cellar: :any,                 arm64_tahoe:   "f853fb4120700406eecdbd3deece1578a441d79e9221dc65aab7a21f2d7bae41"
+    sha256 cellar: :any,                 arm64_sequoia: "769a8e12841f02c4afda6d29e94a6e731597a08d5c2585f000db46d8aea902cb"
+    sha256 cellar: :any,                 arm64_sonoma:  "014cc0c1d6f9c4706b3f8d1d0f08d30aeb0953731077b99f1be10a80876253dc"
+    sha256 cellar: :any,                 sonoma:        "e041d57034c67a153bb22ab5ba4d6523fc2be18a5564bf94596cb93d911087b1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e8c10babb05ca1a8b759b1ea0dd6e6c0691ba43b02d9852439f0706745f0c89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eebd1b8c298c073bd46cc78031f89de2a39a4314d6c8908aa422e77e4ccfb077"
   end
 
   depends_on "ruby"

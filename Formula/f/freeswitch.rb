@@ -1,72 +1,36 @@
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
+  url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.1.-release.tar.gz"
+  version "1.11.1"
+  sha256 "c0ce4cb91f9d8c9c7c8e45e0f5064104a1f710863775364a227cfdc305fec98e"
   license all_of: [
     "MPL-1.1",
     "LGPL-2.1-only", # spandsp
   ]
-  revision 1
-  head "https://github.com/signalwire/freeswitch.git", branch: "master"
-
-  stable do
-    # TODO: switch to tarball on next release and make autoconf/automake/libtool HEAD-only.
-    # url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.10.12.-release.tar.gz"
-    url "https://github.com/signalwire/freeswitch.git",
-        tag:      "v1.10.12",
-        revision: "a88d069d6ffb74df797bcaf001f7e63181c07a09"
-
-    # Backport commits to cleanly apply PCRE 2 patches
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/a52671333386cfbdb6490d36354f1eff3a1cd2e5.patch?full_index=1"
-      sha256 "aceb5b2fb81fcad786a7982c04d7ae383dbb369fbbcd91c0a4874d506fe85afb"
-    end
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/bd0d0db878a9a26e6ef471218b850d39eae725b5.patch?full_index=1"
-      sha256 "861939d709b0364b8147dff2add1543df03b4e2d0745019bfbe331644e40e8b8"
-    end
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/12b47fe7f91b93ba9cec90676e62c6239a097c98.patch?full_index=1"
-      sha256 "25e34c76deec2b38c77327040766c95c725e142958bd8c1024e9307e3fd3b326"
-    end
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/68e587d7cf9f8df5b0c748f94185a00ad2a37238.patch?full_index=1"
-      sha256 "125406e097b1ab9b904d6863819cd632f82bacffc88d8b4a6868c2984ab229ca"
-    end
-    patch :DATA # https://github.com/signalwire/freeswitch/commit/3a53566eab5793c8c2daf9e44e10d8a4a572aa69
-
-    # Backport support for PCRE 2
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/65bc7c14bf1a9c3e61cbb0e5a611d2014b5b09b9.patch?full_index=1"
-      sha256 "1b9d44620218028649793afd4a3036a557bd51cf0c7c85ca0085a26f55c53d58"
-    end
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/909247067bd55a08db84bad2a00960bf822f1141.patch?full_index=1"
-      sha256 "9a5231f273328c7676605057f7fd5fe4c922f94b40553104c2909ada64fb1861"
-    end
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/02549c10d9155d0f71f36289aeeddc9c73a4d46e.patch?full_index=1"
-      sha256 "db74f0803c3f8433a50e9811671440608d7bcbe82d0a67a4bac9bc7ad7215f19"
-    end
-  end
 
   livecheck do
-    url :stable
+    url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_tahoe:   "dbe41c75c4ea16c17ed06e5b094a87e69a801f12f67a7853f98ee50d1a824177"
-    sha256 arm64_sequoia: "58afea1ef8ed85e8e06264c8260eb490602d3cebde03c387bb7e8e25855efc34"
-    sha256 arm64_sonoma:  "23a404455d18103d8a2da672ed643519d127fc5b418d653ea65054db2510d035"
-    sha256 sonoma:        "0e74f3ce5b5be3d5ce024f848aee37d6e4bf94833689d842d87556e143965147"
-    sha256 arm64_linux:   "3d635f86566919d6e15c8b3b093dafe70d02811ec71644519baa5517ec4c6fe5"
-    sha256 x86_64_linux:  "e843725905d5d62c6a8e8633ba0119ec01a0997d58865e1ab0578e23fbd5f59d"
+    sha256 arm64_tahoe:   "b221b91a0d41f4a8dfcf8fbe5683124a57f71a785561109dbbd120a745aab928"
+    sha256 arm64_sequoia: "a5a7086920a29cf6c7725cf2aaa80b94be30c2fa4c9ec62b45787d2ee47d8696"
+    sha256 arm64_sonoma:  "f697a152b7abeb4b0f728861391fed76eea30d8664b2c88b5050feedf1d3a9ad"
+    sha256 sonoma:        "00fc7e1e4371fc7fe7bd424f5a938d8974293daeff2c2536a160fa0e89cc2cc7"
+    sha256 arm64_linux:   "2076d9cc3deb9dbb27a68837c536a2c9e6a36edbbdd8e64ececfa35d81eae02f"
+    sha256 x86_64_linux:  "19bd3f2560cdf2f7596ea91f2e6d66bdea2cf922786d8ef36d83023251f99ba8"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/signalwire/freeswitch.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkgconf" => :build
 
   depends_on "freetype"
@@ -219,7 +183,7 @@ class Freeswitch < Formula
       ENV.append_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     end
 
-    system "./bootstrap.sh", "-j" # TODO: if build.head?
+    system "./bootstrap.sh", "-j" if build.head?
 
     # Reject FFmpeg dependency due to MPL-1.1 incompatibility with GPL
     # Ref: https://www.gnu.org/licenses/license-list.html#MPL
@@ -269,20 +233,3 @@ class Freeswitch < Formula
     system bin/"freeswitch", "-version"
   end
 end
-
-__END__
-diff --git a/build/Makefile.centos6 b/build/Makefile.centos6
-index 327c2e6454c..24b4ac39a63 100644
---- a/build/Makefile.centos6
-+++ b/build/Makefile.centos6
-@@ -6,8 +6,8 @@
- # in that same directory.
- #
- #
--RPMS=git gcc-c++ autoconf automake libtool wget python ncurses-devel zlib-devel libjpeg-devel openssl-devel e2fsprogs-devel sqlite-devel libcurl-devel pcre-devel speex-devel ldns-devel libedit-devel
--DEBS=git build-essential automake autoconf 'libtool-bin|libtool' wget python uuid-dev zlib1g-dev 'libjpeg8-dev|libjpeg62-turbo-dev' libncurses5-dev libssl-dev libpcre3-dev libcurl4-openssl-dev libldns-dev libedit-dev libspeexdsp-dev  libspeexdsp-dev libsqlite3-dev perl libgdbm-dev libdb-dev bison libvlc-dev pkg-config
-+RPMS=git gcc-c++ autoconf automake libtool wget ncurses-devel zlib-devel libjpeg-devel openssl-devel e2fsprogs-devel sqlite-devel libcurl-devel pcre-devel speex-devel ldns-devel libedit-devel
-+DEBS=git build-essential automake autoconf 'libtool-bin|libtool' wget uuid-dev zlib1g-dev 'libjpeg8-dev|libjpeg62-turbo-dev' libncurses5-dev libssl-dev libpcre3-dev libcurl4-openssl-dev libldns-dev libedit-dev libspeexdsp-dev  libspeexdsp-dev libsqlite3-dev perl libgdbm-dev libdb-dev bison libvlc-dev pkg-config
- 
- freeswitch: deps has-git freeswitch.git/Makefile
- 	cd freeswitch.git && make

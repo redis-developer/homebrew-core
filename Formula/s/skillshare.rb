@@ -1,18 +1,18 @@
 class Skillshare < Formula
   desc "Sync skills across AI CLI tools"
   homepage "https://skillshare.runkids.cc"
-  url "https://github.com/runkids/skillshare/archive/refs/tags/v0.19.7.tar.gz"
-  sha256 "83a0c08f2bd6509124b8a578d76f67e56fc8b0e3d05a12bd810f0ecc0f6b831d"
+  url "https://github.com/runkids/skillshare/archive/refs/tags/v0.20.6.tar.gz"
+  sha256 "ae116734d4f0b2f049b1afc5269b72c0b1c265bbe7a30204e97ad094cf1cb134"
   license "MIT"
   head "https://github.com/runkids/skillshare.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb3f6fb2024c64ac09be6b8153f8e459b58cefd475eef69958c6169280247158"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "fb3f6fb2024c64ac09be6b8153f8e459b58cefd475eef69958c6169280247158"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fb3f6fb2024c64ac09be6b8153f8e459b58cefd475eef69958c6169280247158"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e9cc2bd4388728cd156a58f2ef66351d4e8f678b27b6b36a667b361629f04664"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d907b149de463702ad2a9c77a63f66bcc10252b4df3509ea5039ee80d71d8afb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "66bff1a56adca5f82dc69d8a8b4486bcbfb4649fb4290dc0ed29ce838250eeef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b0097d8448a70261781892f2376492254cc72ed613501e52ec4151a561f18c9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b0097d8448a70261781892f2376492254cc72ed613501e52ec4151a561f18c9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b0097d8448a70261781892f2376492254cc72ed613501e52ec4151a561f18c9c"
+    sha256 cellar: :any_skip_relocation, sonoma:        "20a7acfbb18fc3414b756bb5480c34393d647197a5929d3f1d778e0ff6095972"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6cd4d8d59c113d99df0e6681615b9d9a474ff2ea730ffd291854997ac0a12b76"
+    sha256 cellar: :any,                 x86_64_linux:  "b07eca858248fac14c3c8ea06fe2402db535c6b9d5f44f7b61f4a28ba15af444"
   end
 
   depends_on "go" => :build

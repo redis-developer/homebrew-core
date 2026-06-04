@@ -1,17 +1,17 @@
 class TfstateLookup < Formula
   desc "Lookup resource attributes in tfstate"
   homepage "https://github.com/fujiwara/tfstate-lookup"
-  url "https://github.com/fujiwara/tfstate-lookup/archive/refs/tags/v1.11.0.tar.gz"
-  sha256 "b09a4f07744c5dde32904be3fdb1184cfe5087d7715c473f7b111e30a66ce503"
+  url "https://github.com/fujiwara/tfstate-lookup/archive/refs/tags/v1.12.1.tar.gz"
+  sha256 "d01dc5ca5193fd38696fcee0b8fd3f7211f9f12fdfefa46403a6159b9d677fa7"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "52ecbf8e2fc461cf8b0d831e4ec2fa744d9e6e62c1e390c6e6b76b0c5e59ecdd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "52ecbf8e2fc461cf8b0d831e4ec2fa744d9e6e62c1e390c6e6b76b0c5e59ecdd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "52ecbf8e2fc461cf8b0d831e4ec2fa744d9e6e62c1e390c6e6b76b0c5e59ecdd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5433d18708b3010f6dad7d13646032021ce422ef9c5fac69deecbad80ac66491"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cd38299a8e27120296d3e63b508dcf6f613d01c318af130573f711a1f7ae390e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f1aab88211780c3f07c3b6f10766adedfb4152c2adebb870347e869df2c7744"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3d19503d32c192bcbfb3f1d7a3c6b8d4df2a0515517ba3be3d86efca31a4acb5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d19503d32c192bcbfb3f1d7a3c6b8d4df2a0515517ba3be3d86efca31a4acb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3d19503d32c192bcbfb3f1d7a3c6b8d4df2a0515517ba3be3d86efca31a4acb5"
+    sha256 cellar: :any_skip_relocation, sonoma:        "83183818fa7570df272d24df9b04be0a9d890065e71e23219252e9cea69d4be4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7d3915e141961b0eba102a84ea975f137d71b212931c371962bf7b025308eb0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bf9e9304ba1f0e0ecc1499e9f17711e0cb34b6d589a1485646263a3a89143d58"
   end
 
   depends_on "go" => :build

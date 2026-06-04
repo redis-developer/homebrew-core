@@ -1,8 +1,8 @@
 class Spoofdpi < Formula
   desc "Simple and fast anti-censorship tool written in Go"
   homepage "https://spoofdpi.dev"
-  url "https://github.com/xvzc/SpoofDPI/releases/download/v1.5.1/spoofdpi-1.5.1.tar.gz"
-  sha256 "4bd43de5575aff15403a1d96d096d8c3ceefe17a54153d3b2c8d9ace8e96b389"
+  url "https://github.com/xvzc/SpoofDPI/releases/download/v1.5.3/spoofdpi-1.5.3.tar.gz"
+  sha256 "5c948c8969411dbc0482d62c8ebb19a1d0e4d64aec7753ed673b686c65dae4d8"
   license "Apache-2.0"
   head "https://github.com/xvzc/SpoofDPI.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Spoofdpi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e233230e0955a72523c3946f90ed00ad0a34f9ef4265d7219c47b01317b98262"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e8883c09e9d473b120b641d431ebfcdc16c4d0e0a2ee0b9f6286cfebda46b5aa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8daadf2935e597ba92614218476f232302d1197caaffac930436dbad5177791b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "5573e4511379f93efc9aac9fe46517ca8016171e60236890fd41b361fac75edf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "80efaa47fbd93685217cdeebae326bd45c026a723829993f030e27d13e2a2534"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4920b1b087b962ba5c99210626ce21a6ad65dbf636791d1179e2b1220c4d8899"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2e631168212bca6fec6f132de41ba3339085432b9a34724b7eb3dbb6e7950122"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "59fe319df1427800638209c50a6f2cb78a8476e85c39868c74515c2ba064a9d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fc77553af4edfe22b9791ce8e2e6586a1f894e7a3a647199157509581b148cfb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "810d35048180d765431b7797892b55f6e6f039a9fb12187acaa97c722315483e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e1e998d069638b33eeb9c5de62d44844b8f83b43ca83a11b300da4f3edc16e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8930ac9608dc25b6677ea0e2f17d09f1a939c30883eed01752f18a8517e4ae71"
   end
 
   depends_on "go" => :build

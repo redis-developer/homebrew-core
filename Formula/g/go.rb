@@ -1,11 +1,11 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.26.2.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.26.2.src.tar.gz"
-  sha256 "2e91ebb6947a96e9436fb2b3926a8802efe63a6d375dffec4f82aa9dbd6fd43b"
+  url "https://go.dev/dl/go1.26.4.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.26.4.src.tar.gz"
+  sha256 "4f668a32fbfc1132e6a881fb968c2f1dada631492a339211735fbb255a42602d"
   license "BSD-3-Clause"
-  compatibility_version 4
+  compatibility_version 6
   head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
@@ -22,15 +22,17 @@ class Go < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1789ace2d64212215224e4162999f899efe6da06dc8e0b4c6ddb41d7015343ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1789ace2d64212215224e4162999f899efe6da06dc8e0b4c6ddb41d7015343ca"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1789ace2d64212215224e4162999f899efe6da06dc8e0b4c6ddb41d7015343ca"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e4f928f90da4794dcf6289c80e54ce2da04be306610a6c5ca319c8ba5b7dd5b9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "75dc6d87d19d9e28fc8b079e13079abd58ac475b4fc5d06be27c271b540dc532"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa4fa209322331c02b57daabd6205a4c37770999747eb360487b3849990c0329"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "acc3ac78fddb7c046c25acf3b5e59749c072735b50bda33ff20447e31202b3c2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "acc3ac78fddb7c046c25acf3b5e59749c072735b50bda33ff20447e31202b3c2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "acc3ac78fddb7c046c25acf3b5e59749c072735b50bda33ff20447e31202b3c2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2ab0625e88e71950fa35bc2d5e63ab337d9e974008e6b0ae4755486ff7422692"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "fde4633fc77d3e0b9416194f6dddcf376128b6bb3ea82678f8733e4189af2abb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad47f0340175cb9fb62d367a0e43ce59ab39d20496007586f947d6c43f08729b"
   end
 
-  depends_on macos: :monterey
+  on_macos do
+    depends_on macos: :monterey
+  end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do

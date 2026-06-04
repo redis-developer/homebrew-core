@@ -1,18 +1,18 @@
 class Models < Formula
   desc "Fast TUI and CLI for browsing AI models, benchmarks, and coding agents"
   homepage "https://github.com/arimxyer/models"
-  url "https://github.com/arimxyer/models/archive/refs/tags/v0.11.4.tar.gz"
-  sha256 "c113821eba94b82d1e98f5590c8be1cb4aa39ecdf26bf9721a5ccbb704b433da"
+  url "https://github.com/arimxyer/models/archive/refs/tags/v0.11.52.tar.gz"
+  sha256 "6cffa057f13c98aa087986c80cb7b58220c6fe6d2116e155cf7d661f2bd1f1db"
   license "MIT"
   head "https://github.com/arimxyer/models.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ae60fadcc06c3ccd7a0abb9afbab2748ba96d26f7661f31cb173520cffc2d759"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a55c7045a5a3d8e9f36f9564a67465545af301450ec3a707442573615288ef2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e3b1ba2c5162bbfc8763681c19c878d3ae938c5ac0ba1674c906619b9e16f024"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ab462550a2c3ceb52f9ee6795a54057001611dc55f4995155733bd9113620eff"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9791382e9d2d3c54a49dac9dfc78942930e4583319e945d3c074546aee5296f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8b7fafc81d0e637221039b32010833186dc40543a3af4586a65430f68d0e116a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "83f3837f82c2f40315fddede4bc19bbc8c7c928c04607222fb4603629b4c7cca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bdc1753d453f64068da0aa5cd890d76528ff569bd11662961ef57ecb16f2dd6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "104f854376a710178e7dd876acbd5f0921ee6c21b9ad416e04236b9baa92a2b6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "47ee516d5ba2e2bba4dfae4bb29fddd652478c6c904806e7ca034dcb3ec6c437"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "26a7d460c0e058013858cf2d7536b053a72206e6de261d06642596869c750f7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05217af72744e8ae39c554649499182181f0810ac23b23e115f79f9e754edbdb"
   end
 
   depends_on "rust" => :build

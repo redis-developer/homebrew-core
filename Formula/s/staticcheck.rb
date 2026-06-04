@@ -4,16 +4,16 @@ class Staticcheck < Formula
   url "https://github.com/dominikh/go-tools/archive/refs/tags/2026.1.tar.gz"
   sha256 "4b20d65194e5462264c784f2968de65fcd7aba8e9efa37aa9b1fadc13b29699b"
   license "MIT"
-  revision 2
+  revision 4
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "af7ccb283942ed2d5d9e664ff9fe4cabafb3fd6b92235880cb91788f56d68839"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "af7ccb283942ed2d5d9e664ff9fe4cabafb3fd6b92235880cb91788f56d68839"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "af7ccb283942ed2d5d9e664ff9fe4cabafb3fd6b92235880cb91788f56d68839"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6e3560acd6d6ea08702e94582dcad31c674c6e79ac86075688726b716b253804"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "14d83c4c46a35170f2296f911981bd09dc005cf79dbe117bd92b4e9ab95a081d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0d9a570c1ab08a540fb88d525a79e1d7ef8b849e63f79d712e841d0441b23cc5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0712ed966b17bacc79132e8881fe2f2aa607edecd2086b45e14c47b5e48facbb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0712ed966b17bacc79132e8881fe2f2aa607edecd2086b45e14c47b5e48facbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0712ed966b17bacc79132e8881fe2f2aa607edecd2086b45e14c47b5e48facbb"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8c199961368d75f9c7e4a2c710762707a9b8f29238597c952d8ba9dfc1e72d7c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b24b3d447d2f9c49a37b216bd1f79d335aaf2819e5a682a05d3326898ce6f520"
+    sha256 cellar: :any,                 x86_64_linux:  "a88a0e8f9b3d27ff8042bb4bec45d9324543250f146b8ae549274edae897d1bf"
   end
 
   depends_on "go"

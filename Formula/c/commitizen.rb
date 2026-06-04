@@ -3,18 +3,18 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/83/62/953b870351965085ab1cb5d9f2a501ba71e846387bfc76f9cccbec7a73aa/commitizen-4.15.0.tar.gz"
-  sha256 "80e6df74fd2ccbfa175273cfb53ca361178ae70be5314017e84359e24d172d5f"
+  url "https://files.pythonhosted.org/packages/17/cc/d87b094ef858c67febcd1d8902352c84b42c9ebc8221d6f2e9d553273358/commitizen-4.16.3.tar.gz"
+  sha256 "5cdca4c02715cc770312f4b505c65a6c39024c73ece41b943bccaf81c44436ed"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "704d21693502a4fc63c0189a317f4bb5dab19adcb6c69743ffd6e3dc0c269475"
-    sha256 cellar: :any,                 arm64_sequoia: "b1b56d8f8e1201437304a7f63c77b22adb7e19474588da962e78a6a14580a062"
-    sha256 cellar: :any,                 arm64_sonoma:  "1c91dc480fc5dcd4a733018cf40d78b4d65420f30ce6e8bffd12ed29a13bc85e"
-    sha256 cellar: :any,                 sonoma:        "afb1439bd5206f27d808cf41fb6f751eefbbea2d1fdd621cfa8ca407e4515f3b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9d0ef42270c09125e194024236500916b79702593b0c8493c507347cf7815853"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a5f9147abc7bf0a5e51169fd556b06d43fd57494f1eb06928acf3afa071ba75"
+    sha256 cellar: :any, arm64_tahoe:   "401b0951f4960acfdcff8804e13af80e45dfb5f80cf99350ca0f5b29d2917268"
+    sha256 cellar: :any, arm64_sequoia: "393b4d4c335161958494431ff80721715135212b82937cf9a542eb1ac8874a76"
+    sha256 cellar: :any, arm64_sonoma:  "28fbb55c74585a2f84b6392e4204d36508bbc1137152f6056ff1a2fc2d922707"
+    sha256 cellar: :any, sonoma:        "f98394c2534a2501f84e41e601c2ddda9f1a5b64d5b4aad3e832ebcda700e4f4"
+    sha256 cellar: :any, arm64_linux:   "7b0d91f4c2e47cfaf1853c636f04f5bed6bd553cf0d486fe58a8b3dbd82f56c8"
+    sha256 cellar: :any, x86_64_linux:  "e6db1deb903c0a15c829b2d7bac36094d5b0953ba8db2b9c407f35a41aaa8239"
   end
 
   depends_on "maturin" => :build
@@ -83,8 +83,8 @@ class Commitizen < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/c3/af/14b24e41977adb296d6bd1fb59402cf7d60ce364f90c890bd2ec65c43b5a/tomlkit-0.14.0.tar.gz"
-    sha256 "cf00efca415dbd57575befb1f6634c4f42d2d87dbba376128adb42c121b87064"
+    url "https://files.pythonhosted.org/packages/51/db/03eaf4331631ef6b27d6e3c9b68c54dc6f0d63d87201fed600cc409307fd/tomlkit-0.15.0.tar.gz"
+    sha256 "7d1a9ecba3086638211b13814ea79c90dd54dd11993564376f3aa92271f5c7a3"
   end
 
   resource "wcwidth" do
@@ -93,8 +93,8 @@ class Commitizen < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/2e/64/925f213fdcbb9baeb1530449ac71a4d57fc361c053d06bf78d0c5c7cd80c/wrapt-2.1.2.tar.gz"
-    sha256 "3996a67eecc2c68fd47b4e3c564405a5777367adfd9b8abb58387b63ee83b21e"
+    url "https://files.pythonhosted.org/packages/2d/9f/06263fcd8ad6c405f05a3905fd7a84dd3176eb5ad46e44bccc0cd16348bb/wrapt-2.2.1.tar.gz"
+    sha256 "6744f504375775d7609c82c8d3d94af1c9a6f05586984536905908ba905277b9"
   end
 
   def install

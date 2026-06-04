@@ -1,18 +1,19 @@
 class Atuin < Formula
   desc "Improved shell history for zsh, bash, fish and nushell"
   homepage "https://atuin.sh/"
-  url "https://github.com/atuinsh/atuin/releases/download/v18.16.0/source.tar.gz"
-  sha256 "f29f4a6390b7d8025ff7ab4baba60c264c124ee9f307bb1e0b28355c637db860"
+  url "https://github.com/atuinsh/atuin/releases/download/v18.16.1/source.tar.gz"
+  sha256 "aec5c91207f080becc4b13593d5b7edc46685e8d4dbfbaef33d31f8058191bc6"
   license "MIT"
   head "https://github.com/atuinsh/atuin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "713466c194f5e9801aca93c12b1ec3f19969c900d20ea04b9846f44c8b179476"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7c2c960d8ce150aee414136aac9f9011cd953b99f174cc663eb3c40f67b15606"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "69a25c63dc5d6dbe2ddbcc4f4029b197eb63e33b02b50ab0b8ccb2cb3e03ca91"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ab8b69207cc14e46804e894aecc683f725905d76f056de4d12f180cf58fa2ad"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "096f5b22e04317752e8318f07960be6f9c32ac2701a2990b1a8804d06dce510e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7c1f53b1350fd47d5bae447f059857dc24b757a71ac25c098009d74ed344216"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c0a9028714c42a158eedafd0e3c616f1e6df335f5e2fe3d4796006d8996d5db"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aabe5a89f5f07effa9b1d93087469c60e3630bbb1f1eef4b4f3e8e63b8c1790b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "409a9e05765cda4f7271eaaa7833afb7d5ad55b71badac5b6459aa78cb85ee0e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ebb8239444b8ce96d114812593e5781d141406097b8348bcf0d5b5ab11619fd0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5edbd418eb0f9d32dedfa1c737e8e66487dd2bc81f02d31d27a807070dc6c7af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "51817c931148502c0ba47dbdb24359642c402c5d1697765a482489a5eb8955d6"
   end
 
   depends_on "protobuf" => :build
@@ -26,7 +27,7 @@ class Atuin < Formula
   end
 
   service do
-    run [opt_bin/"atuin", "daemon"]
+    run [opt_bin/"atuin", "daemon", "start"]
     keep_alive true
     log_path var/"log/atuin.log"
     error_log_path var/"log/atuin.log"

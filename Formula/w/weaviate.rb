@@ -1,8 +1,8 @@
 class Weaviate < Formula
   desc "Open-source vector database that stores both objects and vectors"
   homepage "https://weaviate.io/developers/weaviate/"
-  url "https://github.com/weaviate/weaviate/archive/refs/tags/v1.37.2.tar.gz"
-  sha256 "067f55e91e10b0ab6dfde8710caf9c09dcea5bdec0344ab0d20bf0887ac6f8d7"
+  url "https://github.com/weaviate/weaviate/archive/refs/tags/v1.37.7.tar.gz"
+  sha256 "9ce9bacd602c89f3e9c8f66fbf38500d7a693c29118f6605742976011778e29e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Weaviate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e5461dc578e1acd4069311382377dbc49d7b1caad0b16f73313de98b1a782df1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e5461dc578e1acd4069311382377dbc49d7b1caad0b16f73313de98b1a782df1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e5461dc578e1acd4069311382377dbc49d7b1caad0b16f73313de98b1a782df1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "8ca32ae05912d7bf96d9b840b8daf42f834343289d96595657a5eb6638a0bf4e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "19874f46d654ae4fdd49ff596dfde3ccfc65156ef17e58f6ff35563af24371d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3464c2cfa9e3c4f0adfc66f24ce4ccf9d7e533e81314b1b28a06d132dcbcf73"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a302e0f9c2e97bb1a05aa87db45b660086faf2f36af8904922298d2ec0a2778f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a302e0f9c2e97bb1a05aa87db45b660086faf2f36af8904922298d2ec0a2778f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a302e0f9c2e97bb1a05aa87db45b660086faf2f36af8904922298d2ec0a2778f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "930bf830d2500d248e461a800ddd683a07e209194f0a8df573dee49306345dc6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "64a91b506debdc3fc74415726207fb508094dc4a35a8dda026f0459b7e6bfc12"
+    sha256 cellar: :any,                 x86_64_linux:  "4c07de6c955623b55346c6aab13269c50ed47b50791c889c9eea2e5ec6a575a1"
   end
 
   depends_on "go" => :build

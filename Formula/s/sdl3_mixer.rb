@@ -1,8 +1,8 @@
 class Sdl3Mixer < Formula
   desc "Sample multi-channel audio mixer library"
   homepage "https://github.com/libsdl-org/SDL_mixer"
-  url "https://github.com/libsdl-org/SDL_mixer/releases/download/release-3.2.0/SDL3_mixer-3.2.0.tar.gz"
-  sha256 "1f86fae7226d58f2ad210ca4d9e06488db722230032803423d83bad6d35fc395"
+  url "https://github.com/libsdl-org/SDL_mixer/releases/download/release-3.2.4/SDL3_mixer-3.2.4.tar.gz"
+  sha256 "182a07c745375e113dc740d43964ff21b0be29f29f59876c4dbc4db3d32f6901"
   license "Zlib"
   head "https://github.com/libsdl-org/SDL_mixer.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Sdl3Mixer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "40386376f65c2f80aa65dec1f95af9f0fcd55ad646218df600b686a4001db6b8"
-    sha256 cellar: :any,                 arm64_sequoia: "099f6100d09f996c4d54f798cf199962b97bc4c0f123b2e78cdbbc7afdf02bfc"
-    sha256 cellar: :any,                 arm64_sonoma:  "6adfa053dda12cddf303f134a053f2756ee6840c05160bf62fc5f83d92213b52"
-    sha256 cellar: :any,                 sonoma:        "71dcfbb95c0bc67acc53260e88f8833547a7f631eaf8e8c80970456f77e62b21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "926eb9a8c8410348e9281ebb85805a736ec8992a3c63b04bf1538ab82598b306"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdb57e94cada153ef7c2069793a292c42e162b2c5ce0586a9313b325a37809db"
+    sha256 cellar: :any, arm64_tahoe:   "1ef6a957df04b6548af733489c732b70e084004b01d2d4694a3a64107c83a05e"
+    sha256 cellar: :any, arm64_sequoia: "1e5166b7f478f5ecd11440db850c654cfd530d92297b95bdf62d3ea5f629bf8e"
+    sha256 cellar: :any, arm64_sonoma:  "07ee48701fe1dbe1b97a184707f1f934687db8491f115bf50f09fdee445f7c5b"
+    sha256 cellar: :any, sonoma:        "afa9f5f9b0d1fffc3f2646cb96b0dd775e8aec5bc2ad5f0fdd11d83a8178a29b"
+    sha256 cellar: :any, arm64_linux:   "b03314551f619a0c94fa635d2e24581a009b16d6f239703c6015bb5d72a0a679"
+    sha256 cellar: :any, x86_64_linux:  "8f757d6e85692cad2e9eea61fabea45d12f487cdf6a62688b47c7a1bf19b7e6d"
   end
 
   depends_on "cmake" => :build

@@ -6,15 +6,16 @@ class CheckJsonschema < Formula
   url "https://files.pythonhosted.org/packages/c7/b5/2f4b66ac68e5dcf999f2df7d7d72d474b8f9d17ddd1ae2159ba81c55652a/check_jsonschema-0.37.2.tar.gz"
   sha256 "2977f31ebbd3e4eb37325057b83b56c0041b2b520e12818ec84da1f6c7c60363"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/python-jsonschema/check-jsonschema.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "0167b25caca49db8e9a1c0a838851ca6f22f11d6d69987b26c9dfc7c4b3e6d1b"
-    sha256 cellar: :any,                 arm64_sequoia: "f8b7aeeddf7394aec1ee0d93054406a95188c2bfbf0b44c5d86e72b2a9e58ffd"
-    sha256 cellar: :any,                 arm64_sonoma:  "0c9b8f22ef6eeab25a233fa73e9bbfaee6044806ea95f2a7d2a172591f59a432"
-    sha256 cellar: :any,                 sonoma:        "d2f584962b07dcbf55dc0bd0866faeb78196d8641147e8aeb60b8e1c1a3fc56b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a09b1021e8f3a34e431f6280388c22d4f488ee57f4546cdd2da876b5ad72d4f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c7c8021b657441de5f84a6e2f5b476fa65c10e583570e13c83f69ef966b8e30"
+    sha256 cellar: :any,                 arm64_tahoe:   "12dd85f3c5ada3dd9230b2022e266485532a450e6f70d72dce962962383457ed"
+    sha256 cellar: :any,                 arm64_sequoia: "c08a7a64079070847a1e4c6bc86ba01b34455d8e4344e13c05e23942926ccfd0"
+    sha256 cellar: :any,                 arm64_sonoma:  "a1d2b12e232c0c8442718947779875405428165b03186b8eaf8b764c6b961bae"
+    sha256 cellar: :any,                 sonoma:        "022897ee92f4d09292a74d1d3fba9fa548dcc6968143ad87cd2d13838f3d1958"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "9aa03b85a17e654a47d4e5708d378f04bd7024d8ca6a8397ec3e7990ed5ab7cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f1d64eba390ed25aebfdc7aa42ed8bc394cda362a060f645c516dc4a877f935"
   end
 
   depends_on "rust" => :build # for regress
@@ -42,8 +43,8 @@ class CheckJsonschema < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
+    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
   end
 
   resource "fqdn" do
@@ -52,8 +53,8 @@ class CheckJsonschema < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
-    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
   end
 
   resource "isoduration" do
@@ -92,8 +93,8 @@ class CheckJsonschema < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "rfc3339-validator" do
@@ -127,8 +128,8 @@ class CheckJsonschema < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "webcolors" do

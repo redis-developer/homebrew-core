@@ -6,15 +6,16 @@ class Glances < Formula
   url "https://files.pythonhosted.org/packages/8a/c1/8801d7646a0fd0eea9b1afa047013b6887f29260fd5886b23d15df52c782/glances-4.5.4.tar.gz"
   sha256 "c7fca4ff414d6a2e177fdc5998b982da8bbe8e77168ef0471d4d8f4b6d47b025"
   license "LGPL-3.0-or-later"
+  revision 3
   head "https://github.com/nicolargo/glances.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "d6a4c4d3811cc409ead88d0b0884eb6bd2395740a745c3dbd16a7e180f87c4d0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4f6a5209df60da388bc8bdc0e17620c1a4b5f9940aac5cf16eaed3e0bd068faf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bd84395e197ea1bbefaf5a0bbddbf1d8b1ef1d297381184ac123db90415db80"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9315f5d66a95b9d631aa7ae215c18c88228123ee148831cd0d27fccb9501a73b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cf371a3c590c2b09d6cd24fa5781f00e5d5ac4c1a9a9a8b335ea403357859479"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbc2f1ece860f0d84c96427c19920b8900485d9a80c9c7d8a63f0060430c7ee7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f2e23d28cd1bdc5ee815d5103c84fcd68360d932bb5a922952fc6cb6bf280a7d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ea9ec4f4d89bc009d6508310a0f0225c9bf2f24998dbfb8bbccda4f2e97a7f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1e55d6779fde7ab242fccaa467b659cde2a130f2f9676c3dc7bb8b25a09ecff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bcd891b667e6c3ff7a928c761cfbbf5eea6aa09043833d5d58aa178e31532ab5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cb372b69a44b195c54da08aeeca589f0d63f23fc90d2d313b9d6c15baba0309"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "670dfc6c8e47f419466dda3355ebb11ace47ee7072fb78949baed40068b7a90d"
   end
 
   depends_on "rust" => :build # for annotated-docs
@@ -43,8 +44,8 @@ class Glances < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "defusedxml" do
@@ -63,8 +64,8 @@ class Glances < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/4e/d9/e66315807e41e69e7f6a1b42a162dada2f249c5f06ad3f1a95f84ab336ef/fastapi-0.136.0.tar.gz"
-    sha256 "cf08e067cc66e106e102d9ba659463abfac245200752f8a5b7b1e813de4ff73e"
+    url "https://files.pythonhosted.org/packages/5d/45/c130091c2dfa061bbfe3150f2a5091ef1adf149f2a8d2ae769ecaf6e99a2/fastapi-0.136.1.tar.gz"
+    sha256 "7af665ad7acfa0a3baf8983d393b6b471b9da10ede59c60045f49fbc89a0fa7f"
   end
 
   resource "h11" do
@@ -73,8 +74,8 @@ class Glances < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/1a/88/bcf9709822fe69d02c2a6a77956c98ce6ea8ca8767a9aadcedc7eb6a2390/idna-3.16.tar.gz"
+    sha256 "d7a6da03db833450fca25d2358ac9ff06cd624577a4aea3a596d5c0f77b8e03d"
   end
 
   resource "jinja2" do
@@ -88,8 +89,8 @@ class Glances < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/de/0d2b39fb4af88a0258f3bac87dfcbb48e73fbdea4a2ed0e2213f9a4c2f9a/packaging-26.1.tar.gz"
-    sha256 "f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "podman" do
@@ -128,8 +129,8 @@ class Glances < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "requests-toolbelt" do
@@ -153,18 +154,18 @@ class Glances < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/81/69/17425771797c36cded50b7fe44e850315d039f28b15901ab44839e70b593/starlette-1.0.0.tar.gz"
-    sha256 "6a4beaf1f81bb472fd19ea9b918b50dc3a77a6f2e190a12954b25e6ed5eea149"
+    url "https://files.pythonhosted.org/packages/08/a3/84e821cc54b4ab50ae6dbc6ac3800a651b65ec35f045cc73785380654057/starlette-1.0.1.tar.gz"
+    sha256 "512399c5f1de7fac99c88572212ded9ddeddef2fb32afa82d724000e88b38f4f"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/5e/da/6eee1ff8b6cbeed47eeb5229749168e81eb4b7b999a1a15a7176e51410c9/uvicorn-0.44.0.tar.gz"
-    sha256 "6c942071b68f07e178264b9152f1f16dfac5da85880c4ce06366a96d70d4f31e"
+    url "https://files.pythonhosted.org/packages/f6/b1/8e7077a8641086aea449e1b5752a570f1b5906c64e0a33cd6d93b63a066b/uvicorn-0.47.0.tar.gz"
+    sha256 "7c9a0ea1a9414106bbab7324609c162d8fa0cdcdcb703060987269d77c7bb533"
   end
 
   resource "ws4py" do

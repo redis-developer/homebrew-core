@@ -1,19 +1,19 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.05.04.00.tar.gz"
-  sha256 "3eda2852781edf9ba6e9361f2de51633d1754f75f902cb4b49f483ebb403a8a5"
+  url "https://github.com/facebook/wangle/archive/refs/tags/v2026.06.01.00.tar.gz"
+  sha256 "6bcb27e9f14dce4d1ea31f696bce9fab85850275fc7cc54ebe8636daab54b532"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/facebook/wangle.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "97f463063bcc7fbbd9ccedff57010252e163b6944fdd3c15c3829098f64ec853"
-    sha256 cellar: :any,                 arm64_sequoia: "2b3b77d29c4a72079646420bb9ce8fefa1c1e578dd27d06a45c8ccb4c8a727f5"
-    sha256 cellar: :any,                 arm64_sonoma:  "658b94366ae6e907091f954b2516a5e219b96c75e2a2477647604b977650663b"
-    sha256 cellar: :any,                 sonoma:        "e06787486fd3794bb4370ceba959a69be6354317c4063f100f87837d2a073f9b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "000ddbff214dba2db0773f52c1f7a17774d113a7ce01ea274e7b1c4d8844fa82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe7589462950a6ae1697ef8e9be44411a63a824ee7e6b6a4f44487e4c14b3723"
+    sha256 cellar: :any, arm64_tahoe:   "81fdb088dc6db1a74d54517180e046939b25e1e02aa990bd765c5bc8a541c905"
+    sha256 cellar: :any, arm64_sequoia: "21f62fd723f99865ad512eea4b365f9288bc1eedcc2a785f19f5a6464cfac816"
+    sha256 cellar: :any, arm64_sonoma:  "14adddad856f2cf23b484b937d88e1bf98923105e7db00bd71af079f3d0ef8e2"
+    sha256 cellar: :any, sonoma:        "4873fc45861b59536779bd29b6e308bd8c7ffded1fd749cbd8d681691820ebbe"
+    sha256 cellar: :any, arm64_linux:   "756012867b5a821c3c49125e4bd7304adf713e8b1261ec904b19d1c75576454d"
+    sha256 cellar: :any, x86_64_linux:  "7a87aebea0e0e7fa8e0342f02caef9e721ecd81435be17e8c2bb12a39f7d6653"
   end
 
   depends_on "cmake" => [:build, :test]

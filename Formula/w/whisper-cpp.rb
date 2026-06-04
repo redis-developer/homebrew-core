@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.8.4.tar.gz"
-  sha256 "b26f30e52c095ccb75da40b168437736605eb280de57381887bf9e2b65f31e66"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.8.6.tar.gz"
+  sha256 "f8e632016ceae556f3132a16c7f704be1e7715595041f474fa81a2b64c1abf7c"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
@@ -13,12 +13,12 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fca60c843fa6658257b7a7664eb7d47b84ddb5439e76ffc3c2d9aaf3c58c1c83"
-    sha256 cellar: :any,                 arm64_sequoia: "d794efe84571c76ef12c49c09298c3607034957b71c521eacc1cd31f63321ce3"
-    sha256 cellar: :any,                 arm64_sonoma:  "188da204b568997bb9d9536a7059c85de3225bcdba14a0cd57042c4fc750d3a4"
-    sha256 cellar: :any,                 sonoma:        "e0a6d4f8cb3e1fb7a31185c31fef44741e068af4632b46226c1a4a0f545b3e86"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "e42db9f12aa9c39d0238717f29d568464b10ae6fbcca6c0a03d3a7d6760be9aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1932e53d5a3c28174411c00939d2c74e3c328a07b8e62b75b3e90053b114629"
+    sha256 cellar: :any, arm64_tahoe:   "b428e507b91af7e6a787126c7eb6907e5631df3cd91a8c39a85c0609cfbca064"
+    sha256 cellar: :any, arm64_sequoia: "0d7906b1b1b2ce055449a0baf59c3c2e65e54815d1185628412970a9b9f38fb2"
+    sha256 cellar: :any, arm64_sonoma:  "80847178e436feead3a3a767d73d9154b75843e9f7e2269cd3cd452834f66084"
+    sha256 cellar: :any, sonoma:        "6287b9afef7f020d4072441f328d00d4f31c07c79dd16d8b18d7a6489829a687"
+    sha256 cellar: :any, arm64_linux:   "67f5ac4b9404c606a42d58ae4eeee4b4af751bcae4c9927ae36b62a1395043c5"
+    sha256 cellar: :any, x86_64_linux:  "7c50a5dc071efbc3bb725c141fe4ac1539833958f2cbe02f779ced44bac8d3aa"
   end
 
   depends_on "cmake" => :build

@@ -1,9 +1,9 @@
 class Glassfish < Formula
   desc "Java EE application server"
   homepage "https://glassfish.org/"
-  url "https://download.eclipse.org/ee4j/glassfish/glassfish-8.0.1.zip"
-  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/8.0.1/glassfish-8.0.1.zip"
-  sha256 "d308659da401ebd59b6b5e43ce760b0cb37622655a765a66bcb9d2ed0c213a75"
+  url "https://download.eclipse.org/ee4j/glassfish/glassfish-8.0.2.zip"
+  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/8.0.2/glassfish-8.0.2.zip"
+  sha256 "14da58fc0372d9c52d30f5051bd17c98e3537b6aef9a191b5b11f9023f31812f"
   license "EPL-2.0"
 
   livecheck do
@@ -12,10 +12,11 @@ class Glassfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5b43ae892b1fa5ccd3ac98276a7c5788e9b1dfdade6cd918af24526811c4b643"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "d475ba3a6ccbd9d6fcbda40526b605faa4125ea27092cf3e1850c5939e99fdea"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@25"
 
   conflicts_with "payara", because: "both install the same scripts"
 
@@ -50,11 +51,15 @@ class Glassfish < Formula
     cp_r libexec/"glassfish/domains", testpath
     inreplace testpath/"domains/domain1/config/domain.xml", "port=\"4848\"", "port=\"#{port}\""
 
-    spawn bin/"asadmin", "start-domain", "--domaindir=#{testpath}/domains", "domain1"
+    pid = spawn bin/"asadmin", "start-domain", "--domaindir=#{testpath}/domains", "domain1"
 
     output = shell_output("curl --silent --retry 5 --retry-connrefused -X GET localhost:#{port}")
     assert_match "GlassFish Server", output
 
     assert_match version.to_s, shell_output("#{bin}/asadmin version")
+  ensure
+    system bin/"asadmin", "stop-domain", "--domaindir=#{testpath}/domains", "domain1"
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

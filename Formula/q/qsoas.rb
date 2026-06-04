@@ -4,7 +4,7 @@ class Qsoas < Formula
   url "https://bip.cnrs.fr/wp-content/uploads/qsoas/qsoas-3.3.tar.gz"
   mirror "https://web.archive.org/web/20250919084255/https://bip.cnrs.fr/wp-content/uploads/qsoas/qsoas-3.3.tar.gz"
   sha256 "c5a701dfed23c682892479b43b92aac79a7db5ceb9ed6b6cd0a41129d2690492"
-  license "GPL-2.0-only"
+  license "GPL-2.0-or-later"
   revision 1
 
   # The upstream server has an incomplete certificate chain, producing a
@@ -33,6 +33,7 @@ class Qsoas < Formula
 
   # Can undeprecate if new release with Qt 6 support is available.
   deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
+  disable! date: "2027-05-19", because: "needs end-of-life Qt 5"
 
   depends_on "bison" => :build
   depends_on "gsl"

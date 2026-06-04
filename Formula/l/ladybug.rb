@@ -1,17 +1,17 @@
 class Ladybug < Formula
   desc "Embedded graph database built for query speed and scalability"
   homepage "https://ladybugdb.com/"
-  url "https://github.com/LadybugDB/ladybug/archive/refs/tags/v0.16.1.tar.gz"
-  sha256 "c22417b46b895df7c25f8314cab27bc1afbf1a43b06463a023c98eac5ffe16c3"
+  url "https://github.com/LadybugDB/ladybug/archive/refs/tags/v0.17.1.tar.gz"
+  sha256 "fcd790936fe83650f6579c741fe79ce295604bbcab905fa389fdc778da83377f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bff0dd421557c382367c5e92603052f13aa3677a2a8b94b80854662aa7782dfd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bc12007816382652304cb6b10690bca1494e87933465768c25c4d5ac6a7f95bc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "76e87607ee1f1096f6d9aff58ed7964e75f81f11a8c10397609a49ad8720d7be"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c40a555a7a30a9075869e92a31f0bbc199fb2684d4ef0cb062f6029483d86e00"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8deea46d03d4ee1413c717e23e57c1519316c45e1542da84d6dc2cba77af275b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a004bcd8abb8c8be44a6bd4caf6bb5007f4664bcd581c3256af1d3b4dbf68c2a"
+    sha256 cellar: :any, arm64_tahoe:   "0a9eea76de542cce842fa6234ed230bf12fdccdd5efc21dcc8fa2944a57539b6"
+    sha256 cellar: :any, arm64_sequoia: "6252631fd50cc3539db37cfa0d10a70e2d00c5b4037d70220b89d69223a057ac"
+    sha256 cellar: :any, arm64_sonoma:  "86bfc7e7f06b1be2bbf27bb1087550594d82d107b98cd2f276f05d81a3c06ec9"
+    sha256 cellar: :any, sonoma:        "25f4e69cd6b3dd501aa51026f94fa5607a4df38239c4e8f5e8c093c69f140dd5"
+    sha256 cellar: :any, arm64_linux:   "5adff10770cc354fcf62426488a27f02c25e822fdb40d3ff43d5801dee33753d"
+    sha256 cellar: :any, x86_64_linux:  "c180516b2f37ead1d521cc68e538ff4fab5960d0b77d7430af8732ca225ceef6"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,10 @@ class Ladybug < Formula
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
-    bin.install "build/tools/shell/lbug"
+    system "cmake", "--install", "build"
+
+    # Remove unwanted headers and libraries for `cppjieba`
+    rm_r Dir["{#{include},#{share}}/cppjieba/*"]
   end
 
   test do

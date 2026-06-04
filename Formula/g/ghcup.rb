@@ -2,8 +2,8 @@ class Ghcup < Formula
   desc "Installer for the general purpose language Haskell"
   homepage "https://www.haskell.org/ghcup/"
   # There is a tarball at Hackage, but that doesn't include the shell completions.
-  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.1.50.2.tar.gz"
-  sha256 "ba2a2ef799fa7810970e09b19a7fdd7b2360ddd64d8e9b0624ab640cca627b89"
+  url "https://github.com/haskell/ghcup-hs/archive/refs/tags/v0.2.5.0.tar.gz"
+  sha256 "e6fbf2a58f9e0ba64fd5565ae8b25eaf3ac8f2f745fea6c295661d2c94f78e75"
   license "LGPL-3.0-only"
   head "https://github.com/haskell/ghcup-hs.git", branch: "master"
 
@@ -14,13 +14,12 @@ class Ghcup < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "811917322d97837106d12170b91163432ae7c85aa638d1d96f029f9dec0cbb0e"
-    sha256 cellar: :any,                 arm64_sequoia: "ec991d6ddea9fbcb3c419543dfccaab1bb6d1d0902ba195f1e42f1a37241ee0a"
-    sha256 cellar: :any,                 arm64_sonoma:  "78dc9e2eaaf35e85f6d5a11a3bf1ea93bdc7288f614bb81eeafb162942eeebbb"
-    sha256 cellar: :any,                 sonoma:        "198abd421c4cc7e9aaa9274920e01306f42d98946ac6c87266a810048eb542db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "515f3d49492075a8d3d9c54442061f468485701be58045c3e2f19da055e10a43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cf4e303d7c63d8dc7094cb14558d753ca914f5b71515b26dae21a4c20004df3"
+    sha256 cellar: :any,                 arm64_tahoe:   "7be847690dafdbdd7f359ebc8dcfd1d618e20817df5d07c1e025d4402337f1c0"
+    sha256 cellar: :any,                 arm64_sequoia: "f21a07d76be73053df13e1472e82137bbb6e58d6a6cb45566bfd67d6bc1e7fff"
+    sha256 cellar: :any,                 arm64_sonoma:  "6bd39fbf526061c564ef066ec4bfd9ab1ed5869a260b84f6e73a489f1675eb44"
+    sha256 cellar: :any,                 sonoma:        "e7c6b45a068c53aa82c79f629f5d97138a0ecaa79ddb33f8438db034ab836f04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "92ac6ac50d4b833dbb5c08a9b06872bea607a554b244fa0b365f170f09494525"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0318897592726c2d2f150edc486a98ecc3a02e359cb5b0fbcc67f4454389691a"
   end
 
   depends_on "cabal-install" => :build

@@ -3,17 +3,17 @@ class Barman < Formula
 
   desc "Backup and Recovery Manager for PostgreSQL"
   homepage "https://www.pgbarman.org/"
-  url "https://github.com/EnterpriseDB/barman/releases/download/release%2F3.18.0/barman-3.18.0.tar.gz"
-  sha256 "8e752ac93d2f3a61e86b8374185209cae477a638ece7e6f540070f36d28d6997"
+  url "https://github.com/EnterpriseDB/barman/releases/download/release%2F3.19.1/barman-3.19.1.tar.gz"
+  sha256 "2f71c4a1f1ba53f694cbdf838bb9906d8ba02b97d1fd3041196e8999bec7a1ee"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "cbf037220fca3b11693a2e177c7153a51a1bc3a6c6b544982e19d5dfb87ec318"
-    sha256 cellar: :any,                 arm64_sequoia: "658323a578c91207d8d45366c5e6842dd1005c23548393938066cfb433ae302a"
-    sha256 cellar: :any,                 arm64_sonoma:  "5b77eabb82079812bc51c5bff8c6fe8faaa445c904d2c2f2927c5e16c49922c4"
-    sha256 cellar: :any,                 sonoma:        "ddd07eeaa1f099155176ce6715937a9fb68ab3d8eb1cdc25f2f849b0781bbc59"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8612bd10ce6dea6dd2725ee5a920b8d866290d6649fb8eaad4e7c2e790a7f02d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "23bb43cba5f2d7a2c9aff2df01e0d2392163c3cd4a004ee4c752f65433c296eb"
+    sha256 cellar: :any,                 arm64_tahoe:   "238fae0eaf5353ff5ce5d49a915678ddcf54fe746c6bc9e2aaa35a919bdf1d16"
+    sha256 cellar: :any,                 arm64_sequoia: "bf705af8b0e6dd0d627c7a5a96a49144434d6a6909b562dbb389bb6441aa6997"
+    sha256 cellar: :any,                 arm64_sonoma:  "434ba26147d2d248c4b9af59ca05ad145911b5364b4257b0bba7c8834833087f"
+    sha256 cellar: :any,                 sonoma:        "0e3b71ce18a1c8e4f8dbed22fc824939cd9067bca186f68cba8c7b051536ea08"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "208680e61edf927fe9bb46430653b5fbfb9a7a2093c63462e08e3718b1c3a377"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f5011eb88f1b8b29e54acd4926426939cea609a95da5c3b0b20f81736c542ed"
   end
 
   depends_on "libpq"

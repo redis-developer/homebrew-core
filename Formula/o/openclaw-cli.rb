@@ -1,17 +1,17 @@
 class OpenclawCli < Formula
   desc "Your own personal AI assistant"
   homepage "https://openclaw.ai/"
-  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.5.2.tgz"
-  sha256 "f0efe516eb29ac04d07985d974061f381b1ff0374ba3cfb0caf15209bbfea130"
+  url "https://registry.npmjs.org/openclaw/-/openclaw-2026.5.28.tgz"
+  sha256 "2f67aa242bfdd58fd1bcd3fea46df12531fb34b3c6987d98982b2020d0e4f905"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "4d8d678ceca7f9822a54c66f2f2ef9617226592f682b5703fbf2845ef6559647"
-    sha256 cellar: :any,                 arm64_sequoia: "0d0e782a43f84b0d8a153e3307d2fce55da854891449038fa03f9b6048ca75d2"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d0e782a43f84b0d8a153e3307d2fce55da854891449038fa03f9b6048ca75d2"
-    sha256 cellar: :any,                 sonoma:        "3a49b650758a8bac7c78743c5f77dedb29125b5fb1592c1867efda2bf8572cb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "233a7f793771cc282095ec4de81f1b53444432dd26b39b43cd9f86e22ea0f38f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6319255a314df364460b8c7f93ff37a0ededef6d9d09c9d2ea611685e07dbb0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c68cfff7d43337220ac8b5f3ab2b583171e9002a1222ff6a8bb934f728a03808"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c68cfff7d43337220ac8b5f3ab2b583171e9002a1222ff6a8bb934f728a03808"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c68cfff7d43337220ac8b5f3ab2b583171e9002a1222ff6a8bb934f728a03808"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af1dcf66a7b227f0b916eaebd287d7535f412cf62a40d661debb9ed7f65e6c67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2b6ba047a49b52fc31bff2c2af766c9abc6abceb727c4ab45255b93e0c7c1e95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "953e55da72fd3e21f1121ee946bd8ec6888f9b032270ffb7bd63e8dd8f70636e"
   end
 
   depends_on "node"
@@ -21,28 +21,37 @@ class OpenclawCli < Formula
     bin.install_symlink libexec.glob("bin/*")
 
     node_modules = libexec/"lib/node_modules/openclaw/node_modules/"
-    deuniversalize_machos node_modules/"@mariozechner/clipboard-darwin-universal/clipboard.darwin-universal.node"
 
     # sqlite-vec falls back cleanly when the native extension is unavailable.
     # Remove macOS pre-built dylibs that fail Homebrew bottle linkage fixups.
     node_modules.glob("sqlite-vec-darwin-*").each { |dir| rm_r(dir) } if OS.mac?
 
-    # Remove incompatible pre-built @node-llama-cpp binaries (non-native
-    # architectures and GPU variants requiring CUDA/Vulkan)
+    # Remove incompatible pre-built binaries (non-native architectures
+    # and GPU variants requiring CUDA/Vulkan)
     arch = Hardware::CPU.arm? ? "arm64" : "x64"
-    llama_target = "#{OS.linux? ? "linux" : "mac"}-#{arch}"
+    target = "#{OS.linux? ? "linux" : "mac"}-#{arch}"
+
+    node_modules.glob("tree-sitter-bash/prebuilds/*").each do |dir|
+      rm_r(dir) if dir.basename.to_s != target
+    end
+
     node_modules.glob("@node-llama-cpp/*").each do |dir|
       basename = dir.basename.to_s
-      next if basename.start_with?(llama_target) &&
+      next if basename.start_with?(target) &&
               basename.exclude?("cuda") &&
               basename.exclude?("vulkan")
 
       rm_r(dir)
     end
 
-    koffi_target = "#{OS.kernel_name.downcase}_#{arch}"
+    os = OS.kernel_name.downcase
+    node_modules.glob("@earendil-works/pi-tui/native/**/prebuilds/*").each do |dir|
+      basename = dir.basename.to_s
+      rm_r(dir) if basename != "#{os}-#{arch}"
+    end
+
     node_modules.glob("koffi/build/koffi/*").each do |dir|
-      rm_r(dir) if dir.basename.to_s != koffi_target
+      rm_r(dir) if dir.basename.to_s != "#{os}_#{arch}"
     end
   end
 

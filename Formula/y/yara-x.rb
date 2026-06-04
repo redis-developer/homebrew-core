@@ -1,8 +1,8 @@
 class YaraX < Formula
   desc "Tool to do pattern matching for malware research"
   homepage "https://virustotal.github.io/yara-x/"
-  url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v1.15.0.tar.gz"
-  sha256 "c335bbf41f483b4bbaf12b5c573055ba8ae5d4747357e1451ae5e656bc95f672"
+  url "https://github.com/VirusTotal/yara-x/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "dbcc6509bbb816231a1509017005a690cc726f6344f6876c9795ac9396f5d2b2"
   license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara-x.git", branch: "main"
 
@@ -12,12 +12,12 @@ class YaraX < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "2e7adeb21ffde1514d2180df99ab8c800962bce1ebc8c4e1b010d8d7e37bf701"
-    sha256 cellar: :any,                 arm64_sequoia: "625b6f8f9f24278b2b540568d65214cdac97550451d52296fbb1ae4017672b4d"
-    sha256 cellar: :any,                 arm64_sonoma:  "2992e948c6544eba3619d241fe32b2facfd642ff385c7abc7dc26484911d3943"
-    sha256 cellar: :any,                 sonoma:        "fc08da36e777bee99891547722ade8511d105b202438f80531d0ae2dc2b8094c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f2c49acb4b5f0b73da835afe4782c5a4b0605c75779dba421e2cc5b2fbee67b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "080dbb0606df0ebb30526bc544e00e722500a1586df5e12bfe46acbe41484889"
+    sha256 cellar: :any,                 arm64_tahoe:   "59e164a380852ea6acd130ff44f63c2ebe23f471b395f0024da92a38930a6377"
+    sha256 cellar: :any,                 arm64_sequoia: "5091985ef012e3ce1407cd7a09a21ce0515a8cfe966eae05cd389970962fb8e4"
+    sha256 cellar: :any,                 arm64_sonoma:  "c1a9eb9aa6a9b1729f26f24e6f67a65ecceb531b8b61ea12cf89bc56e737cd6b"
+    sha256 cellar: :any,                 sonoma:        "fb29eb46466f452e7ba0de3a85540e0d5ecccb44fe0e62bc6c569017c9b074fa"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5abd37f975a6e8c76ef6da5feca8b59b06c353e511c2cf1dfa8c45fec54074ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5948668cfe2556d5d967850b8acbe235e314726c46963e0ef95f3736cea35070"
   end
 
   depends_on "cargo-c" => :build

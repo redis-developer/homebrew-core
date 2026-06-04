@@ -29,8 +29,10 @@ on:
 env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_SANDBOX_LINUX: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_SORBET_RECURSIVE: 1
   HOMEBREW_NO_BUILD_ERROR_ISSUES: 1
   RUN_URL: ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}
   DISPATCH_BUILD_BOTTLE_SENDER: ${{ github.event.sender.login }}

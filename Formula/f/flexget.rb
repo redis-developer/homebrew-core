@@ -3,17 +3,17 @@ class Flexget < Formula
 
   desc "Multipurpose automation tool for content"
   homepage "https://www.flexget.com"
-  url "https://files.pythonhosted.org/packages/48/f5/eeda94e5a33782e8c7ff4bb1294f6505284666815980160b3270ef25f9c2/flexget-3.19.16.tar.gz"
-  sha256 "13f07d687e5bef36785a5c55114126c7dc83882e32525f710989c3ae9251f9de"
+  url "https://files.pythonhosted.org/packages/2c/5b/6fa6f886f752e98438b41754d484b77bbcc7f616e76949529b8405f0010e/flexget-3.19.23.tar.gz"
+  sha256 "82cdfa54224653c8b342a9244f8862fb17d29d0b72a7dc602b8144343bf4a488"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "dc6fc95bd5cd72c87924f9d224606a666093e79400d80ef86301115b40c709c6"
-    sha256 cellar: :any,                 arm64_sequoia: "e7eecfdab66521127c83065fc81dd30d941ec163694ea7690ca8cccc0c84f820"
-    sha256 cellar: :any,                 arm64_sonoma:  "429f72b4480a0ab3de7eb7ad9866d71a8559702800648e444c96883c56f3a527"
-    sha256 cellar: :any,                 sonoma:        "af2aedbee576b04608ae2e690da6e72e7fd11be8ee55d58a8cfe76072be13a1a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8e73d487e72954b62e14338a71e8ced4bc304fffc3586263742082e59312f716"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "29013d2f10b0a8c345fe24e204464e3d64eae6a8b726c8bad635ed2d68980aff"
+    sha256 cellar: :any, arm64_tahoe:   "0818e76cbf9d4e115f523d6bcc23c5b5405952dd1207bb217f5bc8439c041ac9"
+    sha256 cellar: :any, arm64_sequoia: "612f147a788589b63691911613e1fadfbfc983d042e00ce87b8b468ce559d22b"
+    sha256 cellar: :any, arm64_sonoma:  "470e3b06939fa13faf599349cb4e77724e98b17002efa6aa37c72242fb832063"
+    sha256 cellar: :any, sonoma:        "5d6e99af555ee9a061bf5f5872b84b5fffa9454f3e2e4c4590bdfd73fc78aaba"
+    sha256 cellar: :any, arm64_linux:   "ffef4eb14d7c9298127fee217e7577a555a4764d895cd4b33ff7600cc0b6c663"
+    sha256 cellar: :any, x86_64_linux:  "8d3afbee904b9d3dc2124ec5ca250c0f1c7340f0b198e52953b3cb0ab7efcac5"
   end
 
   depends_on "rust" => :build
@@ -81,8 +81,8 @@ class Flexget < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "feedparser" do
@@ -116,8 +116,8 @@ class Flexget < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/3c/3f/dbf99fb14bfeb88c28f16729215478c0e265cacd6dc22270c8f31bb6892f/greenlet-3.5.0.tar.gz"
-    sha256 "d419647372241bc68e957bf38d5c1f98852155e4146bd1e4121adea81f4f01e4"
+    url "https://files.pythonhosted.org/packages/6d/6e/802acd792aebb2256fbbee8cacf2727faaeb6f240ac11008f09eae4414bc/greenlet-3.5.1.tar.gz"
+    sha256 "5a56aeb7d5d9cc4b3a735efb5095bd4b4f6f0e4f93e5ca876d0e2315137b7829"
   end
 
   resource "guessit" do
@@ -145,8 +145,8 @@ class Flexget < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
-    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
+    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
+    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
   end
 
   resource "importlib-resources" do
@@ -170,8 +170,8 @@ class Flexget < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/0f/27/056e0638a86749374d6f57d0b0db39f29509cce9313cf91bdc0ac4d91084/jaraco_functools-4.4.0.tar.gz"
-    sha256 "da21933b0417b89515562656547a77b4931f98176eb173644c0d35032a33d6bb"
+    url "https://files.pythonhosted.org/packages/36/cf/ea4ef2920830dea3f5ab2ea4da6fb67724e6dca80ee2553788c3607243d0/jaraco_functools-4.5.0.tar.gz"
+    sha256 "3bb5665ea4a020cf78a7040e89154c77edadb3ca74f366479669c5999aa70b03"
   end
 
   resource "jaraco-text" do
@@ -200,8 +200,8 @@ class Flexget < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "markupsafe" do
@@ -215,8 +215,8 @@ class Flexget < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/a2/f7/139d22fef48ac78127d18e01d80cf1be40236ae489769d17f35c3d425293/more_itertools-11.0.2.tar.gz"
-    sha256 "392a9e1e362cbc106a2457d37cabf9b36e5e12efd4ebff1654630e76597df804"
+    url "https://files.pythonhosted.org/packages/de/1d/f4da6f02cdffe04d6362210b807146a26044c88d839208aec273bb0d9184/more_itertools-11.1.0.tar.gz"
+    sha256 "48e8f4d9e7e5878571ecf6f2b4e57634f93cd474cc8cfbd2376f2d11b396e30d"
   end
 
   resource "packaging" do
@@ -285,8 +285,8 @@ class Flexget < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "rich" do
@@ -320,18 +320,18 @@ class Flexget < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/7b/ae/2d9c981590ed9999a0d91755b47fc74f74de286b0f5cee14c9269041e6c4/soupsieve-2.8.3.tar.gz"
-    sha256 "3267f1eeea4251fb42728b6dfb746edc9acaffc4a45b27e19450b676586e8349"
+    url "https://files.pythonhosted.org/packages/47/2c/0a5f6f8ee0d5589e48c7640213ed5175d52cf540a06725b628cc1a45d6ce/soupsieve-2.8.4.tar.gz"
+    sha256 "e121fd02e975c695e4e9e8774a5ee35d74714b59307868dcc5319ad2d9e3328e"
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/09/45/461788f35e0364a8da7bda51a1fe1b09762d0c32f12f63727998d85a873b/sqlalchemy-2.0.49.tar.gz"
-    sha256 "d15950a57a210e36dd4cec1aac22787e2a4d57ba9318233e2ef8b2daf9ff2d5f"
+    url "https://files.pythonhosted.org/packages/57/da/6fbf010c8ebb347679d0d100b22fe9ba5e13fd04046c5df7280d2f0bf706/sqlalchemy-2.0.50.tar.gz"
+    sha256 "af5607d11ef90fd6a5c0549fe0045dce1663d427426bcfb506dcb5346a85a3b9"
   end
 
   resource "tempora" do
-    url "https://files.pythonhosted.org/packages/24/64/a255efe5edd367d12b770b3514194efdc1c97e5ed6ce6e8105d834750dfc/tempora-5.8.1.tar.gz"
-    sha256 "abb5d9ec790cc5e4f9431778029ba3e3d9ba9bd50cb306dad824824b2b362dcd"
+    url "https://files.pythonhosted.org/packages/5a/e8/20e489ba55092e0d737dc54a5c43424a7762d38f59efce54ed86f4fc51bc/tempora-5.9.0.tar.gz"
+    sha256 "66e6ddee320c38f4b253a7d8039337424c699916451b9271e0ccce770a4e8f62"
   end
 
   resource "transmission-rpc" do
@@ -340,8 +340,8 @@ class Flexget < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/e4/51/9aed62104cea109b820bbd6c14245af756112017d309da813ef107d42e7e/typer-0.25.1.tar.gz"
-    sha256 "9616eb8853a09ffeabab1698952f33c6f29ffdbceb4eaeecf571880e8d7664cc"
+    url "https://files.pythonhosted.org/packages/eb/1a/2cf40b65b1d9c254fe5814bb0519f9b8f2ac38059df0810f9b866300c04a/typer-0.26.5.tar.gz"
+    sha256 "9b9b39e35c3afc9e1e51a06f21155246e457c0911279b09b35d8210ca74b935c"
   end
 
   resource "typer-slim" do
@@ -365,8 +365,8 @@ class Flexget < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "webencodings" do

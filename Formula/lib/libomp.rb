@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.4/llvm-project-22.1.4.src.tar.xz"
-  sha256 "3e68c90dda630c27d41d201e37b8bbf5222e39b273dec5ca880709c69e0a07d4"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.7/llvm-project-22.1.7.src.tar.xz"
+  sha256 "5cc4a3f12bba50b6bdfb4b61bdc852117a0ff2517807c3902fc13267fb93562e"
   license "MIT"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Libomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "bee4135b6f3850931d516b29a0ca7ba41520c61aba6d51be3efaf2ff68d8db56"
-    sha256 cellar: :any,                 arm64_sequoia: "3d9b92e9d440447929bc2bf11016055ede00c3ffb23cf59d322054e00197f7e5"
-    sha256 cellar: :any,                 arm64_sonoma:  "ae86e526f5561e8636b5f8ea15a91fd94dd2a3076133ca93df764a8893c51462"
-    sha256 cellar: :any,                 sonoma:        "8681247eee42bb401919c7ef2dcd569f8f51060b453a39614767ea7f769f9f7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "b6ff0af986deec7dad2ac75b033fb9d7fa6264642430fbd25f663616396e8aff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b8937e50d475338318d2a3bb6f0d31cf5ba6dc223fb05687968cff02e3e10ce2"
+    sha256 cellar: :any, arm64_tahoe:   "63bb07512b3e108f119d4f959409843e71b2bf46c6f95c7429db5bf7fe013c43"
+    sha256 cellar: :any, arm64_sequoia: "5c2a5bffae13c7215d7f89d234368a0f69c1bb83337aaca2f09ddbcaa485a609"
+    sha256 cellar: :any, arm64_sonoma:  "457e0779d42826a5fe496638cda70277142a554236123987b1ae94982c809bb8"
+    sha256 cellar: :any, sonoma:        "fdb842ee69f23ae417c71441fb90f958063dbbf105364bddec8a58dc2cd2f08d"
+    sha256 cellar: :any, arm64_linux:   "82c27b4efd83c5c144c60913373ff477cdbc2cf9c81f0bb2e25c2967a9c1a00c"
+    sha256 cellar: :any, x86_64_linux:  "336dc6e985fd8cc1fff4605f90a698bf61723d2b500f84d2ca88684cc0160e43"
   end
 
   # Ref: https://github.com/Homebrew/homebrew-core/issues/112107

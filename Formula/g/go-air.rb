@@ -1,18 +1,18 @@
 class GoAir < Formula
   desc "Live reload for Go apps"
   homepage "https://github.com/air-verse/air"
-  url "https://github.com/air-verse/air/archive/refs/tags/v1.65.1.tar.gz"
-  sha256 "1d10184b57b3fa51ae71e6f444235a0fdf883fa132ca749282c9bcc29534b249"
+  url "https://github.com/air-verse/air/archive/refs/tags/v1.65.3.tar.gz"
+  sha256 "35fde02b7cdc39cf3a53e97187e894c443dcdeb1475bc654250cbb5c22428a80"
   license "GPL-3.0-or-later"
   head "https://github.com/air-verse/air.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0b54539b3f4be771dd1ecae5542e82cb2dde0c2307457a373ae3b770a2799430"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b54539b3f4be771dd1ecae5542e82cb2dde0c2307457a373ae3b770a2799430"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b54539b3f4be771dd1ecae5542e82cb2dde0c2307457a373ae3b770a2799430"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b1dfd98530ce189874ef962c3eb492c11bd13655a2dc1833164a6ba2675e48f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "86a5986ce544e302ca52cfb9eddf2a6267d41efd61d7d829bf48769ccabe3daf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cbfcf242c29357e2d89b6c98677502499821965a0e5855d1d9fd599e10123f0e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "58c5e2c063efaba2528b8fdd2fd55e64f9ebe1d6d1bb33cda74bd52f4f858921"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "58c5e2c063efaba2528b8fdd2fd55e64f9ebe1d6d1bb33cda74bd52f4f858921"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58c5e2c063efaba2528b8fdd2fd55e64f9ebe1d6d1bb33cda74bd52f4f858921"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4c4aeafe956558b6588147375a5950b95cfd7b60b0bee2144510a81a7192410c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "7acbcdc059f3781519f626cb02ccfc296fac18c76956d098d80e289be77e70e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8021062a49ecc4953dc85f806af9618f84c9446db0c6310d9269e26534793ea"
   end
 
   depends_on "go"
