@@ -48,22 +48,22 @@ class Redis < Formula
 
   resource "redisjson" do
     url "https://github.com/redisjson/redisjson.git",
-    revision: "107144fd2c0a6b325108352bf83ed6e6f731a20f"
+    revision: "fc60ea6c1b9e20e877b57a4d2fd90894096c5ff2"
   end
 
   resource "redisbloom" do
     url "https://github.com/redisbloom/redisbloom.git",
-    revision: "60c96b3f11dcf71d4707137a3452bbb6941493dd"
+    revision: "b9b1b3db0cb5f48fa570fff9f231086d6849c280"
   end
 
   resource "redistimeseries" do
     url "https://github.com/redistimeseries/redistimeseries.git",
-    revision: "5d7c61c9f861b5cb83989463595c2c9f6b2bfe63"
+    revision: "5a980ebe656fa32dbbff618140605e203975c44a"
   end
 
   resource "redisearch" do
     url "https://github.com/redisearch/redisearch.git",
-    revision: "30204860f145da013ba042e0824df6d344aef4ce"
+    revision: "d2ae0267bb2faf542551df14005d0efdfb6fe45b"
   end
 
   def install
