@@ -73,8 +73,16 @@ class Redis < Formula
     cd "modules/redisearch/src" do
       # RediSearch has been verified to support runtime CPU detection for SIMD optimizations
       ENV.runtime_cpu_detection
+      # Homebrew's cc shim strips -Werror= but keeps -Wno-error=, so RediSearch's check_c_compiler_flag
+      # falsely detects this clang-only warning under gcc and applies a -Wno-error= flag that gcc rejects.
+      # Restrict the libuv override to clang. Not needed on macOS, which already builds with clang.
+      unless OS.mac?
+        inreplace "src/CMakeLists.txt",
+                  "if(HAS_INCOMPATIBLE_POINTER_TYPES_DISCARDS_QUALIFIERS)",
+                  'if(HAS_INCOMPATIBLE_POINTER_TYPES_DISCARDS_QUALIFIERS AND CMAKE_C_COMPILER_ID MATCHES "Clang")'
+      end
       # Build the module
-      system "gmake", "build", "OPENSSL_ROOT_DIR=#{openssl.opt_prefix}", "IGNORE_MISSING_DEPS=1"
+      system "gmake", "build", "OPENSSL_ROOT_DIR=#{openssl.opt_prefix}", "IGNORE_MISSING_DEPS=1", "LTO=0"
       lib.install Dir.glob("bin/*-release/search-community/redisearch.so").first
     end
 
