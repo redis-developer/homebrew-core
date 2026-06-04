@@ -1,17 +1,17 @@
 class VulsioGost < Formula
   desc "Local CVE tracker & notification system"
   homepage "https://github.com/vulsio/gost"
-  url "https://github.com/vulsio/gost/archive/refs/tags/v0.7.2.tar.gz"
-  sha256 "e96c8c8f29b19c3cb9b2288e91903d60074a17d0525333a7712ad03e248dd96a"
+  url "https://github.com/vulsio/gost/archive/refs/tags/v0.7.4.tar.gz"
+  sha256 "94d43fe61c111c8e54bb92ee1c3f49b70df335cc82b42f94d5552f4fb1f78294"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "813d140b549cab244bf2fa4de218034cd5066968ab0f869d64a74f934f017eaa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "813d140b549cab244bf2fa4de218034cd5066968ab0f869d64a74f934f017eaa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "813d140b549cab244bf2fa4de218034cd5066968ab0f869d64a74f934f017eaa"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e368bafbdbf01f8ca5e69331d3cf131626b5e69daa94fe43ec9944690dc067ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7be514f0ece49d3c709983bb2e04c5754f555f534e32307e56be378637c1fef6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a975a3784dd47bb8e2a5c71b9ad596c412231fb427ebf7496686ee1f8e309e4b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "659c2e3ef48fd7a5fe9ca4ce3ecaed7fea7850736775a85022f3d84714f3b753"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "659c2e3ef48fd7a5fe9ca4ce3ecaed7fea7850736775a85022f3d84714f3b753"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "659c2e3ef48fd7a5fe9ca4ce3ecaed7fea7850736775a85022f3d84714f3b753"
+    sha256 cellar: :any_skip_relocation, sonoma:        "bc70aa2dc1cff197237b3bb522eea78eb58757e6e915d90d925a5cb5844255fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c649a1be4fb30aeab9dd6b09e2dae2ce3cacfdc358befa2f4792d3e8da7a84ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b173cc152421d8aa5015adda5e467b38e00a23e2c3f0a13977a1330eb825512e"
   end
 
   depends_on "go" => :build

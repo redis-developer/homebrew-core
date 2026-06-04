@@ -6,15 +6,15 @@ class Backgroundremover < Formula
   url "https://files.pythonhosted.org/packages/f5/8d/ebc742ef2c427bfec9047096b28ed380d390a566bf294fe0772a2b044940/backgroundremover-0.4.1.tar.gz"
   sha256 "3afa098d4538f44fd0bb44f9b77b63c29716fe7860dc79a3d51053d8cba2f753"
   license "MIT"
-  revision 2
+  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a761e09f1be69f5d364c5297a9f6993c9049a163d1acf61695608a1fbbf00ac2"
-    sha256 cellar: :any,                 arm64_sequoia: "2f62fc21beb3bd7e4408db90be022c5dffa0289db2151774852b95153e0c260b"
-    sha256 cellar: :any,                 arm64_sonoma:  "b2ba9fb665b1772e6259ace7d32cefe19f8678eed9cbedc3a2f4063503e33627"
-    sha256 cellar: :any,                 sonoma:        "d7f971ade0013aa57e6c5cd00d8f2bfa025bbc4c6ecefc282358e9fe0ef7b21f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "29f24fcf6b249d041e416df92ae9aae168eea546facac9301a70d357a8bf72c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a7a1e77eb40f64b346dcc8e7f37fad75af4ad795bedb61aa857d5bd0bff0f55a"
+    sha256 cellar: :any,                 arm64_tahoe:   "92247c82af2c24d42be9d0c8b131f8655fa54fb28c20acef748701bba6d256f3"
+    sha256 cellar: :any,                 arm64_sequoia: "fea7fd39ea2ec934112a116e534a085e81112355f7d9c1c0c3df15bfa434a78e"
+    sha256 cellar: :any,                 arm64_sonoma:  "07b87c6f6957849940aac423966577dabf5ff7073fc55659d5601a60e937f44e"
+    sha256 cellar: :any,                 sonoma:        "c2e5b482562580b3a712b1f994738e17d9df3bff60453ccebdeff80829868189"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "002195e384bbb9469364d2d9d1ab9f1d0a7bd5fda3e864191ff82fe16cdc7370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef8ffd31a40163f550bca19c71a123718fc043ae4ce37a0fc49cc1925090bfbc"
   end
 
   depends_on "cmake" => :build
@@ -44,13 +44,13 @@ class Backgroundremover < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
-    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
+    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
   end
 
   resource "commandlines" do
@@ -59,8 +59,8 @@ class Backgroundremover < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/43/fa/6d96a0978d19e17b68d634497769987b16c8f4cd0a7a05048bec693caa6b/decorator-5.2.1.tar.gz"
-    sha256 "65f266143752f734b0a7cc83c46f4618af75b8c5911b00ccb61d0ac9b6da0360"
+    url "https://files.pythonhosted.org/packages/60/8b/32f9823da46cde7df2087faa08cd98d01b908f8dcab982cdba9c84e85355/decorator-5.3.1.tar.gz"
+    sha256 "4cbcdd55a6efadb9dbea26b858f4fb3264567b52d69ca0d25b721b553f60ea82"
   end
 
   resource "ffmpeg-python" do
@@ -89,8 +89,8 @@ class Backgroundremover < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
   end
 
   resource "imageio" do
@@ -109,20 +109,13 @@ class Backgroundremover < Formula
   end
 
   resource "llvmlite" do
-    url "https://files.pythonhosted.org/packages/74/cd/08ae687ba099c7e3d21fe2ea536500563ef1943c5105bf6ab4ee3829f68e/llvmlite-0.46.0.tar.gz"
-    sha256 "227c9fd6d09dce2783c18b754b7cd9d9b3b3515210c46acc2d3c5badd9870ceb"
-
-    # Fix for setuptools error > 81
-    # PR ref: https://github.com/numba/llvmlite/pull/1400
-    patch do
-      url "https://github.com/numba/llvmlite/commit/e6a4cf1bd9b1ac213124ef125cae44896ed9885c.patch?full_index=1"
-      sha256 "9d23e9490600eb9076a12c808e3222a5b5c25fef200b4e97703d8fea069fd6d3"
-    end
+    url "https://files.pythonhosted.org/packages/01/88/a8952b6d5c21e74cbf158515b779666f692846502623e9e3c39d8e8ba25f/llvmlite-0.47.0.tar.gz"
+    sha256 "62031ce968ec74e95092184d4b0e857e444f8fdff0b8f9213707699570c33ccc"
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
-    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
+    url "https://files.pythonhosted.org/packages/a2/f7/139d22fef48ac78127d18e01d80cf1be40236ae489769d17f35c3d425293/more_itertools-11.0.2.tar.gz"
+    sha256 "392a9e1e362cbc106a2457d37cabf9b36e5e12efd4ebff1654630e76597df804"
   end
 
   resource "moviepy" do
@@ -131,13 +124,13 @@ class Backgroundremover < Formula
   end
 
   resource "numba" do
-    url "https://files.pythonhosted.org/packages/23/c9/a0fb41787d01d621046138da30f6c2100d80857bf34b3390dd68040f27a3/numba-0.64.0.tar.gz"
-    sha256 "95e7300af648baa3308127b1955b52ce6d11889d16e8cfe637b4f85d2fca52b1"
+    url "https://files.pythonhosted.org/packages/f6/c5/db2ac3685833d626c0dcae6bd2330cd68433e1fd248d15f70998160d3ad7/numba-0.65.1.tar.gz"
+    sha256 "19357146c32fe9ed25059ab915e8465fb13951cf6b0aace3826b76886373ab23"
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/10/8b/c265f4823726ab832de836cdd184d0986dcf94480f81e8739692a7ac7af2/numpy-2.4.3.tar.gz"
-    sha256 "483a201202b73495f00dbc83796c6ae63137a9bdade074f7648b3e32613412dd"
+    url "https://files.pythonhosted.org/packages/d0/ad/fed0499ce6a338d2a03ebae59cd15093910c8875328855781952abf6c2fe/numpy-2.4.6.tar.gz"
+    sha256 "f3a3570c4a2a16746ac2c31a7c7c7b0c186b95ce902e33db6f28094ed7387dda"
   end
 
   resource "pillow-heif" do
@@ -166,8 +159,8 @@ class Backgroundremover < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
-    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "six" do
@@ -181,8 +174,8 @@ class Backgroundremover < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "waitress" do
@@ -191,8 +184,8 @@ class Backgroundremover < Formula
   end
 
   resource "werkzeug" do
-    url "https://files.pythonhosted.org/packages/b5/43/76ded108b296a49f52de6bac5192ca1c4be84e886f9b5c9ba8427d9694fd/werkzeug-3.1.7.tar.gz"
-    sha256 "fb8c01fe6ab13b9b7cdb46892b99b1d66754e1d7ab8e542e865ec13f526b5351"
+    url "https://files.pythonhosted.org/packages/dd/b2/381be8cfdee792dd117872481b6e378f85c957dd7c5bca38897b08f765fd/werkzeug-3.1.8.tar.gz"
+    sha256 "9bad61a4268dac112f1c5cd4630a56ede601b6ed420300677a869083d70a4c44"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "https://github.com/dustinkirkland/byobu"
-  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/6.15.tar.gz"
-  sha256 "2d670627aeb068447654b78fd83901ea4b0d08df59f6fa0721d61cb1fc2f56ae"
+  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/7.6.tar.gz"
+  sha256 "2cb144fba2a5b835bde571537c31129b259e507613d86e127863e1f2f2797c5c"
   license "GPL-3.0-only"
 
   livecheck do
@@ -11,7 +11,7 @@ class Byobu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "905dc94353f90aa5dc34dda6befa9631b9131e97c5dabd6969d6f8bdd37d5585"
+    sha256 cellar: :any_skip_relocation, all: "d38ba976b061d110d0e8a7bb051932ae1fcfccc241dfeb52b3047ef28b7cb6ef"
   end
 
   depends_on "autoconf" => :build
@@ -43,7 +43,7 @@ class Byobu < Formula
       byobu_script = "byobu-#{script.basename(".py")}"
 
       libexec.install(bin/byobu_script)
-      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: byobu_python)
+      (bin/byobu_script).write_env_script(libexec/byobu_script, BYOBU_PYTHON: byobu_python.to_s)
     end
   end
 

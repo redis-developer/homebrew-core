@@ -1,8 +1,8 @@
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
-  url "https://github.com/capstone-engine/capstone/archive/refs/tags/5.0.7.tar.gz"
-  sha256 "6427a724726d161d1e05fb49fff8cd0064f67836c04ffca3c11d6d859e719caa"
+  url "https://github.com/capstone-engine/capstone/archive/refs/tags/5.0.9.tar.gz"
+  sha256 "0619da31af08152600af95c481527ef6d756c0a8404fca7544a4fdf6dfc2c0f9"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/capstone-engine/capstone.git", branch: "next"
@@ -13,12 +13,12 @@ class Capstone < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "921a27cf982706500e7e16c12cc5ae870c24d81e777da7c148b8567a49a72e76"
-    sha256 cellar: :any,                 arm64_sequoia: "ab8960a1668a44a537f3056943fb72b8f7753345f2ac4668edd5e3c2e3d94eaa"
-    sha256 cellar: :any,                 arm64_sonoma:  "3631f944a439f070a8eca3e4fe352e41958c55c24bb41502d0a52c34de5b0273"
-    sha256 cellar: :any,                 sonoma:        "b97f0af3c785ea395f7839dd26963b8760502b77ebba09f19d6d7250d0c0f090"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5cddc772e19f285df16a76407672c04ce0e69e54e04f9fe80ac1028814a3a81d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0908fcf12ddcc240126a6b15addfbe2d3b4e5758786b541f3847f2a39d58703a"
+    sha256 cellar: :any,                 arm64_tahoe:   "136ef83fb2c78de33a0500d8e9d3628eb1db37d4ef00496e8027e00a5918eb33"
+    sha256 cellar: :any,                 arm64_sequoia: "a6fbf1343829afa5521e8fdba9f0d05246cad3c8caf4833af6d826baaf0db795"
+    sha256 cellar: :any,                 arm64_sonoma:  "bbe5f0825fb2511229677b4cd56d88b7c85efc88b537acfc77c41266424983ae"
+    sha256 cellar: :any,                 sonoma:        "4c2563fd3750dcfc7bff7a99876034b68257f9979c336fa16da730435736832c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "e62999052f399dc5c10cf74036108f585789ae2a2b28842aa1677ca99e027b08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c724d5267658f8e1d10a4e050e5e56ed3db99f4ef454e9340a43e0eaafe7050"
   end
 
   on_macos do

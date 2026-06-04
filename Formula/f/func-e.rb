@@ -1,24 +1,27 @@
 class FuncE < Formula
   desc "Easily run Envoy"
   homepage "https://func-e.io"
-  url "https://github.com/tetratelabs/func-e/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "d6e93b3bfe2ea00da45b858cbd9393a8213c1f5be115870b642214dc86323d3c"
+  url "https://github.com/tetratelabs/func-e/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "98982018669fe59b2216d43cafac3760bbad346cec93b329d8943f56268b6446"
   license "Apache-2.0"
   head "https://github.com/tetratelabs/func-e.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50312b58ab29066d403d2223ee4984ca03bfc44e96e3e3e2b9a6848b9c6fb4b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6ba95e1ba41daa04ed7162604a23cf2eb49813093f4b0644c4ccc513d863ab16"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "23f3725f16951e27c77cf1d560a7353122fc6820cdaa70c4f49f9d2f2c6298e5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "159edb37bc2a32ee7cb161335fb98fec97c14606aae75b4db9e10591ce4e60be"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "37abe96369388aa7a44b7fbcc53ee09ae2a523f94c090a420ff5533b8f7d0472"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7fdbe813a99dcfa62b20860c1e349000a3cb88c9e60982cbae35c3cf952286a8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e1922acc4a11707ba15c59d23f70c60ebdce816d7cfb22cc37f3e13b57c39836"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f0887b976f48018004c035c1a9b620c488698e1316f90ef6b2ef3a78001b999b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "58e046169e62c807df7b7d6adbb2ddabbe3bfba00a0df01eab7d20f5b9f6e4f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5352a8248748dc4e3fd73f69f82ed7d3cf07efdcd3f6afd6a9032443b674af70"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f9678a633abf0a74c10eeb6b4d9d4b70d6b3e2a09e7886471efb0b8a5e481ce4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "78beeadb22202bb8909f90c60b1422c732658e395ba5f61f5dce68ba071adee8"
   end
 
   depends_on "go" => :build
-  # archive-envoy does not support macos-11
-  # https://github.com/Homebrew/homebrew-core/pull/119899#issuecomment-1374663837
-  depends_on macos: :monterey
+
+  on_macos do
+    # archive-envoy does not support macos-11
+    # https://github.com/Homebrew/homebrew-core/pull/119899#issuecomment-1374663837
+    depends_on macos: :monterey
+  end
 
   def install
     ldflags = %W[

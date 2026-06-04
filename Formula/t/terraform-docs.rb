@@ -1,17 +1,17 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://terraform-docs.io/"
-  url "https://github.com/terraform-docs/terraform-docs/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "336115a1d3a7a55a7295f5768ecc0064c86ed8addc0b0ea27fdfd50b2116dd96"
+  url "https://github.com/terraform-docs/terraform-docs/archive/refs/tags/v0.24.0.tar.gz"
+  sha256 "e3c971a1f2a02732d964e19e65c901b4e02cca62c4b748c05d22e9690d055540"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49948989b5028270adf2ad3d88dcf25f61359afb7c6f7e02d951f396b6f5dd47"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "002c6b99605ce3ff3890addbdfb0ffec041ab0f4eeca4fc15e5ca1f8598d513f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0db727dedd4739ee79cebe85bc90576f73b17cdc37f30ce62b36f4664eeb27e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6fec6ad830165d5d3bc74cfcb58e279774284d682c19a5cda6fa7d01487539d5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "779194cd05c8e3af8bdc554da130fd9c6dcc88871dc28c7f1d0981b1e63fddca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec788f11b5a564344006f7464f1edb3d05093c0bfeed838b5e0da97dd512eb63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fa2cc1277c6cc50f860807570e9bc88868fd24e99e6d68a9d5b4a47ba25dc3cc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42b365054923bac534510d13e6b06e7066dae1a431d0d88b67587ad70bb52077"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8305233ffe535dc775e5bbd8d8a00c2dc2a5a3133ec719e920ae65bc54d9e1af"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d23f09b9c5ff28efc122d3ef26dfc768aa58d92bc40a13fe291c0a7815901426"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "1a52f38be0c6f3af1b3dad3c7e13026b20f3ee6ace1b9e5ca9be6d5dfc826f84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "21e204b1283a4e3de6fb2aaf6e95edb7486aa6f3424cd0493bbd1ec396ac6997"
   end
 
   depends_on "go" => :build

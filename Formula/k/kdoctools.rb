@@ -1,8 +1,8 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://l10n.kde.org/docs/doc-primer/"
-  url "https://download.kde.org/stable/frameworks/6.25/kdoctools-6.25.0.tar.xz"
-  sha256 "2c5866257edda20f33c35f64a8bcab08de3dddb4e751bbbc2e09e941df979918"
+  url "https://download.kde.org/stable/frameworks/6.26/kdoctools-6.26.0.tar.xz"
+  sha256 "3fbea5de215076130007f3c18e16b870774ffa4fc85ddace201ac020d0245fb6"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
@@ -17,12 +17,13 @@ class Kdoctools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "9629bacda36d1df1db24123754d05a8b16431a6209b719ab81942520f7e71078"
-    sha256 cellar: :any,                 arm64_sequoia: "ebb69e88a3bcecf2a00a93e4b25f0d1dd5f9ed8282c7d8c3cc938fabd2ac9dfb"
-    sha256 cellar: :any,                 arm64_sonoma:  "201cb6456de82cc87aa3d8ec4995e0dd9e1dd7f4953f5dbb6c998eb5a1294ef3"
-    sha256 cellar: :any,                 sonoma:        "36714f85849d17e08301e636d01d2b6967f5781ce6168833e5bd13f61d6b036a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d1a23ea10f78fa2a37b734d133e242b5bf5c096bf5b15e586f25e4becc4b5b10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fdbbbf36521ef7636643060022578fb98bb8babc19b2c6696ef59503eacdf28f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "e8833cc271c9d6bab73c9bfef8d442454eae7bf1a33077d35157269704886ba2"
+    sha256 cellar: :any,                 arm64_sequoia: "879f16987fff661f7aba032d9c3e12e073ce13a45cd443e63ccb8a5b2b8807ea"
+    sha256 cellar: :any,                 arm64_sonoma:  "f4c1fe796f10c4d37c085e99d409c640d901b28d7b86f50c8c52589a927e80b8"
+    sha256 cellar: :any,                 sonoma:        "b4e32a93fe19a1737910773c18d3a9704fb0378cd77b832afc94a19aeea3091c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "36e8cf47214eb6288b97006e2eecf34de737cf3dc0c749aa85f0db0680e11a40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ebf8247240f8d0e9ae459f5d608d30253f2b2d989bbc69a669be4923632c8f3"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -35,9 +36,9 @@ class Kdoctools < Formula
   depends_on "karchive"
   depends_on "qtbase"
 
+  uses_from_macos "perl" => :build
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "perl"
 
   resource "URI::Escape" do
     on_linux do
@@ -48,11 +49,10 @@ class Kdoctools < Formula
 
   def install
     if OS.linux?
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-      ENV.prepend_path "PERL5LIB", libexec/"lib"
+      ENV.prepend_create_path "PERL5LIB", buildpath/"lib/perl5"
 
       resource("URI::Escape").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}"
         system "make", "install"
       end
     end

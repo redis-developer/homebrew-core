@@ -1,18 +1,17 @@
 class Quazip < Formula
   desc "C++ wrapper over Gilles Vollant's ZIP/UNZIP package"
   homepage "https://github.com/stachenov/quazip/"
-  url "https://github.com/stachenov/quazip/archive/refs/tags/v1.5.tar.gz"
-  sha256 "405b72b6e76c8987ff41a762523b8f64876ba406d8a831d268ee0b63f1369582"
+  url "https://github.com/stachenov/quazip/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "e3c7220e66d9f8024ef4aa98befb2592fea219a01736a400b07b11aa60964d02"
   license "LGPL-2.1-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_tahoe:   "ce8d0c6f5b6d725631a9023470fd138c99d9db401f03902f828f555140fee77b"
-    sha256 cellar: :any,                 arm64_sequoia: "7272d9b6eec18911f7fef8cd0c5deb264b655463396bb220220974d32a3227dc"
-    sha256 cellar: :any,                 arm64_sonoma:  "445a4429e3a6a27ffb00565a01b994b45b8af48c6b9aa8bcba68263a3e81ec87"
-    sha256 cellar: :any,                 sonoma:        "1252f9215183b55908a1df0caf982f7dd7f209289d461a9eb3c5cd7e3146796f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "7faf8e516ab4ecff091c0fe8bdc1d0d1ecdcf12ac06562fd7aa96626e58363b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "834a87bcf3b62f24ea5446e5ab3400ac499042d56a1c0065a0eb3cfea929e9a4"
+    sha256 cellar: :any, arm64_tahoe:   "a25530d908b8f40c31f4ea13441416792461b3f0b531a9c542f6a060b6afd491"
+    sha256 cellar: :any, arm64_sequoia: "6230ccbb7e433abd3c40669bc233a236302d2618d0e2c6ea5132d2e2ba016fee"
+    sha256 cellar: :any, arm64_sonoma:  "51f5ec3249d0e161c4aada50393070db8c5271e1c1def4f014ef4e5b4fcda10f"
+    sha256 cellar: :any, sonoma:        "aefc424f9c20cd9f511109500e902716033e1786139d425cca13e28cd2e0e405"
+    sha256 cellar: :any, arm64_linux:   "c10e0469fbded61aa17196a82c7af6f96c0466931af9346f63c9ba15e8b79efb"
+    sha256 cellar: :any, x86_64_linux:  "93be15ad51f982d25bb8f2accba397f8400a16bbd65ede23234d57ef9b49e096"
   end
 
   depends_on "cmake" => :build
@@ -39,6 +38,7 @@ class Quazip < Formula
   test do
     ENV.delete "CPATH"
     (testpath/"test.pro").write <<~EOS
+      QT             += core5compat
       TEMPLATE        = app
       CONFIG         += console
       CONFIG         -= app_bundle

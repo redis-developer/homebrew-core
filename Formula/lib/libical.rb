@@ -1,8 +1,8 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v4.0.0/libical-4.0.0.tar.gz"
-  sha256 "caa74119c5a83d19e7466f20344ea6ffe4b779198ee33f46d5fab9d574dac207"
+  url "https://github.com/libical/libical/releases/download/v4.0.2/libical-4.0.2.tar.gz"
+  sha256 "39a979bb5474af3c4601c83dc71512c1121dee56722b3d8d8668ed75bd78ccdd"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Libical < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "6f2fbf1373acc6b2c802eb317f51e96e5f0fbcc52fed2b41cf56f670bf1d3b62"
-    sha256 cellar: :any,                 arm64_sequoia: "b6d56ca548e974595fc0e0bbc4341a232aa6ce40f497c285dd6b1a853aece64f"
-    sha256 cellar: :any,                 arm64_sonoma:  "3e32dea68213a63da789a8d0e2c3d0b0ff80ac9f002ae88d8769e752b6363c13"
-    sha256 cellar: :any,                 sonoma:        "204d5434b3145264af4742b4fd5d23b570379ac155c9af8ecbabb8c0e76bded6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8d4a0166dabbf5931fd6802733c620165110b5726d49120e917d89fc006694e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9811f27e25db2f8762ae7b3522e41500f529fd5cd47b590ccd5449fc69102a64"
+    sha256 cellar: :any, arm64_tahoe:   "490cda94eaf5dd9e111810bbc3d34127fd9b9413481c1be45569910ba23f3119"
+    sha256 cellar: :any, arm64_sequoia: "4f4ff236c73afc3f7ba9b9bd15bfdb1b35bfd2463c47d15fa51764175d2908d2"
+    sha256 cellar: :any, arm64_sonoma:  "71dbdac9bff695204de40c3c799b9f13fbbd326237c2ace58fd4525dbdff7482"
+    sha256 cellar: :any, sonoma:        "7eed9ae61faa257ec108d51cdd25ba40c654e0f55606070d1fbbebb88786daa6"
+    sha256 cellar: :any, arm64_linux:   "3b5c62fc9f7965f05dd6e247fd9f38325cd09c4e3a08c8732ec588be42124fb6"
+    sha256 cellar: :any, x86_64_linux:  "3f260ef5d685c41a33a328bebf21a45f91bfe2fc01c806d1ab4cec33d482985e"
   end
 
   depends_on "cmake" => :build

@@ -1,18 +1,18 @@
 class Ytt < Formula
   desc "YAML templating tool that works on YAML structure instead of text"
   homepage "https://carvel.dev/ytt/"
-  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.54.0.tar.gz"
-  sha256 "a7266830e05a5119056e7f36c2363e130ca1da1ea6250b62c83bfd377f603c23"
+  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.55.1.tar.gz"
+  sha256 "4591a3b659dba43a6e8b3d5dd2ef9cb03011868bacab66684c0cfb6b7a698eb1"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/ytt.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8fb382b72203c78f0a03cce6f50a48c7766e078d467b5cf1d45bfc3490e31f5b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8fb382b72203c78f0a03cce6f50a48c7766e078d467b5cf1d45bfc3490e31f5b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8fb382b72203c78f0a03cce6f50a48c7766e078d467b5cf1d45bfc3490e31f5b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1ab166b26c6d57ad93d593b2f5b9d41f0c9e60d31bab122e3213c53e04181468"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "13a114d21346914a9cfbd4bf7d026803af1199e586ee68b5cf650bc8023cae3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4507f2c7745c2f1a61a259b22754416f63513e0fa4b097d1ec0dd729855b71a8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "49c2512a79b4efe7bc1dd3a124361e6efc6fc3086174682b4566b4845c473cb6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "49c2512a79b4efe7bc1dd3a124361e6efc6fc3086174682b4566b4845c473cb6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "49c2512a79b4efe7bc1dd3a124361e6efc6fc3086174682b4566b4845c473cb6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1fc030271391010313aec7599176946381bf241fd2f59fd7fa0e6a97410550de"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "96a0cdf8f82d9f8b88026554ccbc3facf11ce35307b5293e20a6b80535c75609"
+    sha256 cellar: :any,                 x86_64_linux:  "2218d229cb67ca11821e44411734247eb1504d53feb7fd19cdca4fc1990bf3f5"
   end
 
   depends_on "go" => :build

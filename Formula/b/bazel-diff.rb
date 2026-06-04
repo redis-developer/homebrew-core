@@ -1,17 +1,17 @@
 class BazelDiff < Formula
   desc "Performs Bazel Target Diffing between two revisions in Git"
   homepage "https://github.com/Tinder/bazel-diff/"
-  url "https://github.com/Tinder/bazel-diff/archive/refs/tags/v19.0.3.tar.gz"
-  sha256 "12a20d2c268520e8fe45fc5f933111d1414a79887a02f723e677c6270d6e4fdc"
+  url "https://github.com/Tinder/bazel-diff/archive/refs/tags/v25.0.0.tar.gz"
+  sha256 "2f18750f9b5947755df9c88afcfffcc382c21cc23cb38b7d8746ab4bd96bc6c2"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "defd019712ba22b223b3218ceb18bfce9a743b9e3cdc6c72d640516e0d9112e0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "defd019712ba22b223b3218ceb18bfce9a743b9e3cdc6c72d640516e0d9112e0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "defd019712ba22b223b3218ceb18bfce9a743b9e3cdc6c72d640516e0d9112e0"
-    sha256 cellar: :any_skip_relocation, sonoma:        "defd019712ba22b223b3218ceb18bfce9a743b9e3cdc6c72d640516e0d9112e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3dcbdaeba55294411dfa29ad4c584f2d1a34c4bf1d3e7d61e92b314d498cd240"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3dcbdaeba55294411dfa29ad4c584f2d1a34c4bf1d3e7d61e92b314d498cd240"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "caa19bb4f81e7271cda0f5a72ee51dcbc7183cf10c6f3daa388529daa0d74d31"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "caa19bb4f81e7271cda0f5a72ee51dcbc7183cf10c6f3daa388529daa0d74d31"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "caa19bb4f81e7271cda0f5a72ee51dcbc7183cf10c6f3daa388529daa0d74d31"
+    sha256 cellar: :any_skip_relocation, sonoma:        "caa19bb4f81e7271cda0f5a72ee51dcbc7183cf10c6f3daa388529daa0d74d31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "950c98e57f00808f08a6c134a5d9f576b083d0fd12a60bec2c45d2632aaff58e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "950c98e57f00808f08a6c134a5d9f576b083d0fd12a60bec2c45d2632aaff58e"
   end
 
   depends_on "bazel" => [:build, :test]

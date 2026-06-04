@@ -1,8 +1,8 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.5/llvm-project-22.1.5.src.tar.xz"
-  sha256 "7972b87b705a003ce70ab55f9f0fb495d156887cba0eb296d284731139118e2c"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.7/llvm-project-22.1.7.src.tar.xz"
+  sha256 "5cc4a3f12bba50b6bdfb4b61bdc852117a0ff2517807c3902fc13267fb93562e"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   version_scheme 1
@@ -15,12 +15,12 @@ class ClangFormat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f689660f3edb5047bd99096a50fde94b1edaf61e1e1fad8116353f809aeb54e3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "26d153c48a88b8603262b9132c0b64ef81e74e79d8b494739ca72f39c492afae"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "212cb906d015621b9c44aaf2e7c035e310a9c3c31e1507e22d4226dea8c8a669"
-    sha256 cellar: :any_skip_relocation, sonoma:        "387c94ba95b18268469eed83e9e35f9a5d22f6a0f0f664fa8142d55f35b4374f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "587a998515eb9e0b8161f7ae4dc9e75b5f2cdbf68f9b9b0180b867e89d1188e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89ad7db4210ca1fa12a5a997ea77ceb92fe72a68ee429d1cb1d7a3314b99e484"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4d8236ef83b92afca65312d9e10576e1708c8c587f0a518e260883d5f1c22d17"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cdb92ee24bca2a20cd9c45ae2931ad6e2a2d03318bbd61f38af7285693d1b76e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0446936f28fec0bcb44e29e18b4f6e823b708a40d1ff256af5d5c094d4770e07"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a2686e32464690cfb553b37d556c15398855833d1d266d8d078ce6a231e45363"
+    sha256 cellar: :any,                 arm64_linux:   "583624d645200049ee01de656693b7c4262ac7ad2aee193e143b9ddfdd89efee"
+    sha256 cellar: :any,                 x86_64_linux:  "bfbf6445a36f1bf17818889799107f1246563889472e378a1ea943e5a1453875"
   end
 
   depends_on "cmake" => :build

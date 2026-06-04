@@ -2,18 +2,16 @@ class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
-
   compatibility_version 1
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.2/gstreamer-1.28.2.tar.bz2"
-    sha256 "3eb15429a2721b91fe8339c321867462eb87b98cdad2109292a0aa42cdd6e2c3"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.3/gstreamer-1.28.3.tar.bz2"
+    sha256 "a4787d6eea0beacfe63eb607b7ac84bebb3c34fff7c25080a28ffce8cb2169f1"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.2/gst-plugins-rs-gstreamer-1.28.2.tar.bz2"
-      sha256 "f736a9e3cad1c71a736ffc6749a076bb0939274bbe6f2635a3c4ea65bae7e910"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.3/gst-plugins-rs-gstreamer-1.28.3.tar.bz2"
+      sha256 "8a476692bd190079fc4b04ac46bce85d6b223558b037eb01d4b2371ae6892811"
 
       livecheck do
         formula :parent
@@ -27,12 +25,12 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "0e56fbc7435860a959989d837080e67b7c75818e57f4c5a839edf62abc8d3119"
-    sha256 arm64_sequoia: "87027019ee76aee0eb91847d20b113dbc40699782417c25a9e50f8f33d80a2d7"
-    sha256 arm64_sonoma:  "e9eba457ff38bfb24ef516d0df9b2229a9af6c4a678640fcc110280fc516b2f1"
-    sha256 sonoma:        "221f74211397058ef3146527940a54ca53bfe3857e813291ac58012662e6982f"
-    sha256 arm64_linux:   "98f35d8fe7ba3fa17a658870824b4eecdc92fa26b3a44315f878069c7e103d7e"
-    sha256 x86_64_linux:  "ab9129bb8a25422e1e58897009888766b2c655e24a75ce60dd91ea51bfded8e5"
+    sha256 arm64_tahoe:   "22e3aa6a0c7ea009c6a4cd748c5ce747f360372a90d9f537ec6bdd39373827a3"
+    sha256 arm64_sequoia: "68344e4d5f092bca480fbe0ea54650eca19b7e1d77cd8d6389efceb55550eb21"
+    sha256 arm64_sonoma:  "f0758d3ac93a113b78c5e6bcbd5b96df3a20a59c578ca35dafb469bce822b16b"
+    sha256 sonoma:        "4e6fb11fd6433320d9c020b16d4762243517ac3f66c552f253f391c2cd844f3e"
+    sha256 arm64_linux:   "d81220e39109d8fc570fc898253e46ac6f39e4e7815af0a60e7e729ecfe9251a"
+    sha256 x86_64_linux:  "f3a7f68bf93ec5dea49f323a402c4098e3004c832970c40b9b3bc566b2149179"
   end
 
   head do
@@ -49,7 +47,6 @@ class Gstreamer < Formula
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
-  depends_on "nasm" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
@@ -138,6 +135,10 @@ class Gstreamer < Formula
     depends_on "pulseaudio"
     depends_on "wayland"
     depends_on "zlib-ng-compat"
+  end
+
+  on_intel do
+    depends_on "nasm" => :build
   end
 
   def python3

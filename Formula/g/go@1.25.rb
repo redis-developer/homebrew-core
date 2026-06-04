@@ -1,9 +1,9 @@
 class GoAT125 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.25.9.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.25.9.src.tar.gz"
-  sha256 "0ec9ef8ebcea097aac37decae9f09a7218b451cd96be7d6ed513d8e4bcf909cf"
+  url "https://go.dev/dl/go1.25.11.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.25.11.src.tar.gz"
+  sha256 "7b4e5b079b3c9bc420373ca68621a296b4d13c10735d4acac4171928d70f5480"
   license "BSD-3-Clause"
   compatibility_version 3
 
@@ -21,12 +21,12 @@ class GoAT125 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c3e030974b4b801a54590d37ba42e5d29ea79f0484a0f7d0b7be99f75dbca7bb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c3e030974b4b801a54590d37ba42e5d29ea79f0484a0f7d0b7be99f75dbca7bb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3e030974b4b801a54590d37ba42e5d29ea79f0484a0f7d0b7be99f75dbca7bb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "132bfea1dd4ef2fa54e663534869d5732ebde5122151545fedf000caa9f76cba"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "11a3e040bed69d32e9ef17e9ae20c03cb1381dbe326e75126a2e5e2d7aee19ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25dc6ae9aaf4817b0e681c444f850006659fad9ed0620fe77dd5903704c2956e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6588e4b0bd71b2ebb339887f333fc3c91d519562fa210660bc2d563ca9170220"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6588e4b0bd71b2ebb339887f333fc3c91d519562fa210660bc2d563ca9170220"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "6588e4b0bd71b2ebb339887f333fc3c91d519562fa210660bc2d563ca9170220"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1581cd772291b1af3016c1266dd9f8b5aabb509b01bb10bd5458ded6626e0691"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6803e69ad26891961f00cb259f15b25247d82b1a282d3899e8faf18305172ca4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddf6673eb05b77834f234f73984241b2e3ad8ebd1fe1252749cafa3e472bc5c3"
   end
 
   keg_only :versioned_formula

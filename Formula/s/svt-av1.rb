@@ -7,6 +7,11 @@ class SvtAv1 < Formula
   compatibility_version 1
   head "https://gitlab.com/AOMediaCodec/SVT-AV1.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "ef9741a91c2155055fa3dd9682776ac0c59014e0757ea92c789c6d0592273b86"
     sha256 cellar: :any,                 arm64_sequoia: "dfd452b9d5f752a679a6f810fcdb3906b6884dbc8a279abe558dc61c9bfc3c8a"
@@ -17,7 +22,10 @@ class SvtAv1 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "nasm" => :build
+
+  on_intel do
+    depends_on "nasm" => :build
+  end
 
   def install
     # Features are enabled based on compiler support, and then the appropriate

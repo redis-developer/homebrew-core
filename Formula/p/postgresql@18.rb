@@ -1,8 +1,8 @@
 class PostgresqlAT18 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v18.3/postgresql-18.3.tar.bz2"
-  sha256 "d95663fbbf3a80f81a9d98d895266bdcb74ba274bcc04ef6d76630a72dee016f"
+  url "https://ftp.postgresql.org/pub/source/v18.4/postgresql-18.4.tar.bz2"
+  sha256 "81a81ec695fb0c7901407defaa1d2f7973617154cf27ba74e3a7ab8e64436094"
   license "PostgreSQL"
 
   livecheck do
@@ -11,18 +11,20 @@ class PostgresqlAT18 < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "581c22f083ae24218d978e0855b5df7649442622c0f4553d5dc0aa5fec0e3c3a"
-    sha256 arm64_sequoia: "d673a799d57ccb106e95487b4ae480721dbbda30732071e9014bc5572420e90b"
-    sha256 arm64_sonoma:  "711c76573500ed2a1d898c1849ebd30c133375a980a612010192a624ff759ba7"
-    sha256 sonoma:        "4183572b950af49fad450c4de3cdd1bbb90d9a7e0eff8bd820126086c0de83b7"
-    sha256 arm64_linux:   "1acb5c6bebfbe288da873de04835cf51cc2e3c335d454d1869b379f636c4e08c"
-    sha256 x86_64_linux:  "044df17562b5237ba19ef9ab4a65656309e8a3a15eaa813a906de47d5572d42a"
+    rebuild 1
+    sha256 arm64_tahoe:   "3dd3a49b3cda7f61de2c8d27697c6a48a3dfe990f74a4eaed8733455a1401bc8"
+    sha256 arm64_sequoia: "edf0f9a317242e09efbdfa2e1a56d36f2466c0386e86b4a6cf51ba780f62e314"
+    sha256 arm64_sonoma:  "3b2416636b872589d07e7cd02a1a5bb408b5827d259cbaca9e8b558991d9a0b3"
+    sha256 sonoma:        "b138867601984b90b7e7e67ee615e47b73c3cf25007321d47984b0f9839d2dd6"
+    sha256 arm64_linux:   "a588c6d7bab03cd7936de98889ebc07a2ff86e268db92050948a218d08473c24"
+    sha256 x86_64_linux:  "652990f1ed2c117bcf7ee7baec44b80bfc72a4c59f97b9080ee53dff4e765ac0"
   end
 
   keg_only :versioned_formula
 
   # https://www.postgresql.org/support/versioning/
   deprecate! date: "2030-11-14", because: :unsupported
+  disable! date: "2031-11-14", because: :unsupported
 
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
@@ -39,6 +41,7 @@ class PostgresqlAT18 < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "openldap"
@@ -88,6 +91,7 @@ class PostgresqlAT18 < Formula
       --with-lz4
       --with-zstd
       --with-openssl
+      --with-libcurl
       --with-pam
       --with-perl
       --with-uuid=e2fs
@@ -187,5 +191,6 @@ class PostgresqlAT18 < Formula
       assert_equal "#{HOMEBREW_PREFIX}/include/#{name}/server", shell_output("#{pg_config} --includedir-server").chomp
       assert_match "-I#{Formula["gettext"].opt_include}", shell_output("#{pg_config} --cppflags") if OS.mac?
     end
+    assert_path_exists lib/"postgresql/#{shared_library("libpq-oauth-18")}"
   end
 end

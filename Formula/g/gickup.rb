@@ -1,18 +1,18 @@
 class Gickup < Formula
   desc "Backup all your repositories with Ease"
   homepage "https://cooperspencer.github.io/gickup-documentation/"
-  url "https://github.com/cooperspencer/gickup/archive/refs/tags/v0.10.42.tar.gz"
-  sha256 "05adc486f5f6a72b173ef1921608a9458d560e422010b78c780703943afd8ebc"
+  url "https://github.com/cooperspencer/gickup/archive/refs/tags/v0.10.44.tar.gz"
+  sha256 "07aeec9ea820595fd6beba7bdf76cd746988b0d64ae84275ab2b61edc7eedf6f"
   license "Apache-2.0"
   head "https://github.com/cooperspencer/gickup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "fb91b4e0de9549b1f632da978c55621f80986638734aa0b9413bc93ac10282cb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6a09f3c1e8fc32fd2c149bdd8639c931016af18c22b3ce040e00ca36b7e25536"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f40e658df81056168221488f0d1d4f817e0585f801abad60d609ab83f1b2864e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d23de7084e873035200d392f1476501cfeef99efa20bf014ae694dc24c1262e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d363bfa908fb3060125c9ff78fb65d9d3bc914eb31d418d5505e913162575334"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "960e3cfdf006c0f4a212e362d16aaf90a2694b6f2bb68f44741470b84a08bfb6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "55376e634d07e7373fd4f77822537cfa25e46676bf6e81b2c0a10e72ff9c173e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "56f6bc182eb495b4e9fae7d53d3fed03f1b31dbdbb057beba472557b994baa1c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75f4fb204fc72cfa8799977a3eb584f0d0acced40145120ad84ec5420224d102"
+    sha256 cellar: :any_skip_relocation, sonoma:        "14783329f9822943c2bec7422aed72eec4423566c3690c368150b5fb04775fad"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "faa480161224d2c65641451e5358adaafea739f6e1684f7e19a65d452a50b31c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3361a6bfa882bf1a94de357e37e9c96cab87b82527f2903bd93270684449d33"
   end
 
   depends_on "go" => :build

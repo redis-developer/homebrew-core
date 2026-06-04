@@ -1,8 +1,8 @@
 class FlowCli < Formula
   desc "Command-line interface that provides utilities for building Flow applications"
   homepage "https://onflow.org"
-  url "https://github.com/onflow/flow-cli/archive/refs/tags/v2.17.1.tar.gz"
-  sha256 "c5da87b0fe81b89e4ed5811d1f490a94655fbd300d7ac9a540b4193d16adc0e3"
+  url "https://github.com/onflow/flow-cli/archive/refs/tags/v2.17.3.tar.gz"
+  sha256 "9e899209d0e479580b7689d3f40bdf9fa1b67faef3968be6800f39d2fddece24"
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git", branch: "master"
 
@@ -12,12 +12,12 @@ class FlowCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8fad2127df23c89cabf1b48bb220af4641efbd7e91eb2fc028751bdef249a51a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3d2f867f1b1a4bf8d57a88caa7ea2faf960999cb621e8ba1173593ed658516ea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2134c5ee84dda7c6e46bab90708b4e6acd34015bd52d83dbe5f41d112cccb2b2"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2680df0a615d102b06ce4f099356397056dfde1cff3c5a78625d9db1e30a9523"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c2da3186891ce10830024e69d90f4573310b3675515ca2508477f794715bea77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c81c31f08d4d45834be1a873db8b17488bacdf7dd41340ba165964a72a00e8d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b4603a2be78ef671396fc071e75a9e6b6b3d6ceecb56404f5a806560ad22e04f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "968efdc2c7d88d11d46e161e27f00eb27560dced5faee526925c785bddc15116"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "471b90ac28d1c305adaca9a56ef4fda0bc307b55ad44defe5e57514fbf880b64"
+    sha256 cellar: :any_skip_relocation, sonoma:        "88cf590c6a27266ecc89901b1b2251efabde45d8fa12344de261a834f7b9b37d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ad4cfcfc8fe01bf5ebd25e77e7bb27527809d42b5da5fb7af0784fc03c486a52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9d5568d3264c8cbaccdd107a308214aa8d547adcea323001769f3a4a7821e1d"
   end
 
   depends_on "go@1.25" => :build

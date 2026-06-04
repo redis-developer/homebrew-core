@@ -1,18 +1,17 @@
 class Tldx < Formula
   desc "Domain Availability Research Tool"
   homepage "https://brandonyoung.dev/blog/introducing-tldx/"
-  url "https://github.com/brandonyoungdev/tldx/archive/refs/tags/v1.3.4.tar.gz"
-  sha256 "e331e89c3d39c79d6efc4b3567f2c134da29761e58621239a54bab3423fea575"
+  url "https://github.com/brandonyoungdev/tldx/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "cfc51a5c0e64888b7ec81f98df4138cf96ea63f67696d915dbd47e0ae1303d10"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "dee3f3737f626b5d4067b6f6dcaab5b701de0e9b4a778ea6c2fc1333e585fbb3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "dee3f3737f626b5d4067b6f6dcaab5b701de0e9b4a778ea6c2fc1333e585fbb3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dee3f3737f626b5d4067b6f6dcaab5b701de0e9b4a778ea6c2fc1333e585fbb3"
-    sha256 cellar: :any_skip_relocation, sonoma:        "3c8ee3db8e9a3207acc6b7658ed5fc9618d5b88a772bd55f96c1796f6e7b34e8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "918916d3f78b5f9c0743f09d40f7eb6f5ceff45263b28a74758baf4d22dd4a64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eea163e27018a816ff5291c76f79d4358e822bc79607c060ead16428f9a3afb6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c0fca29c1a10577937fbd95bdd8c3c08d14c0a6f0f7f273aafc68fa022f825c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c0fca29c1a10577937fbd95bdd8c3c08d14c0a6f0f7f273aafc68fa022f825c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c0fca29c1a10577937fbd95bdd8c3c08d14c0a6f0f7f273aafc68fa022f825c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d6e65c14e8e9d97671f1bf268b9365e91e28de9cfcb82612c9426f584a75b044"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "76a40d7610c71e020ecdff5c50c164a2c0bd49b9dd8a9d5731ef1ce3b4dd402b"
+    sha256 cellar: :any,                 x86_64_linux:  "2b90947cb7f46442f103555ee250430436ceabc8063053d349bbf21024f445c5"
   end
 
   depends_on "go" => :build

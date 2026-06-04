@@ -1,18 +1,18 @@
 class DockerBuildx < Formula
   desc "Docker CLI plugin for extended build capabilities with BuildKit"
   homepage "https://docs.docker.com/buildx/working-with-buildx/"
-  url "https://github.com/docker/buildx/archive/refs/tags/v0.33.0.tar.gz"
-  sha256 "00b5d5093f6b6cb75fd687988fb395253d10a5ca4d7e4c6b26af3914c219d2d7"
+  url "https://github.com/docker/buildx/archive/refs/tags/v0.34.1.tar.gz"
+  sha256 "907846895a843d1dc4fb6962f05567b0c279a2eca83be7461b5928125ebdcc51"
   license "Apache-2.0"
   head "https://github.com/docker/buildx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "75e97f8219ef27ca2ccb64eea02af1e6ebc147209469847677f33bc657d25008"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d97c86ada5283ddff7b19c165f8508de8acf200931e4fa1b0aecb4f440f3cab"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f7ea42b2fb605eb5ae159c4136c6ae4da562ccd0a6da603f344e2ce7588361a1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a5a9bb1c92a9a3b978af0c188b17325f9b782230f435eaa04d259441dbe001d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "44a566d46958cb847b6792b68a9bd1c27aa8a5d432c2707b7c0706b069970ced"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0553c58a94b8958d26eb46f40b1058b4d23a50cfc8768318e3694cf2a34e3b74"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bebcd07fe45507a6a683a7ba895e0b2afdbf7d0f3faf4fd53b0a9b77a583e5d6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b7220c4855d8ffd86ad7c27c7b13c91691149100cf6f0dfeae4945be7bab387f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f5876608a810b52d337e3aa77ee0ea42f4bd4fa9e1ea9f0c50533b15f7d2ba57"
+    sha256 cellar: :any_skip_relocation, sonoma:        "43216dffb2fb9e3d473f10b414fa9fa3a14484d4b508dd38062d87d3149856f0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f4d5078885a076b17ab03b4376afd891584488c68cd505be50d09d683347e2d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b804de2efab523ca81d33a2250d6514216a476da8ba42ced1e31ee832cbbea1f"
   end
 
   depends_on "go" => :build

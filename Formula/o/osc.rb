@@ -3,13 +3,13 @@ class Osc < Formula
 
   desc "Command-line interface to work with an Open Build Service"
   homepage "https://openbuildservice.org"
-  url "https://files.pythonhosted.org/packages/8b/c3/a26a714867981cdbb8753545ea74be2a9dcf6b5363b6fefc64220efea0f2/osc-1.26.0.tar.gz"
-  sha256 "33c646683f9550aa4262bef662a05cf0acd9c51371dbea8fcab1bdc3406ecaf8"
+  url "https://files.pythonhosted.org/packages/eb/2d/af6a0c3a51f0533a79ff1de4b1772f49eae828cfe9d31f3d094b7683126d/osc-1.27.0.tar.gz"
+  sha256 "879db8bbf49ca28fbb78018a3b1d44b266b83ebf6430550075ba2ac3c5b9e6c7"
   license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b50f658592f809fe16db92bbed13a3a919bafd6aeb683b5375e7952c2291eb18"
+    sha256 cellar: :any_skip_relocation, all: "d192f18fda93168102b8bb8e7e6e76d55254db228eb68d7cdc8975f4b9293391"
   end
 
   depends_on "cryptography" => :no_linkage
@@ -29,8 +29,8 @@ class Osc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   def install

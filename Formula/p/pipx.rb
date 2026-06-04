@@ -3,13 +3,13 @@ class Pipx < Formula
 
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://pipx.pypa.io"
-  url "https://files.pythonhosted.org/packages/4d/8f/64a3a5a9c58e7b296324e2764efcb51a74e2de2e5738ceb7591fb00158cc/pipx-1.11.1.tar.gz"
-  sha256 "e57354c3308b0abb75106d3b73a0d1ffa5c25f24f29e9f4a45e575776dbab85c"
+  url "https://files.pythonhosted.org/packages/2f/ca/0f14561741f069231d9bb62306d80ac959e1288981d8a50dcba6de81eaac/pipx-1.13.0.tar.gz"
+  sha256 "d754c19d070893aab5d1ddb3d622ef57ec082b79f53c2664183165dbd2868c0e"
   license "MIT"
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "50bce70ed0c57a5bba744cbdfa7903dc487290b39938d1a0169b0840351fd87b"
+    sha256 cellar: :any_skip_relocation, all: "405bd21520c250173c5411e225a69e7870d6e07985b8a26119d28414b76a88c4"
   end
 
   depends_on "python@3.14"
@@ -20,18 +20,18 @@ class Pipx < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
-    sha256 "1ec356301b7dc906d83f371c8f487070e99d3ccf9e501686456394622a01a934"
+    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
+    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
   end
 
   resource "userpath" do

@@ -3,14 +3,13 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/68/e6/594ecd2469fca16f92e9538c40c010c87cc1d5b166dea67d266b405b08e3/internetarchive-5.8.0.tar.gz"
-  sha256 "0dff14d51bafa3da587f32a8cb6478327e20c2d040a61fbfb4ad30d592062cc2"
+  url "https://files.pythonhosted.org/packages/f0/5e/d973864fff7092f9a6cf3ca449228ba8c42baf0b23a9dd302d2528ec07e9/internetarchive-5.9.0.tar.gz"
+  sha256 "91f3e17217e744d8658848051454f87c8f2431afc450e0491ed4f490b7e37fba"
   license "AGPL-3.0-or-later"
-  revision 1
   head "https://github.com/jjjake/internetarchive.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f17a145e6b3c8f901f8729d32fe58523c4a9c81b9a7e1712110f7a43f3938ee5"
+    sha256 cellar: :any_skip_relocation, all: "d37c9c50c4e2c2b17b98a05799e07e4aa8b8a2151d5b379900d1aad4e06f5e59"
   end
 
   depends_on "certifi"
@@ -19,13 +18,13 @@ class Internetarchive < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/7b/60/e3bec1881450851b087e301bedc3daa9377a4d45f1c26aa90b0b235e38aa/charset_normalizer-3.4.6.tar.gz"
-    sha256 "1ae6b62897110aa7c79ea2f5dd38d1abca6db663687c0b1ad9aed6f6bae3d9d6"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
+    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
   end
 
   resource "jsonpatch" do
@@ -39,8 +38,8 @@ class Internetarchive < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/34/64/8860370b167a9721e8956ae116825caff829224fbca0ca6e7bf8ddef8430/requests-2.33.0.tar.gz"
-    sha256 "c7ebc5e8b0f21837386ad0e1c8fe8b829fa5f544d8df3b2253bff14ef29d7652"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "tqdm" do
@@ -49,8 +48,8 @@ class Internetarchive < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   def install

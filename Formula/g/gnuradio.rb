@@ -23,6 +23,10 @@ class Gnuradio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ec015bf6a0f0091abf7502acefccb202895e590b3beeae8e9edb0dbf6946fd1"
   end
 
+  # Can undeprecate if new release with Qt 6 support is available.
+  # TODO: Remove `gr-qtgui` support after 6 months of deprecation if Qt 6 support is not added
+  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5. gr-qtgui support will be removed after 2026-11-19"
+
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkgconf" => :build

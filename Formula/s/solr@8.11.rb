@@ -7,7 +7,13 @@ class SolrAT811 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "65d79494d324de0e00931020fc1e1624c7929566a4d66cee0b33052111f6e523"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5ce03d79a34e4a9ff3503505b1181905a4fe2296f09413b1fd785adb4f8241bc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5ce03d79a34e4a9ff3503505b1181905a4fe2296f09413b1fd785adb4f8241bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ce03d79a34e4a9ff3503505b1181905a4fe2296f09413b1fd785adb4f8241bc"
+    sha256 cellar: :any_skip_relocation, sonoma:        "3002d0e561a683b264425cfee6a6111f8615eeb590c7d3bbd0c591e976e01868"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5ce03d79a34e4a9ff3503505b1181905a4fe2296f09413b1fd785adb4f8241bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ce03d79a34e4a9ff3503505b1181905a4fe2296f09413b1fd785adb4f8241bc"
   end
 
   keg_only :versioned_formula
@@ -15,6 +21,7 @@ class SolrAT811 < Formula
   # Solr 8 reached end of life (EOL) on 2024-10-25:
   # https://solr.apache.org/news.html#solr-8-reaches-end-of-life
   deprecate! date: "2025-11-07", because: :unsupported
+  disable! date: "2026-11-07", because: :unsupported
 
   depends_on "openjdk"
 
@@ -33,9 +40,9 @@ class SolrAT811 < Formula
     inreplace libexec/"solr", "/usr/local/share/solr", pkgshare
   end
 
-  def post_install
-    (var/"run/solr").mkpath
-    (var/"log/solr").mkpath
+  post_install_steps do
+    mkdir_p "run/solr"
+    mkdir_p "log/solr"
   end
 
   service do

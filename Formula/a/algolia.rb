@@ -1,18 +1,18 @@
 class Algolia < Formula
   desc "CLI for Algolia"
   homepage "https://www.algolia.com/doc/tools/cli/get-started"
-  url "https://github.com/algolia/cli/archive/refs/tags/v1.8.2.tar.gz"
-  sha256 "f9c2ef7e61206481487d3b2762e81ddcdd77280cd371b17b5eacc6240813ab60"
+  url "https://github.com/algolia/cli/archive/refs/tags/v1.10.5.tar.gz"
+  sha256 "7ed6d5cb2d04236de207dc801637819ce543d24cc372b32246ed6a2847d83092"
   license "MIT"
   head "https://github.com/algolia/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "aaba30a3098f59a267f81e5aaa5ad4968ee8cb728dd0ab4f454bba4aee433293"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aaba30a3098f59a267f81e5aaa5ad4968ee8cb728dd0ab4f454bba4aee433293"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aaba30a3098f59a267f81e5aaa5ad4968ee8cb728dd0ab4f454bba4aee433293"
-    sha256 cellar: :any_skip_relocation, sonoma:        "36d636373e422836119046851b658718435e66a7742227fab7d8c2ed9fb0b9dd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "354c761cfcad40bc39d82e075a161c02d24695f086bedf3d2cc628ceb8d045b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0ee48c7d47c573ce1c78c3eccb1cdc70c6b8f5b677882be089a69cf1f811ca4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bcd7caf227127bd43ba9ce604db94757abfc8d6fcb38394bb51ea22607668989"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "bcd7caf227127bd43ba9ce604db94757abfc8d6fcb38394bb51ea22607668989"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bcd7caf227127bd43ba9ce604db94757abfc8d6fcb38394bb51ea22607668989"
+    sha256 cellar: :any_skip_relocation, sonoma:        "75b048600c13d67f34154032c7db613b7666acc01498e0b423fdffe828919ce2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "0df1a9fc5aee8a5db030883311ea88e64879cb64de11157e43a5663d6d683bf8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9779164b162e810ca54a473af10ef8fb147a74b7df6598e92945b263477d06c5"
   end
 
   depends_on "go" => :build

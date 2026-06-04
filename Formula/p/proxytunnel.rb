@@ -1,24 +1,28 @@
 class Proxytunnel < Formula
   desc "Create TCP tunnels through HTTPS proxies"
   homepage "https://github.com/proxytunnel/proxytunnel"
-  url "https://github.com/proxytunnel/proxytunnel/archive/refs/tags/v1.12.3.tar.gz"
-  sha256 "106cfba7aba91faccb158e1c12a4a7c4c65adc95aa1f81b76b987882a68c5afb"
-  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
+  url "https://github.com/proxytunnel/proxytunnel/archive/refs/tags/v1.13.0.tar.gz"
+  sha256 "1b1ae36327254cac351aa5358767c177b050ab4ce4a75fa100244da7816849e9"
+  license "GPL-2.0-or-later" => { with: "x11vnc-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "b6003b5468d9eb16d028cfac02ad7700bb173650fbcb7b4c1be87cf3267a636f"
-    sha256 cellar: :any,                 arm64_sequoia: "6b7dd6ac425100875ce71c7439bfba022d89b03470e108f040abf8f9a1865ed1"
-    sha256 cellar: :any,                 arm64_sonoma:  "4180c52f43d7bc1d79471a57ec13978ace1642e6a9ebf003b5867ad12c22b08f"
-    sha256 cellar: :any,                 arm64_ventura: "b304a1e197fc8840549b2b4f240a6eec34dbdd45eb035bed45fb591201dd0ed3"
-    sha256 cellar: :any,                 sonoma:        "20b05437c58f9ac5e129dbfd9da88d6c57338deb994ad88af6ee2a558a430304"
-    sha256 cellar: :any,                 ventura:       "a7877a40edfc840c91921d0bfb161e1f87d4eef6b8f3bc06789d9a6b89b06dbe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "1054f31d72acfeb8d3e4b925620f5d8140349158552c6288db753af40097b72c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68f0a86ab22a1406b3215b1f48abd7bb1cd686a2eab4cd707f989a9bee830a4c"
+    sha256 cellar: :any, arm64_tahoe:   "5eeebf767f77ae0008d4dd0f6e9537d11d4dc4df5e799e1fb86b5fe428383cbd"
+    sha256 cellar: :any, arm64_sequoia: "4d3d58b0f4961547187ad3aa9ebd2ab3cff42cbfcf9305b6da4dfc164f7deb6d"
+    sha256 cellar: :any, arm64_sonoma:  "3b0c5fff82ba280f682abc7a871bf0dd1ff221ac623c256f56a59be2d430bb30"
+    sha256 cellar: :any, sonoma:        "17855bc805686e63ed5fa8801c9f25080a76283913a98676a4172308486587b8"
+    sha256 cellar: :any, arm64_linux:   "48c5fe0955edcf6c838dd768ca836fa09f45357c681f001b0ab884933935c0af"
+    sha256 cellar: :any, x86_64_linux:  "22a1905c09b257f1d5992116b14fe7edfe3a26205f6d5b4bc5c12bbb325d67f5"
   end
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-  depends_on "openssl@3"
+  depends_on "openssl@4"
+
+  # Backport support for OpenSSL 4
+  patch do
+    url "https://github.com/proxytunnel/proxytunnel/commit/69df6780b819a145ef11342a55d477a059333fe2.patch?full_index=1"
+    sha256 "bf4b4fb8e68dde1a3c0124897de5a333b7f83cb321ecf04ea497867fb82d583e"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

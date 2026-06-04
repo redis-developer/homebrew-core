@@ -6,16 +6,16 @@ class Sigstore < Formula
   url "https://files.pythonhosted.org/packages/98/c3/84ec81173ade0dba5613feea577308cde4e69045cc804d02953e3a40922c/sigstore-4.2.0.tar.gz"
   sha256 "bdbb49a42fd5f0ea6765919adb42ccee7254c482330764d0842eec4e11ad78d7"
   license "Apache-2.0"
-  revision 6
+  revision 8
   head "https://github.com/sigstore/sigstore-python.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "fa3a479a9f8ab85405370db33720d783bbda3b3427177ad6edb9dbdb03afb9a9"
-    sha256 cellar: :any,                 arm64_sequoia: "37706d3adf55f27cdc32e3807ee59b1bb1a63a63dda71f559b02dd741f3349f5"
-    sha256 cellar: :any,                 arm64_sonoma:  "c68183cf80e1d8e1d48e16a2d90b17b2861d476a896d086f41592a8ad3db7908"
-    sha256 cellar: :any,                 sonoma:        "ab480c9dceffd0cede52d523d052f1011c4fb76b1c5b04fcd11987eebe35b31d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "a75e6d78fd6ec74adf904d431263e73067f2912f2bb5c1a7d5e5103e7964340a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a227bfec95c554018b018be6d93e81e85a233f2c7fa7ffbe1ef34458d1bac796"
+    sha256 cellar: :any, arm64_tahoe:   "a38bd1a6ccec26500709fc5c7cb2830b10a58980ac6bc17ea25c696cbce5a3a7"
+    sha256 cellar: :any, arm64_sequoia: "36ee929d7166c0f3ce2fe4f7f1b7f88b35e64cca4442a016b65a38c62c31fde0"
+    sha256 cellar: :any, arm64_sonoma:  "27b48b21ea9904d6034224704f9d46659a171463404360c25b13b19fbcf12242"
+    sha256 cellar: :any, sonoma:        "b9f98c3c7d53c809e6c44ea282cdfb2afbf2c15237f7f0c12ad39f1e92765f88"
+    sha256 cellar: :any, arm64_linux:   "da59577a032d927a43f28ac4fb6d86402973a01d604e9378f45406f3409d3a64"
+    sha256 cellar: :any, x86_64_linux:  "dcabbeaf60f1beb47148eeea7dea4e32cbfd7295bd77f5a69ab0570976659868"
   end
 
   depends_on "pkgconf" => :build # for rfc3161-client
@@ -49,13 +49,13 @@ class Sigstore < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
+    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -64,8 +64,8 @@ class Sigstore < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9f/4a/0883b8e3802965322523f0b200ecf33d31f10991d0401162f4b23c698b42/platformdirs-4.9.6.tar.gz"
-    sha256 "3bfa75b0ad0db84096ae777218481852c0ebc6c727b3168c1b9e0118e458cf0a"
+    url "https://files.pythonhosted.org/packages/d7/47/e4501f49c178ae1d9f4a75073fda4204f52647993f075a9db4d14930e0c5/platformdirs-4.10.0.tar.gz"
+    sha256 "31e761a6a0ca04faf7353ea759bdba55652be214725111e5aac52dfa29d4bef7"
   end
 
   resource "pyasn1" do
@@ -79,18 +79,18 @@ class Sigstore < Formula
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/c2/27/a3b6e5bf6ff856d2509292e95c8f57f0df7017cf5394921fc4e4ef40308a/pyjwt-2.12.1.tar.gz"
-    sha256 "c74a7a2adf861c04d002db713dd85f84beb242228e671280bf709d765b03672b"
+    url "https://files.pythonhosted.org/packages/3b/81/58d0ac84e1ef3a3843791d6954d94c0b33d526c75eeb1efbce9d0a4c4077/pyjwt-2.13.0.tar.gz"
+    sha256 "41571c89ca91598c79e8ef18a2d07367d4810fbbd6f637794879baf1b7703423"
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/8e/11/a62e1d33b373da2b2c2cd9eb508147871c80f12b1cacde3c5d314922afdd/pyopenssl-26.0.0.tar.gz"
-    sha256 "f293934e52936f2e3413b89c6ce36df66a0b34ae1ea3a053b8c5020ff2f513fc"
+    url "https://files.pythonhosted.org/packages/1a/51/27a5ad5f939d08f690a326ef9582cda7140555180db71695f6fb747d6a36/pyopenssl-26.2.0.tar.gz"
+    sha256 "8c6fcecd1183a7fc897548dfe388b0cdb7f37e018200d8409cf33959dbe35387"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "rfc3161-client" do
@@ -104,13 +104,13 @@ class Sigstore < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
-    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
+    url "https://files.pythonhosted.org/packages/e9/67/cae617f1351490c25a4b8ac3b8b63a4dda609295d8222bad12242dfdc629/rich-14.3.4.tar.gz"
+    sha256 "817e02727f2b25b40ef56f5aa2217f400c8489f79ca8f46ea2b70dd5e14558a9"
   end
 
   resource "securesystemslib" do
-    url "https://files.pythonhosted.org/packages/c2/dd/d1828dce0db18aa8d34f82aee4dbcf49b0f0303cad123a1c716bb1f3bf83/securesystemslib-1.3.1.tar.gz"
-    sha256 "ca915f4b88209bb5450ac05426b859d74b7cd1421cafcf73b8dd3418a0b17486"
+    url "https://files.pythonhosted.org/packages/b8/11/9623c61604f9b8955248d43fc6a75658bb687c0d3ab65b032b2e43613bd5/securesystemslib-1.4.0.tar.gz"
+    sha256 "faea87be0f9c4b4277a5fa1b54bf9bfd807be9a94ab11be6c557dc8b75c43285"
   end
 
   resource "sigstore-models" do
@@ -129,8 +129,8 @@ class Sigstore < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   def install

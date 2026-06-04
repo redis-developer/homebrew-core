@@ -7,7 +7,9 @@ class Mgba < Formula
   stable do
     url "https://github.com/mgba-emu/mgba/archive/refs/tags/0.10.5.tar.gz"
     sha256 "91d6fbd32abcbdf030d58d3f562de25ebbc9d56040d513ff8e5c19bee9dacf14"
+
     depends_on "qt@5"
+    depends_on "sdl2"
   end
 
   livecheck do
@@ -31,7 +33,12 @@ class Mgba < Formula
     depends_on "freetype"
     depends_on "qtbase"
     depends_on "qtmultimedia"
+    depends_on "sdl3"
   end
+
+  # Can undeprecate if new release with Qt 6 support is available.
+  deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5"
+  disable! date: "2027-05-19", because: "needs end-of-life Qt 5"
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -41,7 +48,6 @@ class Mgba < Formula
   depends_on "libpng"
   depends_on "libzip"
   depends_on "lua"
-  depends_on "sdl2"
   depends_on "sqlite"
 
   uses_from_macos "libedit"
@@ -73,17 +79,10 @@ class Mgba < Formula
     end
 
     # Fix OpenGL linking on macOS.
-    if OS.mac?
-      if build.stable?
-        inreplace "CMakeLists.txt",
-                  "list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES})",
-                  'list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES} "-framework OpenGL")'
-      else
-        # Work around failure running `cmake -E tar` within brew's build environment.
-        # CMake Error: Unable to read from file 'fish.fs': Could not open extended attribute file
-        # FIXME: Build is fine outside brew's environment
-        args << "-DUSE_LIBZIP=OFF"
-      end
+    if OS.mac? && build.stable?
+      inreplace "CMakeLists.txt",
+                "list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES})",
+                'list(APPEND DEPENDENCY_LIB ${EPOXY_LIBRARIES} "-framework OpenGL")'
     end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

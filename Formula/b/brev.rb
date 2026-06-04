@@ -1,8 +1,8 @@
 class Brev < Formula
   desc "CLI tool for managing workspaces provided by brev.dev"
   homepage "https://developer.nvidia.com/brev"
-  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.323.tar.gz"
-  sha256 "4e64e92764a2053ebd25c5cbfc476bc34a421d5e0b1feb2596ec9c1f88627df4"
+  url "https://github.com/brevdev/brev-cli/archive/refs/tags/v0.6.326.tar.gz"
+  sha256 "582aa4307abefe7914f3988fadd28d059fbd14977fa5c90cbe4a45dba66e3aff"
   license "MIT"
   head "https://github.com/brevdev/brev-cli.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Brev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a069d0197157e9648b53d715b1bb1aa3f497ea63168ef3259cd5be3d8502569"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2a069d0197157e9648b53d715b1bb1aa3f497ea63168ef3259cd5be3d8502569"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2a069d0197157e9648b53d715b1bb1aa3f497ea63168ef3259cd5be3d8502569"
-    sha256 cellar: :any_skip_relocation, sonoma:        "6b0fa993f370a8095d7818babee21494eafeecb5d32cd67a1db94eddd62caf7a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "aaa5e859cd73781ea5e4aafbbfef4579d0acbe4e6b6861c923a9beb2f0c0ef45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "92a85a7724dfe50f28f4f2a70f486797aa85898aecf7140ba1876aba556850a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "54527d1ee1d82bd1975678a61c5dd267d8838a90439523ece074fd236bb46b8f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "54527d1ee1d82bd1975678a61c5dd267d8838a90439523ece074fd236bb46b8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "54527d1ee1d82bd1975678a61c5dd267d8838a90439523ece074fd236bb46b8f"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4eb05f702ea3206831c46deee4dcd23a9c4ecf6d0c66ac4a14c26c38514773bb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19ff75a074e76e520140f0dc8280196aa79f4fc83a83ef8149fecdfbaa4eaaee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "424903742e3ddf0dbd1dd61d7d90842feaec9a38d225fe6d1aabfc95089044e8"
   end
 
   depends_on "go" => :build

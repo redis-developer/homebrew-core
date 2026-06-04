@@ -8,8 +8,8 @@ class PythonAT310 < Formula
   compatibility_version 1
 
   livecheck do
-    url "https://www.python.org/ftp/python/"
-    regex(%r{href=.*?v?(3\.10(?:\.\d+)*)/?["' >]}i)
+    url "https://www.python.org/downloads/source/"
+    regex(%r{href=.*?/Python[._-]v?(3\.10(?:\.\d+)*)\.t}i)
   end
 
   bottle do
@@ -28,7 +28,7 @@ class PythonAT310 < Formula
 
   # https://devguide.python.org/versions/#versions
   deprecate! date: "2026-10-15", because: :deprecated_upstream
-  # disable! date: "2027-10-15", because: :deprecated_upstream
+  disable! date: "2027-10-15", because: :deprecated_upstream
 
   depends_on "pkgconf" => :build
   depends_on "gdbm"

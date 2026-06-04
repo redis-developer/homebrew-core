@@ -3,17 +3,17 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/2f/74/9c16829d3e7e45ce7daf1b704687fa4fde7ea00d72eafe8de18c72bf5995/apprise-1.10.0.tar.gz"
-  sha256 "b768f32d99e45ed5f4c3eef1f67903e803c97f97ba61a531a5d0a45d40df90a8"
+  url "https://files.pythonhosted.org/packages/a8/f8/83f4e2aaaa0342dc67f783bf84427d9ff5cfa4ecde3a52d9b587740a91ee/apprise-1.11.0.tar.gz"
+  sha256 "3b1e6f5365b302d1fae270c0c8007958e54224b9b7808acec69006ea27f5b8a2"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "368d80d8324136215dc957ddf7c55ae511664f38b455d32c05302575fc0a83a6"
-    sha256 cellar: :any,                 arm64_sequoia: "67872e6dba410069e6702456d780456a312f5551f4f0fe8da0d00d732bc343a9"
-    sha256 cellar: :any,                 arm64_sonoma:  "3828587acc342d928fddae6d28a7bf234093b5788ac2ccfa523325751212ba64"
-    sha256 cellar: :any,                 sonoma:        "fec3c78446eaf6d7f53b6590eb598e9f6ab8849b45672c9b5a24afa57cadd0e3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "eeec860adf335460b845a80a560c8b4292b3f2ab038a0d435fc83cd14a0b255d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1f19f989ded5e9b3c8ffb1a56229d9cbe73fd7e46eb5314c17657a9f5ab0efa"
+    sha256 cellar: :any, arm64_tahoe:   "e83eaf381d97317610cee20482b7298fe7ed1c752a8f5ad538a31806803e54ef"
+    sha256 cellar: :any, arm64_sequoia: "a18d28aa001fa6754914d30b2b72f67b400c6b6555c8e3c792de276aaa2ac3ff"
+    sha256 cellar: :any, arm64_sonoma:  "2e2acf535628eef8a746b80753df70680e88707827c3dcc7c2ad6d8c9e602065"
+    sha256 cellar: :any, sonoma:        "69580d263a44cf450ca4c2a89824a28017d75a004d5aea28afefd8f93ddcd4a3"
+    sha256 cellar: :any, arm64_linux:   "8374d8c21c5ab599643ba2e6937a3296ae618514eb255e12ba54c4f17396eaa2"
+    sha256 cellar: :any, x86_64_linux:  "d5c183c47ed152dc58225520ba14eb252c95db378001b5cb0c3d4a786561737f"
   end
 
   depends_on "certifi"
@@ -28,13 +28,13 @@ class Apprise < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
-    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
+    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
+    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
   end
 
   resource "markdown" do
@@ -53,8 +53,8 @@ class Apprise < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "requests-oauthlib" do
@@ -63,8 +63,8 @@ class Apprise < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   def install

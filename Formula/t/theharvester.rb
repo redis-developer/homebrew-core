@@ -3,20 +3,18 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "https://www.edge-security.com"
-  url "https://github.com/laramies/theHarvester/archive/refs/tags/4.10.1.tar.gz"
-  sha256 "0bb13026606b6a91e3e7f05ecb98daa508b13d176cb1850a7a47822a03f4412e"
+  url "https://github.com/laramies/theHarvester/archive/refs/tags/4.11.0.tar.gz"
+  sha256 "c009a2dd0b4d8a37f6df5e5f9bbb0bb27751c083458d6d1432b2c84f5d7756d7"
   license "GPL-2.0-only"
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
-  no_autobump! because: "'playwright' resource lacks PyPI sdist"
-
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "636d1505928e2d2caeee8060a354e057ccf41d06e71e2ca404bdb8c2514db213"
-    sha256 cellar: :any,                 arm64_sequoia: "805224bb8d2fc6c36503cd5ca3d03192b731b58eb78b4a4ea03308fde133dec9"
-    sha256 cellar: :any,                 arm64_sonoma:  "3120cc65711fdb91a4b8cb629494e4ae84856cbd7aa4e46c51b7fe58b34d3f35"
-    sha256 cellar: :any,                 sonoma:        "d17f9018009b14c85ac8083eabfc5377e4f0ebc659ecdc62407a55a884c253bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "9e689de814ac121f7eacf512a3a9be59dcd45450bd93ebd35780ddb7b1b639ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddc8a5cda194958c55ccf31e7b3eb97d282900c24a9136a74edc759b8ac01724"
+    sha256 cellar: :any,                 arm64_tahoe:   "c2999f3bd4caec4a9107d5a1c2c9c03a1043e02a53b00a68d54604488f907cfd"
+    sha256 cellar: :any,                 arm64_sequoia: "7832b3f388c8817b29b4ea41b808a2a348f0801ca034aba3035f3014528fd22e"
+    sha256 cellar: :any,                 arm64_sonoma:  "195743f08dd817536a909c5325079980cc0d9a939fb6139d93196bf7e2af878c"
+    sha256 cellar: :any,                 sonoma:        "feefa13393c8746345d5a3e391d7008fd4cc40e72ef480ea4a2e8b2f1aff9dd9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "da7415ce692dc3d3b19191ba516d54d884dcdba823332896940a098f701d33ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f188282199a830098ab0a2ecec4d592237a92c3239c3bac95ce04bf8b7916748"
   end
 
   depends_on "cmake" => :build
@@ -33,18 +31,21 @@ class Theharvester < Formula
   pypi_packages exclude_packages: %w[cffi certifi playwright pydantic],
                 extra_packages:   %w[greenlet pyee]
 
-  # `uvloop` is manually updated to support Python 3.14, remove in next release
-
   # No sdist on PyPI, so we use the GitHub tarball
   # Ref: https://github.com/microsoft/playwright-python/issues/2579
   resource "playwright" do
-    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.57.0.tar.gz"
-    sha256 "a040082a24efc6d2a9416daacb4cc173b9750291262b8b8cca154a23b437f029"
+    url "https://github.com/microsoft/playwright-python/archive/refs/tags/v1.60.0.tar.gz"
+    sha256 "fbff350bef7de11b522d7e0450e4c95abce9fa20747eb3cf9fe713473dce925e"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/laramies/theHarvester/refs/tags/#{LATEST_VERSION}/pyproject.toml"
+      regex(/"playwright==v?(\d+(?:\.\d+)+)"/i)
+    end
   end
 
   resource "aiodns" do
-    url "https://files.pythonhosted.org/packages/10/da/97235e953109936bfeda62c1f9f1a7c5652d4dc49f2b5911f9ae1043afa9/aiodns-4.0.0.tar.gz"
-    sha256 "17be26a936ba788c849ba5fd20e0ba69d8c46e6273e846eb5430eae2630ce5b1"
+    url "https://files.pythonhosted.org/packages/9b/22/a2d928e0e42baad0471d12ec44c71152ac870486e8298dddb2893b888c29/aiodns-4.0.4.tar.gz"
+    sha256 "cb10e0c0d2591636716ad2fe402e977c16d71bdaf76bb8cb49e8a6633596f736"
   end
 
   resource "aiofiles" do
@@ -53,13 +54,13 @@ class Theharvester < Formula
   end
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
-    sha256 "c3f9d0113123803ccadfdf3f0faa505bc78e6a72d1cc4806cbd719826e943558"
+    url "https://files.pythonhosted.org/packages/33/c6/61a2d7b7572279226bb2e7f61d7a19ca7c90da0329c93fa0d560cbf288d8/aiohappyeyeballs-2.6.2.tar.gz"
+    sha256 "e202810ee718bd01fc6ef49e8ea53d023d5cb6b581076d7925aa499fa55dbe64"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/50/42/32cf8e7704ceb4481406eb87161349abb46a57fee3f008ba9cb610968646/aiohttp-3.13.3.tar.gz"
-    sha256 "a949eee43d3782f2daae4f4a2819b2cb9b0c5d3b7f7a927067cc84dafdbb9f88"
+    url "https://files.pythonhosted.org/packages/77/9a/152096d4808df8e4268befa55fba462f440f14beab85e8ad9bf990516918/aiohttp-3.13.5.tar.gz"
+    sha256 "9d98cc980ecc96be6eb4c1994ce35d28d8b1f5e5208a23b421187d1209dbb7d1"
   end
 
   resource "aiohttp-socks" do
@@ -88,8 +89,8 @@ class Theharvester < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz"
-    sha256 "41cfcc3a4c85d3f05c932da7c26d0201ac36f72abd4435ba90d0464a3ffed703"
+    url "https://files.pythonhosted.org/packages/19/14/2c5dd9f512b66549ae92767a9c7b330ae88e1932ca57876909410251fe13/anyio-4.13.0.tar.gz"
+    sha256 "334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc"
   end
 
   resource "argcomplete" do
@@ -98,8 +99,8 @@ class Theharvester < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
-    sha256 "16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11"
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "backoff" do
@@ -118,13 +119,13 @@ class Theharvester < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/13/69/33ddede1939fdd074bce5434295f38fae7136463422fe4fd3e0e89b98062/charset_normalizer-3.4.4.tar.gz"
-    sha256 "94537985111c35f28720e43603b8e7b43a6ecfb2ce1d3058bbe955b73404e21a"
+    url "https://files.pythonhosted.org/packages/e7/a1/67fe25fac3c7642725500a3f6cfe5821ad557c3abb11c9d20d12c7008d3e/charset_normalizer-3.4.7.tar.gz"
+    sha256 "ae89db9e5f98a11a4bf50407d4363e7b09b31e55bc117b4f7d80aab97ba009e5"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "click-plugins" do
@@ -148,13 +149,13 @@ class Theharvester < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/fd/cc/1b0d90ed759ff8c9dbc4800de7475d4e9256a81b97b45bd05a1affcb350a/fastapi-0.129.2.tar.gz"
-    sha256 "e2b3637a2b47856e704dbd9a3a09393f6df48e8b9cb6c7a3e26ba44d2053f9ab"
+    url "https://files.pythonhosted.org/packages/5d/45/c130091c2dfa061bbfe3150f2a5091ef1adf149f2a8d2ae769ecaf6e99a2/fastapi-0.136.1.tar.gz"
+    sha256 "7af665ad7acfa0a3baf8983d393b6b471b9da10ede59c60045f49fbc89a0fa7f"
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/73/92/a8e2479937ff39185d20dd6a851c1a63e55849e447a55e798cc2e1f49c65/filelock-3.24.3.tar.gz"
-    sha256 "011a5644dc937c22699943ebbfc46e969cdde3e171470a6e40b9533e5a72affa"
+    url "https://files.pythonhosted.org/packages/b5/fe/997687a931ab51049acce6fa1f23e8f01216374ea81374ddee763c493db5/filelock-3.29.0.tar.gz"
+    sha256 "69974355e960702e789734cb4871f884ea6fe50bd8404051a3530bc07809cf90"
   end
 
   resource "frozenlist" do
@@ -163,8 +164,8 @@ class Theharvester < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/a3/51/1664f6b78fc6ebbd98019a1fd730e83fa78f2db7058f72b1463d3612b8db/greenlet-3.3.2.tar.gz"
-    sha256 "2eaf067fc6d886931c7962e8c6bede15d2f01965560f3359b27c80bde2d151f2"
+    url "https://files.pythonhosted.org/packages/6d/6e/802acd792aebb2256fbbee8cacf2727faaeb6f240ac11008f09eae4414bc/greenlet-3.5.1.tar.gz"
+    sha256 "5a56aeb7d5d9cc4b3a735efb5095bd4b4f6f0e4f93e5ca876d0e2315137b7829"
   end
 
   resource "h11" do
@@ -183,8 +184,8 @@ class Theharvester < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/1a/88/bcf9709822fe69d02c2a6a77956c98ce6ea8ca8767a9aadcedc7eb6a2390/idna-3.16.tar.gz"
+    sha256 "d7a6da03db833450fca25d2358ac9ff06cd624577a4aea3a596d5c0f77b8e03d"
   end
 
   resource "limits" do
@@ -193,13 +194,13 @@ class Theharvester < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
-    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
+    url "https://files.pythonhosted.org/packages/05/3b/aab6728cae887456f409b4d75e8a01856e4f04bd510de38052a47768b680/lxml-6.1.1.tar.gz"
+    sha256 "ba96ae44888e0185281e937633a743ea90d5a196c6000f82565ebb0580012d40"
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -218,13 +219,13 @@ class Theharvester < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
-    sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
+    url "https://files.pythonhosted.org/packages/d7/f1/e7a6dd94a8d4a5626c03e4e99c87f241ba9e350cd9e6d75123f992427270/packaging-26.2.tar.gz"
+    sha256 "ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661"
   end
 
   resource "propcache" do
-    url "https://files.pythonhosted.org/packages/9e/da/e9fc233cf63743258bff22b3dfa7ea5baef7b5bc324af47a0ad89b8ffc6f/propcache-0.4.1.tar.gz"
-    sha256 "f48107a8c637e80362555f37ecf49abe20370e557cc4ab374f04ec4423c97c3d"
+    url "https://files.pythonhosted.org/packages/ec/44/c87281c333769159c50594f22610f77398a47ccbfbbf23074e744e86f87c/propcache-0.5.2.tar.gz"
+    sha256 "01c4fc7480cd0598bb4b57022df55b9ca296da7fc5a8760bd8451a7e63a7d427"
   end
 
   resource "pycares" do
@@ -238,8 +239,8 @@ class Theharvester < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
+    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
   end
 
   resource "python-dateutil" do
@@ -258,8 +259,8 @@ class Theharvester < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
-    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "requests-file" do
@@ -273,8 +274,8 @@ class Theharvester < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz"
-    sha256 "b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b"
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
   end
 
   resource "shodan" do
@@ -298,8 +299,8 @@ class Theharvester < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/c4/68/79977123bb7be889ad680d79a40f339082c1978b5cfcf62c2d8d196873ac/starlette-0.52.1.tar.gz"
-    sha256 "834edd1b0a23167694292e94f597773bc3f89f362be6effee198165a35d62933"
+    url "https://files.pythonhosted.org/packages/08/a3/84e821cc54b4ab50ae6dbc6ac3800a651b65ec35f045cc73785380654057/starlette-1.0.1.tar.gz"
+    sha256 "512399c5f1de7fac99c88572212ded9ddeddef2fb32afa82d724000e88b38f4f"
   end
 
   resource "tldextract" do
@@ -308,18 +309,18 @@ class Theharvester < Formula
   end
 
   resource "ujson" do
-    url "https://files.pythonhosted.org/packages/43/d9/3f17e3c5773fb4941c68d9a37a47b1a79c9649d6c56aefbed87cc409d18a/ujson-5.11.0.tar.gz"
-    sha256 "e204ae6f909f099ba6b6b942131cee359ddda2b6e4ea39c12eb8b991fe2010e0"
+    url "https://files.pythonhosted.org/packages/bc/78/937198ea8708182dd1edbf0237bf255a96feab3f511691ad08b84da98e5d/ujson-5.12.1.tar.gz"
+    sha256 "5b7e96406c301a1366534479a7352ec40ec68bb327c0c119091635acd5925e35"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/32/ce/eeb58ae4ac36fe09e3842eb02e0eb676bf2c53ae062b98f1b2531673efdd/uvicorn-0.41.0.tar.gz"
-    sha256 "09d11cf7008da33113824ee5a1c6422d89fbc2ff476540d69a34c87fab8b571a"
+    url "https://files.pythonhosted.org/packages/f6/b1/8e7077a8641086aea449e1b5752a570f1b5906c64e0a33cd6d93b63a066b/uvicorn-0.47.0.tar.gz"
+    sha256 "7c9a0ea1a9414106bbab7324609c162d8fa0cdcdcb703060987269d77c7bb533"
   end
 
   resource "uvloop" do
@@ -328,8 +329,8 @@ class Theharvester < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/f7/37/ae31f40bec90de2f88d9597d0b5281e23ffe85b893a47ca5d9c05c63a4f6/wrapt-2.1.1.tar.gz"
-    sha256 "5fdcb09bf6db023d88f312bd0767594b414655d58090fc1c46b3414415f67fac"
+    url "https://files.pythonhosted.org/packages/e2/f0/5e969d268d59e6035f2f1960da9e82fe6db24a7b8abe8e36a78c27cb3e2b/wrapt-2.2.0.tar.gz"
+    sha256 "b70a0b75b0a5a58d04aad06b3f167d49e729381d3417413656220c0cd7617847"
   end
 
   resource "xlsxwriter" do
@@ -338,8 +339,8 @@ class Theharvester < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/57/63/0c6ebca57330cd313f6102b16dd57ffaf3ec4c83403dcb45dbd15c6f3ea1/yarl-1.22.0.tar.gz"
-    sha256 "bebf8557577d4401ba8bd9ff33906f1376c877aa78d1fe216ad01b4d6745af71"
+    url "https://files.pythonhosted.org/packages/79/12/1e8f37460ea0f7eb59c221fdaf0ed75e7ac43e97f8093b9c6f411df50a78/yarl-1.24.2.tar.gz"
+    sha256 "9ac374123c6fd7abf64d1fec93962b0bd4ee2c19751755a762a72dd96c0378f8"
   end
 
   def install

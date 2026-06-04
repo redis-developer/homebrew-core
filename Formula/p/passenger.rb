@@ -1,19 +1,18 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.1.2/passenger-6.1.2.tar.gz"
-  sha256 "94400a52e536cfdd8acf2accb47badb7a67dc309452f1b05600da67343f25bf8"
+  url "https://github.com/phusion/passenger/releases/download/release-6.1.4/passenger-6.1.4.tar.gz"
+  sha256 "e5023c12734895cfb7bd56ed3f5385de97c42176c53c12caa295e3c3d6fa9e23"
   license "MIT"
-  revision 4
   head "https://github.com/phusion/passenger.git", branch: "stable-6.1"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "8b8d199f4d253c8e5f9439be7f75636526ec3be5ce89aa95ad6fdca840aae3e0"
-    sha256 cellar: :any,                 arm64_sequoia: "b0c09a9d2d14ef87e2e263ea5e4c0a133cce9e278e5573ab8026e68194291da2"
-    sha256 cellar: :any,                 arm64_sonoma:  "f6f36f4e565db93f16a25150a2115a8fabb479aa7d97d69ee72178dda2b15f30"
-    sha256 cellar: :any,                 sonoma:        "975be973bc007bf1dddf4061800bb073ac3a70f75b41bc69f5a2d2cab021e14e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "70854ab9a4430a0463062ba792b4496a9d73f4abcfcf7d67e702aad7529b5a82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d34902f18e894b24ae73ddd0f7b63fb93f3f0c72102e9c9df162ab9ba6cee7d8"
+    sha256 cellar: :any, arm64_tahoe:   "498b2f4c8aefe4bff18ddb5ae1f1436696db02ace75a450fe62de2682afc7a2e"
+    sha256 cellar: :any, arm64_sequoia: "7adae8e3a8789d6c9b1d87ff006e6ff48f93c3b7cba6ddfad5cbdfd17a4b5424"
+    sha256 cellar: :any, arm64_sonoma:  "e2593d8ba73aabe17cc2acfbf2cc422ebf87b25d116ca2d56eef415a4b59ab3d"
+    sha256 cellar: :any, sonoma:        "87cf6703efc56ffb0f62db27051c4fa97a77c128ae38a0dfa6181c684d421c3a"
+    sha256 cellar: :any, arm64_linux:   "a88beb118d207318a969b799195c8f164efce1e923016b2f115888fed5caab6a"
+    sha256 cellar: :any, x86_64_linux:  "8915e121355ce850fb41b940d3f9655074bcfa47a5e492f26afe11bca6da31eb"
   end
 
   depends_on "httpd" => :build # to build the apache2 module

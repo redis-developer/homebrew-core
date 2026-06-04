@@ -6,16 +6,16 @@ class Kaskade < Formula
   url "https://files.pythonhosted.org/packages/37/3b/88be2113f39216a6ad36680ad599927cbb57dbd9eef9f4af3af138134187/kaskade-4.0.7.tar.gz"
   sha256 "cd907eb673d733ba27f4f89b649ad6bf19cd829745ae0dd8879989eb5a6bcc36"
   license "MIT"
-  revision 3
+  revision 5
   head "https://github.com/sauljabin/kaskade.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "88dce3514b9118b7105ea021674062fe6af9929f7045d048570eb2e2aabb7208"
-    sha256 cellar: :any,                 arm64_sequoia: "1c07db6dbaae25fe6edf1f2f60bb2c085a01cc2187670c3420676f297c0f078d"
-    sha256 cellar: :any,                 arm64_sonoma:  "6821a8288232694551a0d8b0f49ef3096927d727e6358fd12c2c7e25b474e546"
-    sha256 cellar: :any,                 sonoma:        "7f0b7216e249be4c638c152e02ced56fbdea0b0aa91c3d3516946d435d9a8829"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d7cb59700e6afe70489771f124a946deb6de898e3a38bfbebe84dec930316473"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0e004d190dfb3fe0c32835af6d938bf865a87cbfc69f5567e0ccde90d246d128"
+    sha256 cellar: :any,                 arm64_tahoe:   "d2801b79d27e1920f1d5dbf54552c1caf33a33559f5e047a78c1a87242ac051b"
+    sha256 cellar: :any,                 arm64_sequoia: "7d676be9ed3e6dc2faed259af4e0f026071e995ddc674bd06be14e2c0782068f"
+    sha256 cellar: :any,                 arm64_sonoma:  "c13d5532c94c93af8b5a73627970b48e947355cc306bee77f8ba8fd70696180f"
+    sha256 cellar: :any,                 sonoma:        "251c17abadedc8cef1f769ba636f92f2bda1c35dc238f652cf610b7b4b100203"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ae1d71e70633239257448ed1292479b40a408030ee40cdea68fc08bf313b2ed0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "434bf3a54ad97bbf482e36d9ac21b8633959bbfacffdb3e4fcc06f93016b3a34"
   end
 
   depends_on "rust" => :build # for orjson
@@ -38,8 +38,8 @@ class Kaskade < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/28/10/b325d58ffe86815b399334a101e63bc6fa4e1953921cb23703b48a0a0220/authlib-1.6.11.tar.gz"
-    sha256 "64db35b9b01aeccb4715a6c9a6613a06f2bd7be2ab9d2eb89edd1dfc7580a38f"
+    url "https://files.pythonhosted.org/packages/36/98/7d93f30d029643c0275dbc0bd6d5a6f670661ee6c9a94d93af7ab4887600/authlib-1.7.2.tar.gz"
+    sha256 "2cea25fefcd4e7173bdf1372c0afc265c8034b23a8cd5dcb6a9164b826c64231"
   end
 
   resource "avro" do
@@ -48,8 +48,8 @@ class Kaskade < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/af/dd/57fe3fdb6e65b25a5987fd2cdc7e22db0aef508b91634d2e57d22928d41b/cachetools-7.0.5.tar.gz"
-    sha256 "0cd042c24377200c1dcd225f8b7b12b0ca53cc2c961b43757e774ebe190fd990"
+    url "https://files.pythonhosted.org/packages/8f/c1/67cfb86aa21144796ff51068326d467fbef8ee42f8d08a3a8a926106cf0c/cachetools-7.1.3.tar.gz"
+    sha256 "135cfe944bc3c1e805505f65dae0bef375a2f96261171ab66c79ef77d0bda39d"
   end
 
   resource "charset-normalizer" do
@@ -58,8 +58,8 @@ class Kaskade < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
-    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
+    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
+    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
   end
 
   resource "cloup" do
@@ -73,13 +73,13 @@ class Kaskade < Formula
   end
 
   resource "fastavro" do
-    url "https://files.pythonhosted.org/packages/65/8b/fa2d3287fd2267be6261d0177c6809a7fa12c5600ddb33490c8dc29e77b2/fastavro-1.12.1.tar.gz"
-    sha256 "2f285be49e45bc047ab2f6bed040bb349da85db3f3c87880e4b92595ea093b2b"
+    url "https://files.pythonhosted.org/packages/6e/5b/ccb338db71f347e3bc031d268bf6dc41e5ead63b6997b8e72af92f05e18e/fastavro-1.12.2.tar.gz"
+    sha256 "3c79502d56cf6b76210032e1c53494ddfbc73c140bccf2ef4092b3f0825323ab"
   end
 
   resource "googleapis-common-protos" do
-    url "https://files.pythonhosted.org/packages/20/18/a746c8344152d368a5aac738d4c857012f2c5d1fd2eac7e17b647a7861bd/googleapis_common_protos-1.74.0.tar.gz"
-    sha256 "57971e4eeeba6aad1163c1f0fc88543f965bb49129b8bb55b2b7b26ecab084f1"
+    url "https://files.pythonhosted.org/packages/b5/c8/f439cffde755cffa462bfbb156278fa6f9d09119719af9814b858fd4f81f/googleapis_common_protos-1.75.0.tar.gz"
+    sha256 "53a062ff3c32552fbd62c11fe23768b78e4ddf0494d5e5fd97d3f4689c75fbbd"
   end
 
   resource "h11" do
@@ -98,8 +98,13 @@ class Kaskade < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/6f/6d/0703ccc57f3a7233505399edb88de3cbd678da106337b9fcde432b65ed60/idna-3.11.tar.gz"
-    sha256 "795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902"
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
+  end
+
+  resource "joserfc" do
+    url "https://files.pythonhosted.org/packages/3b/dc/5f768c2e391e9afabe5d18e3221346deb5fb6338565f1ccc9e7c6d7befdd/joserfc-1.6.5.tar.gz"
+    sha256 "1482a7db78fb4602e44ed89e51b599d052e091288c7c532c5b694e20149dec48"
   end
 
   resource "jsonschema" do
@@ -118,13 +123,13 @@ class Kaskade < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdit-py-plugins" do
-    url "https://files.pythonhosted.org/packages/b2/fd/a756d36c0bfba5f6e39a1cdbdbfdd448dc02692467d83816dff4592a1ebc/mdit_py_plugins-0.5.0.tar.gz"
-    sha256 "f4918cb50119f50446560513a8e311d574ff6aaed72606ddae6d35716fe809c6"
+    url "https://files.pythonhosted.org/packages/59/fc/f8d0863f8862f25602c0404d75568e89fb6b4109804645e5cdfb1be5cf56/mdit_py_plugins-0.6.1.tar.gz"
+    sha256 "a2bca0f039f39dbd35fb74ae1b5f998608c437463371f0ff7f49a19a17a114d0"
   end
 
   resource "mdurl" do
@@ -133,8 +138,8 @@ class Kaskade < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/9d/1b/2024d06792d0779f9dbc51531b61c24f76c75b9f4ce05e6f3377a1814cea/orjson-3.11.8.tar.gz"
-    sha256 "96163d9cdc5a202703e9ad1b9ae757d5f0ca62f4fa0cc93d1f27b0e180cc404e"
+    url "https://files.pythonhosted.org/packages/7e/0c/964746fcafbd16f8ff53219ad9f6b412b34f345c75f384ad434ceaadb538/orjson-3.11.9.tar.gz"
+    sha256 "4fef17e1f8722c11587a6ef18e35902450221da0028e65dbaaa543619e68e48f"
   end
 
   resource "platformdirs" do
@@ -143,8 +148,8 @@ class Kaskade < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/6b/6b/a0e95cad1ad7cc3f2c6821fcab91671bd5b78bd42afb357bb4765f29bc41/protobuf-7.34.1.tar.gz"
-    sha256 "9ce42245e704cc5027be797c1db1eb93184d44d1cdd71811fb2d9b25ad541280"
+    url "https://files.pythonhosted.org/packages/60/fd/5b1491d9e4b586d621c54f4c36b888714164b6875f8d6afa3f9072906a51/protobuf-7.35.0.tar.gz"
+    sha256 "a2efd84605f41e559f1881b0912b44099d0a2ac9bf46b3474823f10fb393b0e6"
   end
 
   resource "pygments" do
@@ -163,8 +168,8 @@ class Kaskade < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/5f/a4/98b9c7c6428a668bf7e42ebb7c79d576a1c3c1e3ae2d47e674b468388871/requests-2.33.1.tar.gz"
-    sha256 "18817f8c57c6263968bc123d237e3b8b08ac046f5456bd1e307ee8f4250d3517"
+    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
+    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "rich" do
@@ -173,8 +178,8 @@ class Kaskade < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/cf/2f/d44f0f12b3ddb1f0b88f7775652e99c6b5a43fd733badf4ce064bdbfef4a/textual-8.2.3.tar.gz"
-    sha256 "beea7b86b03b03558a2224f0cc35252e60ef8b0c4353b117b2f40972902d976a"
+    url "https://files.pythonhosted.org/packages/9b/7a/c519db0aba5024f86e71e9631810bfdd6866ed2c8695bd7fa34b90e7ef59/textual-8.2.7.tar.gz"
+    sha256 "658f568ff81e30ed43890c3e07520390e5cf1b4763822006e060656b0a88f105"
   end
 
   resource "typing-extensions" do
@@ -188,8 +193,8 @@ class Kaskade < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz"
-    sha256 "1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed"
+    url "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz"
+    sha256 "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
   end
 
   def install

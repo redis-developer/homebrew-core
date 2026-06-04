@@ -1,34 +1,31 @@
 class Dalfox < Formula
   desc "XSS scanner and utility focused on automation"
   homepage "https://dalfox.hahwul.com"
-  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.12.0.tar.gz"
-  sha256 "b87848b17cac23352d674e63fee554ae6b976a53fe3e62822512232030430cd5"
+  url "https://github.com/hahwul/dalfox/archive/refs/tags/v3.0.2.tar.gz"
+  sha256 "5e9429db49cbf5742555e0e4cca1f9fbe507c3979bba7685ea78db937ca7be92"
   license "MIT"
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b9c0218ff805fd1927381e6368303cb0c7c094b6f24ffc35bcde5d7f91af597b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9c0218ff805fd1927381e6368303cb0c7c094b6f24ffc35bcde5d7f91af597b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9c0218ff805fd1927381e6368303cb0c7c094b6f24ffc35bcde5d7f91af597b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b15343c0af3360b9928245305c51b58d9551c3064bcb3d9404d50cb44e06f3bf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c6a002ddfa96025c7693b1607b3d591d874651c89517eace68f1c7e9cae273a6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b9e95b6d2bf7f3512476fd112cef2ce22aa39b1c7e10249f0187f960e6140c8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "daa733dca9e4b99585e8f74616ff6716435167a3cedc55339076e0a11215e295"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ab569100b2326a68e11dff3c10d948b66a11b9a4b263aeb193dd28b4f30575a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "335bb7ab3f56daee3b4c57547372eff2d369fc12babc5421a720223c9bafe47d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "ef4991f495f68fed894444c438518a2993371413c9e9908a85a17bc7968d94f9"
+    sha256 cellar: :any,                 arm64_linux:   "86065a9fe5fe3f9a561392fea5e3c7e75c3355d834e70038793be000735d59f6"
+    sha256 cellar: :any,                 x86_64_linux:  "30ec4ec957d655eb145c34890209eb1cd5786a724c9431e18a6fc107edaf58aa"
   end
 
-  depends_on "go" => :build
+  depends_on "rust" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
-
-    generate_completions_from_executable(bin/"dalfox", shell_parameter_format: :cobra)
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/dalfox version 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/dalfox -V 2>&1")
 
-    url = "http://testphp.vulnweb.com/listproducts.php?cat=123&artist=123&asdf=ff"
-    output = shell_output("#{bin}/dalfox url \"#{url}\" 2>&1")
-    assert_match "Finish Scan!", output
+    url = "https://pentest-ground.com:4280/vulnerabilities/xss_r/"
+    output = shell_output("#{bin}/dalfox scan \"#{url}\" 2>&1")
+    assert_match "scan completed", output
   end
 end

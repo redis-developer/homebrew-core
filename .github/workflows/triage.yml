@@ -172,7 +172,7 @@ jobs:
                 - Formula/b/bash-completion@2.rb
                 - Formula/i/icu4c@78.rb
                 - Formula/lib/libxml++@5.rb
-                - Formula/o/openssl@3.rb
+                - Formula/o/openssl@4.rb
                 - Formula/p/postgresql@18.rb
                 - Formula/p/python@3.14.rb
                 - Formula/p/python-gdbm@3.14.rb
@@ -294,7 +294,6 @@ jobs:
                 haskell-language-server|\
                 influxdb|\
                 libtensorflow|\
-                llvm@19|\
                 llvm|\
                 mame|\
                 metashell|\
@@ -357,7 +356,6 @@ jobs:
                 libnghttp2|\
                 libomp|\
                 libpng|\
-                librist|\
                 libtool|\
                 libunistring|\
                 mpfr|\
@@ -380,7 +378,6 @@ jobs:
                 shared-mime-info|\
                 sqlite|\
                 suite-sparse|\
-                unbound|\
                 xz|\
                 zstd\
                 ).rb"

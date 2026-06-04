@@ -1,18 +1,18 @@
 class GoLibrespot < Formula
   desc "Spotify client"
   homepage "https://github.com/devgianlu/go-librespot"
-  url "https://github.com/devgianlu/go-librespot/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "25595b6dc1a4e030df74a2ca8ec9206052958b138f7453e75a0bb7233577df94"
+  url "https://github.com/devgianlu/go-librespot/archive/refs/tags/v0.7.3.tar.gz"
+  sha256 "5df90372c5f5108fb9b13718effcddf122eb0e8ada9bd3a9014089c581d956d7"
   license "GPL-3.0-only"
   head "https://github.com/devgianlu/go-librespot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "16b97c3c124cf7017cda09378810639238d52295dd623c0fd4ffd37f5d56f781"
-    sha256 cellar: :any,                 arm64_sequoia: "de2b905f2f6d2c1a456791254c8d4c377a3d552c98448ee9fc293a21202205f5"
-    sha256 cellar: :any,                 arm64_sonoma:  "0d5a5a962592a46e38d8653d1d6dacd6b38147ce429773df1905b07836a0f47b"
-    sha256 cellar: :any,                 sonoma:        "1fe1dc4546772e9c55f71b26eecd8914e3f7492bae1804f36b049042abb986a3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5bab75619906a8ef10a661a03f4599dd5351c6c7ab3ca5fde2ebbbfe2e2b7f71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4917c7564cc077bbe491d407957c123d8035c4db508fa0fa79f936f6d8ffdc2"
+    sha256 cellar: :any,                 arm64_tahoe:   "f7951004183495f564e6d11ddb6b76c204c460d6f5bff581aec1455d85f3d7ec"
+    sha256 cellar: :any,                 arm64_sequoia: "18c976a6f7b4a0b4e11b2e402407dcada08f02846d02353d7610883f2fd9d81b"
+    sha256 cellar: :any,                 arm64_sonoma:  "3c284fe53febbb69fac8f8014435e82638dd73ca0dbc93ca5ce4e3b7590c96e7"
+    sha256 cellar: :any,                 sonoma:        "652358213dcca042ff7a4999bcf46fd23d126436de4446259c28cf19cc42a5f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "93e1e5c7510774a248817d6d1a2798a73b798e4bf6ad5544875b3f8f968762e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f37f34716728ab26f4cf066db34fecf85ab9437146e37133210afe93dc2a2f2"
   end
 
   depends_on "go" => :build

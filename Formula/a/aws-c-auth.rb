@@ -1,18 +1,18 @@
 class AwsCAuth < Formula
   desc "C99 library implementation of AWS client-side authentication"
   homepage "https://github.com/awslabs/aws-c-auth"
-  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.10.1.tar.gz"
-  sha256 "85d737f0f735256f1931e85e4cadbe228d88698f7b59a9b390b49ef5d0778a43"
+  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.10.3.tar.gz"
+  sha256 "20fc5e75529fadd81fd38b25f9d83798b53ab235ebbac92cdfbb716cfcc7593d"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "5c22d6769a7520e25ffa70a46af3e10473250d05c74a789905967406d7ab8258"
-    sha256 cellar: :any,                 arm64_sequoia: "71053c5142fe1d79d35215247e8b098f30473c444704a9f7106387606b3f4cb7"
-    sha256 cellar: :any,                 arm64_sonoma:  "7ae586ead74f0d5f0b24648d8297ce1acfc550326e281061c84047000954e59b"
-    sha256 cellar: :any,                 sonoma:        "b1d8adbdf2074f37f166c394ed531d9552ed9d64b65257dfd09d52127b9280fa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "6c87d38254911fab65d7bbb91a1e2767714b0bb7cf3fd7fd5ab084d00f86e544"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0ca8253a6169e929833cd828c6b1dd5fe72280a6e98330841c8fdbb7ff297534"
+    sha256 cellar: :any,                 arm64_tahoe:   "515ba990b93f205110dcb04357bea20db861b8f604bddd909248578795783216"
+    sha256 cellar: :any,                 arm64_sequoia: "6887071637913cbacc73eef093cd418fd814eab95c8aa3df43881c310ee8b923"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c62b66b6eda70a2ea0f156cf83bc92b30cb743c7270c48e9a45f93a07d61c95"
+    sha256 cellar: :any,                 sonoma:        "95063b64ac8073c212fc74dc81ee826e501fd66a01daa9a477a9f2302c06f1f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "dd06b08b83802a46621f0e5e335c09bf82c4d4ad09118ddc23e0fa007d1860f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b05ef257dcda9e66663a101393802d8e93538b07a80bfb1bbcf8454f13ce8b82"
   end
 
   depends_on "cmake" => :build

@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggml-org/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggml-org/llama.cpp.git",
-      tag:      "b9020",
-      revision: "a4701c98f72160144b101090596c7ea1ef0c1d7b"
+      tag:      "b9430",
+      revision: "d48a56effbba99944a677938d4beb63a0065ecdf"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ggml-org/llama.cpp.git", branch: "master"
@@ -20,12 +20,12 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a53cea5b0fc0cbe8d2ba19f1f4fdb28d992457daee238c403ead31c524eba316"
-    sha256 cellar: :any,                 arm64_sequoia: "3bac583169ba0cfb326269bfb8038d46160793fac1b45e7d60d4442e0bcf17c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "b1cd9986b38774fa69d62c615544755a08701fdb2eb044714beea9f6e497fd4c"
-    sha256 cellar: :any,                 sonoma:        "4903ade2a8d4529adb4d00577fa8b0077f9517cb59d1d842a0fd8ac7c0fab45a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "76af8e0a94deaf23479bc0d41bdf9f368a55f90a7c52f03a6828a573d0561599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9554562c3cf639e0a4b45576bb57f43b86d2e9a97cdef61a58ba817c349dce76"
+    sha256 cellar: :any, arm64_tahoe:   "e948ee1b47657d398be4d09b5c9ac1ba01915844f945884d764e58891c5e2813"
+    sha256 cellar: :any, arm64_sequoia: "dd17a0b0a25a6232893aadc4cce57e580d7c124363ebfb9c1d9fe12952f7e9f3"
+    sha256 cellar: :any, arm64_sonoma:  "a08abdffa47be99ba9c07cc57661ec1d0deef999aa88835cb4fb9b19be3c8026"
+    sha256 cellar: :any, sonoma:        "fad951eae71eb9ab2e89f31a6cf9ff948b63882646834e9a1876db0788d0ac3e"
+    sha256 cellar: :any, arm64_linux:   "af7935e270fc336e330c1a44213f2bf7a9483188e2f85a434125a1139dfd4376"
+    sha256 cellar: :any, x86_64_linux:  "d661cd96afeecf15042b536ddb591b5373437d4b404ad784c542d47db01671b9"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -61,6 +61,8 @@ class LlamaCpp < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "./build/test-sampling"
+
+    assert_match "Available commands", shell_output("#{bin}/llama 2>&1")
 
     # The test below is flaky on slower hardware.
     return if OS.mac? && Hardware::CPU.intel? && MacOS.version <= :monterey

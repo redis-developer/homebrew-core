@@ -1,23 +1,27 @@
 class Gonzo < Formula
   desc "Log analysis TUI"
   homepage "https://gonzo.controltheory.com/"
-  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "64e8ab6c3ba36f79fb7174c7bd2fb976c32ef9da21e933aad6bf3a0a34904129"
+  url "https://github.com/control-theory/gonzo/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "1b7509fcbc27b571cd52359799d3e7bddce020b5088304d3ff9c0911a65dd78e"
   license "MIT"
   head "https://github.com/control-theory/gonzo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4abbaa899639e2cb0bde0461b1b65d70f35b6a7d7cfb25f9e78f3c190064e457"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4abbaa899639e2cb0bde0461b1b65d70f35b6a7d7cfb25f9e78f3c190064e457"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4abbaa899639e2cb0bde0461b1b65d70f35b6a7d7cfb25f9e78f3c190064e457"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a31478cc4f34a28881d8afb3423487a1d04422366d3abd62652e146ccac21c7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "086aebcd591b82b1eba4fdd3d2cf5eed04898daea6ef69bd38270e0aed945907"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fa5065bfbf7af92c0a63322ba09398042a6b56501baca1f089be1acdc4e3592"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "00625613841aa03409338310aa165abb7095567306bde7ecdc84fb01a3398160"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "00625613841aa03409338310aa165abb7095567306bde7ecdc84fb01a3398160"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "00625613841aa03409338310aa165abb7095567306bde7ecdc84fb01a3398160"
+    sha256 cellar: :any_skip_relocation, sonoma:        "a9dd414cf01c1034ec85d59b74cc45b9b2cdbd9248ca12b590d02c06c89dc46c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2c3110ebbac1c27777caebcbfbe112af5c615734ffec336d0d0842941c9ad5c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a357cfbecc49a951a197d3b3b0af874eacb91b55fe357ccc4e5f2c2ed1a5385"
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
 
   def install
+    # UI build
+    system "make", "web-build"
+
     ldflags = %W[
       -s -w
       -X main.version=#{version}

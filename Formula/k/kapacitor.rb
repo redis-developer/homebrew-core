@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      tag:      "v1.8.4",
-      revision: "2d023aa388254b81a4eec25da6902c1c7082af4f"
+      tag:      "v1.8.6",
+      revision: "ab88ca501f0ce0873dd837bee8643ef64f4d518b"
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git", branch: "master"
 
@@ -13,12 +13,12 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "588e9c13ff71e0ffc2a49701ffc49d3a025617cee765f7fdf497f86392dacff0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b9f1a298845c1fb007caebf7e62eb562ba6221dc3ecf7cc6d6bd3ec9f00b5f67"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1a56941292b9e8cfe21067076ea9e4a6f8a2d64416b6d81302b9c406ff41e90"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2f8c1d939a4f9a6e532e1ad388a26fb7e7656447a62aded63b3b2aaf453a869b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8dfcb888e380d9d4d1cb25b994d53d8ece4036e68090dd2f8b48bc417dc5bcfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe9d8fd4d93ddf586b22f7ac319c479b597ffe2a6782d661031aacbd02917fd3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7c3bb986375c4e6ad9f6a2ff2f9bd2f4b9498037ce8dcac1386173ddebcd35a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "976a2f80f1773a2f7cf1fb0ba7070e306764deb43b7d2decef53185ed7b8016f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0f2baf08a8efad92ac0ba6badf160dd7816a5017f218a6ec97d3f0ee0e1a1210"
+    sha256 cellar: :any_skip_relocation, sonoma:        "49247f7c6d705941c141f864dbc946349d0c3b560b9a41e495e3e4d6386d67fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "a6d78e06c5a2426d6f9d40e2cccaed1d529d95c0266481d90e107eb07c800b9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6561b70701cb82e1390bf52d2eaf674cdce8c8b529c3358f6cadababce7950e5"
   end
 
   depends_on "go" => :build

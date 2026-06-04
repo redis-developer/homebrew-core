@@ -1,8 +1,8 @@
 class Solana < Formula
   desc "Web-Scale Blockchain for decentralized apps and marketplaces"
   homepage "https://www.anza.xyz/"
-  url "https://github.com/anza-xyz/agave/archive/refs/tags/v3.1.14.tar.gz"
-  sha256 "b7e84caad554388a04e64c40f535b787fea3d1d24ead1ced4748294e8ed0214d"
+  url "https://github.com/anza-xyz/agave/archive/refs/tags/v4.0.1.tar.gz"
+  sha256 "39b9e79afbab5949f473ad4bb58ec5341586a4feb9907f2030f3685ff11a154a"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,12 +12,12 @@ class Solana < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "a317082c5b2b1f2254e43ee4eb6201807de9c246ab9496c4fac47b92d48a7d24"
-    sha256 cellar: :any,                 arm64_sequoia: "6554bb60f1e0bf8b0e9cc63faeafbdc244d72bf3ab3cfc197a0fd9b2668eb302"
-    sha256 cellar: :any,                 arm64_sonoma:  "d088fe004ce885bb382c92da9b83d735cfd813e2a2d86c46d16db39dd206c98a"
-    sha256 cellar: :any,                 sonoma:        "e4aeda5f14cc2a31c04bcdaf601dedbfd8975e32189c698b5b729fd616481063"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d65635cfe5b9969c720005c49e042470602a9f4df69ce7d3a9d48e710cbf7c8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "15be27fcd1ea8c9ac0fdc685796c0757a1ef70b62ef782dde9a0a54f4a1e2a5c"
+    sha256 cellar: :any, arm64_tahoe:   "469b7e8234c72bf9b83a9bc7764b5fe40c7857baaab7b5e1a864033e734bc1b8"
+    sha256 cellar: :any, arm64_sequoia: "f2457bb36385646fbdbc953b3be1a91014286b4ffc47664bd028ee748c64f8a4"
+    sha256 cellar: :any, arm64_sonoma:  "2999bbddf8a97b5f74c36c8f978a0b79289562486eb06879a7ef50342daef6b0"
+    sha256 cellar: :any, sonoma:        "70d1434636128d8a8d00db15d44978e5f2688dd273cf950c8f1a80606ad2cbb1"
+    sha256 cellar: :any, arm64_linux:   "2fee5ef9211aa75f8dd76b94adf70c5979904e50dca0565eb4dce9212161dbe9"
+    sha256 cellar: :any, x86_64_linux:  "697fa956d844d37dfb01fb5e45d0340402aa670f745db4a439985210470ad4b8"
   end
 
   depends_on "llvm" => :build # for libclang
@@ -29,26 +29,11 @@ class Solana < Formula
 
   uses_from_macos "bzip2"
 
-  # Backport fixes for newer Rust
-  patch do
-    url "https://github.com/anza-xyz/agave/commit/8f3944b2159112b8e017b41f9c834344b32a7c59.patch?full_index=1"
-    sha256 "b5c59105fd9fa22f96a5135d3c14a61f63cbd86b31f509a06574965520c11414"
-  end
-
-  # Backport disabling LTO to compile with Apple Clang
-  patch do
-    url "https://github.com/anza-xyz/agave/commit/5e900421520a10933642d5e9a21e191a70f9b125.patch?full_index=1"
-    sha256 "5a03a89dfcb91a3b579e1f67a78580f626c6560e8c6a46c371d7297665b22360"
-  end
-
   # Work around Homebrew-specific issue using Apple Clang 1700 (LLVM 19) by updating cc-rs
   # https://github.com/Homebrew/brew/issues/21112
   patch :DATA
 
   def install
-    # Work around until new release as fixed upstream but commits do not cleanly apply
-    ENV.append_to_rustflags "--allow unused-imports --allow unused_unsafe"
-
     # Work around librocksdb-sys build failure with Apple libclang, "Library not loaded: @rpath/libclang.dylib"
     ENV["LIBCLANG_PATH"] = Formula["llvm"].opt_lib.to_s if OS.mac?
 
@@ -58,9 +43,6 @@ class Solana < Formula
 
     bins = %w[
       cli
-      faucet
-      genesis
-      gossip
       keygen
       stake-accounts
       tokens

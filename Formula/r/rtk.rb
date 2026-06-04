@@ -1,18 +1,18 @@
 class Rtk < Formula
   desc "CLI proxy to minimize LLM token consumption"
   homepage "https://www.rtk-ai.app/"
-  url "https://github.com/rtk-ai/rtk/archive/refs/tags/v0.38.0.tar.gz"
-  sha256 "26d02dff5a315ca3e620ddce36c46ab6b478c060827e06c004b2b40fa8c9ef0e"
+  url "https://github.com/rtk-ai/rtk/archive/refs/tags/v0.42.1.tar.gz"
+  sha256 "4560f2f17a392e7ba63d7901a7adb3d93165c3789eee2fe102b914ee8e9eac21"
   license "Apache-2.0"
   head "https://github.com/rtk-ai/rtk.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a73920a562b5533cccbede5f663651a0211f3893e26ac2ebf62a9ac2b58c88a2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f47e4554a2488217c0521445b4719c8e599c5bb13491645eebc3caf75700bc03"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "27052b0498f2ddfaeb39fed3ed70669417a9c50b3da68dd9dd048cc4ea9789db"
-    sha256 cellar: :any_skip_relocation, sonoma:        "a402e30af197ea1079b0865b57f1338d87ac7279b37fd1cf6451f5a97c6cf61c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "304953b14ded41fe9a61f43969745d0264a86123d378ae6325c0a17dfc12406e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca1eff2c108fadfffb4734c2a9b2f19cbbeaae5a015f68239a7e32be3ab04807"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "06c24cff6694c33c04695a195ef781ddef0090013da97dcae4984e73480529dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5b3eb5368ae73c5125378b39a16a6e171fd07198390d5dff4be63c8ae7f21a2d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "14d6c658d2857792e17b40a6ac6bb2d1776c3bd60135b206319728f8c7e2e4d6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2c41bb501970939384f4ec811f13839f9ce8440bb9c5d6595e08b7d9f53e5aad"
+    sha256 cellar: :any,                 arm64_linux:   "c5035a1749ef313328b3f2301eca067c2a547fe19d2e995723e6e7ebf76b9760"
+    sha256 cellar: :any,                 x86_64_linux:  "cc3529ee6de89f6bb4517e4e94e06529d958713685b100d1f823388bde72238c"
   end
 
   depends_on "rust" => :build

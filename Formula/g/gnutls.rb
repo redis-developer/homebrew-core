@@ -5,7 +5,8 @@ class Gnutls < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz"
   sha256 "ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e"
   license all_of: ["LGPL-2.1-or-later", "GPL-3.0-only"]
-  compatibility_version 1
+  revision 2
+  compatibility_version 2
 
   # The download page links to the directory listing pages for the "Next" and
   # "Current stable" versions. We use the "Next" version in the formula, so we
@@ -31,32 +32,27 @@ class Gnutls < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_tahoe:   "18db0c67bfa3137d02bf8f38a5cec216084c86a789bdaab5db9eba4964eb0c88"
-    sha256 cellar: :any, arm64_sequoia: "8acaf18cb03a73800698ab4e056238c9cabf74e7efe74d288054eeacdedf8459"
-    sha256 cellar: :any, arm64_sonoma:  "183ccacee048473aab71fe369f3fe8fb5362f2b063d609640d53b441bb6e7eb3"
-    sha256 cellar: :any, sonoma:        "a5465977c52d8e166cf94f062a8a2195a050874f8cdbb7fb7d3e42df9fc92ed7"
-    sha256               arm64_linux:   "213f90db6d02c8bf0a442f6fb121dea84e02d4cb25f9d3e4460472b325264960"
-    sha256               x86_64_linux:  "6d205dae91a84de7f88ea13a2e055e6071cc06c9d9c1445c2528b0f968592121"
+    sha256 cellar: :any, arm64_tahoe:   "734c0efdecbab73827b30af2d46ecb7e4236eb9dbfa55b81b4293d369d434b2a"
+    sha256 cellar: :any, arm64_sequoia: "65c4d021683d2caf362f28a44962ed91d2fc2baf3dfff3e5d1013c2a48528e73"
+    sha256 cellar: :any, arm64_sonoma:  "f0e71d1231213068342c729c70cf8dd5421ec1c87d5b2d21736db4fe4803a301"
+    sha256 cellar: :any, sonoma:        "eb1d17b2a4abf89c34b79dd55b8808c24321ea6fed41da6550f3abbab70ad297"
+    sha256               arm64_linux:   "22abe8b61096729057db1937b2e7d219bac0835e450da4eee0fc9fa9f21f3e23"
+    sha256               x86_64_linux:  "be86239b5f1738315dfb08c0df9a36eee05dc5f2a1db0511efec2bf063c0dac2"
   end
 
   depends_on "pkgconf" => :build
   depends_on "texinfo" => :build
-  depends_on "ca-certificates"
+  depends_on "ca-certificates" => :no_linkage
   depends_on "gmp"
   depends_on "libidn2"
   depends_on "libtasn1"
   depends_on "libunistring"
   depends_on "nettle"
   depends_on "p11-kit"
-  depends_on "unbound"
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
     depends_on "gettext"
-  end
-
-  on_linux do
-    depends_on "zlib-ng-compat"
   end
 
   fails_with :clang do
@@ -65,7 +61,10 @@ class Gnutls < Formula
   end
 
   def install
+    # DANE support is disabled so GnuTLS does not have an indirect dependency on OpenSSL.
+    # If the feature is wanted, then can consider shipping as split `gnutls-dane` formula.
     args = %W[
+      --disable-libdane
       --disable-silent-rules
       --disable-static
       --sysconfdir=#{etc}
@@ -77,7 +76,7 @@ class Gnutls < Formula
     system "./configure", *args, *std_configure_args
     system "make", "install"
 
-    inreplace [lib/"pkgconfig/gnutls.pc", lib/"pkgconfig/gnutls-dane.pc"], prefix, opt_prefix
+    inreplace lib/"pkgconfig/gnutls.pc", prefix, opt_prefix
 
     # certtool shadows the macOS certtool utility
     mv bin/"certtool", bin/"gnutls-certtool"

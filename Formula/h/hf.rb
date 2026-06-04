@@ -3,18 +3,18 @@ class Hf < Formula
 
   desc "Client library for huggingface.co hub"
   homepage "https://huggingface.co/docs/huggingface_hub/guides/cli"
-  url "https://files.pythonhosted.org/packages/89/ff/ec7ed2eb43bd7ce8bb2233d109cc235c3e807ffe5e469dc09db261fac05e/huggingface_hub-1.13.0.tar.gz"
-  sha256 "f6df2dac5abe82ce2fe05873d10d5ff47bc677d616a2f521f4ee26db9415d9d0"
+  url "https://files.pythonhosted.org/packages/bd/65/9826515abb600b5722bcf53f8b4a2fb58340b1f8bfcaee19f83561c13a44/huggingface_hub-1.17.0.tar.gz"
+  sha256 "fad842b6763ef70ebc3919665b1b9273645203185400a7d6c5eddc2323cc3435"
   license "Apache-2.0"
   head "https://github.com/huggingface/huggingface_hub.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_tahoe:   "98b95be055466f8684ef9d179f10f1805f2a8e5b4a6c42c6707110d16dacb5e6"
-    sha256 cellar: :any,                 arm64_sequoia: "635392fc812205e6fea5065334c32c5c737ef871c91dc0241ac25e60db11c149"
-    sha256 cellar: :any,                 arm64_sonoma:  "60d62c1ebe973c8ff4f9712d0ea11131d96fa3c2f6ffa01a663b801c7a74bdbb"
-    sha256 cellar: :any,                 sonoma:        "86b3e09bae81dff023bfc79cbc8611ce90c18c444f9fab6381e3fd2b7d730345"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ec1810e96530da78b49cda73a423997d535039ce4a1ea4078169376d8981debe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc5fc9cd08044b75eaebb2df3a546d9622d681cc052963b07a2b0afc459f380d"
+    sha256 cellar: :any, arm64_tahoe:   "ecde5af058601bb954b0f3cd46719d68eb1bdca4865be452efcd70ccf407dabc"
+    sha256 cellar: :any, arm64_sequoia: "0f5b056fba1cb5821cf7d1510963a612a6ad3c09459916d0423a2ed83cbcb61c"
+    sha256 cellar: :any, arm64_sonoma:  "4c6570ad979d5dbfedd9d171dcf075040fcbfb14d2d7a7f2cfa5278e590d95e6"
+    sha256 cellar: :any, sonoma:        "05bf77d8d340ee7c73d0db66713c4a8e97f9d2b5949b30a270460fd2ccc1c32a"
+    sha256 cellar: :any, arm64_linux:   "82939e9ce04a2e0d6f3d2e15643a8d11ffdaa4dbd702e85280d6a474586be152"
+    sha256 cellar: :any, x86_64_linux:  "0a5f57143722c9d9cc34dfeb1443fa539aeef6094e4fe2a37f91f61ef67be093"
   end
 
   depends_on "pkgconf" => :build
@@ -43,8 +43,8 @@ class Hf < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/9b/98/518d8e5081007684232226f475082b30087d0f585e8457db087298259f49/click-8.4.1.tar.gz"
+    sha256 "918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"
   end
 
   resource "filelock" do
@@ -63,8 +63,8 @@ class Hf < Formula
   end
 
   resource "hf-xet" do
-    url "https://files.pythonhosted.org/packages/53/92/ec9ad04d0b5728dca387a45af7bc98fbb0d73b2118759f5f6038b61a57e8/hf_xet-1.4.3.tar.gz"
-    sha256 "8ddedb73c8c08928c793df2f3401ec26f95be7f7e516a7bee2fbb546f6676113"
+    url "https://files.pythonhosted.org/packages/74/d8/5c06fc76461418326a7decf8367480c35be11a41fd938633929c60a9ec6b/hf_xet-1.5.0.tar.gz"
+    sha256 "e0fb0a34d9f406eed88233e829a67ec016bec5af19e480eac65a233ea289a948"
   end
 
   resource "httpcore" do
@@ -78,13 +78,13 @@ class Hf < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
-    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
+    url "https://files.pythonhosted.org/packages/b9/28/99c51f664567218d824af024c0251650fb27e4ca066df188dab0769c5b91/idna-3.17.tar.gz"
+    sha256 "5eb0cb53bc467c12eadcf6de83163ad8527cec9416f44b9b61b19caedad2b87f"
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -123,8 +123,8 @@ class Hf < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/7b/27/ede8cec7596e0041ba7e7b80b47d132562f56ff454313a16f6084e555c9f/typer-0.25.0.tar.gz"
-    sha256 "123eaf9f19bb40fd268310e12a542c0c6b4fab9c98d9d23342a01ff95e3ce930"
+    url "https://files.pythonhosted.org/packages/e4/51/9aed62104cea109b820bbd6c14245af756112017d309da813ef107d42e7e/typer-0.25.1.tar.gz"
+    sha256 "9616eb8853a09ffeabab1698952f33c6f29ffdbceb4eaeecf571880e8d7664cc"
   end
 
   resource "typing-extensions" do

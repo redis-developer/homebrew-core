@@ -7,15 +7,15 @@ class Ruby < Formula
 
   stable do
     # TODO: enable default_user_install when updating to Ruby 4.1
-    url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.3.tar.gz"
-    sha256 "77964acc370d5c8375b9502e5ba6c13c03ef91ab9eb9f521c84fb42b9c9a6b0f"
+    url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.5.tar.gz"
+    sha256 "7d6149079a63f8ae1d326c9fa65c6019ba2dc3155eae7b39159817911c88958e"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-4.0.10.tgz"
-      sha256 "6a225b7a8883de45d90c9b3f7ee14391759b286030ba1d1d77588cd7282e6cc7"
+      url "https://rubygems.org/rubygems/rubygems-4.0.11.tgz"
+      sha256 "95fe9d9d5293d022ceb29afac56eee4e2d46f901de309ab46915ff84d5ec68e8"
 
       livecheck do
         url "https://rubygems.org/pages/download"
@@ -30,12 +30,12 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_tahoe:   "6e88e98c0d652167a8dfcce3a91eea5304d2c605b15c214b5702cb7aa8abf484"
-    sha256 arm64_sequoia: "bfe4f02396155b515ee6863c6b807783ebc45f3fe8ca8935aa96f19ba9bd1f45"
-    sha256 arm64_sonoma:  "a90fed2e018d886fa0b7b8b818479f5378f8a3835aa9bfa5752bad386702e8fb"
-    sha256 sonoma:        "e9168b75c876749ddac651c1e0d3b78ecf137decb83f2ca32c3c4eb721b65051"
-    sha256 arm64_linux:   "6236d33e1040bedcf346164b40c452435cfabc48d1221f93c132e9222b916dca"
-    sha256 x86_64_linux:  "b629268a247d24a45a3acdc90f20ceda628e143939be56c12ee9b29f4abf16e5"
+    sha256 arm64_tahoe:   "9f26dccd8e5aa2158a31170edfdc346624c1f7c66e7dd44b8d56138a50c2b3d4"
+    sha256 arm64_sequoia: "c6c940945bcef445e4e0cd3cfd2e9d7470fb64b41263cd6c03891aa7be9abd04"
+    sha256 arm64_sonoma:  "00b565a069e511790c3c2ea9dc8b05bd8c38acb5064aa0191d041f15a85d5367"
+    sha256 sonoma:        "1180f95a02f846601d88ec663cf3e1c7fb73eba70cf9f204db448616d2bb6979"
+    sha256 arm64_linux:   "96d9f4050272e1834b7454d87a197c250d6061b28043defc97a870ca5fabcf2d"
+    sha256 x86_64_linux:  "caccd8916a52e2ab4c4500ef72e502bac005a4fe091a206e858dd68c89ec757b"
   end
 
   keg_only :provided_by_macos
