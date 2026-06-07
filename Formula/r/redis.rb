@@ -19,8 +19,6 @@ class Redis < Formula
     regex(/href=.*?redis[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  no_autobump! because: :bumped_by_upstream
-
   bottle do
     sha256 cellar: :any,                 arm64_tahoe:   "2a6d55f7fe58eed0accecb5b313ad04e40931e4d5a9bb0970b0ddc1aee8bac7f"
     sha256 cellar: :any,                 arm64_sequoia: "8aa8ff647ad7bdf807ea222a3d10c06a59cb550a339e9724bc75cbcd1a4f251d"
@@ -63,7 +61,7 @@ class Redis < Formula
 
   resource "redisearch" do
     url "https://github.com/redisearch/redisearch.git",
-    revision: "d2ae0267bb2faf542551df14005d0efdfb6fe45b"
+    revision: "9e9c07ac03d13c402f5378e31d5dfead974b7e05"
   end
 
   def install
