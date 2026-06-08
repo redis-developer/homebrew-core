@@ -61,7 +61,7 @@ class Redis < Formula
 
   resource "redisearch" do
     url "https://github.com/redisearch/redisearch.git",
-    revision: "9b316b300a18a6fdf94a8c73721f694b28236184"
+    revision: "6d28a089054845a74d1f17b11735a19801460bb0"
   end
 
   def install
