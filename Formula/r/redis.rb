@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-8.8.0.tar.gz"
-  sha256 "88422181efb0c9c0abba332e3e391d409e1e13714b838931669235e5796f704b"
+  url "https://github.com/TalBarYakar/redis/releases/download/redis-docker-6/redis-full.tar.gz"
+  sha256 "d9bf883aecdd42b925bc464e850cc64f3b12dff2060a87184617690fe4874bc4"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -46,59 +46,10 @@ class Redis < Formula
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
-  resource "redisjson" do
-    url "https://github.com/redisjson/redisjson.git",
-    revision: "fc60ea6c1b9e20e877b57a4d2fd90894096c5ff2"
-  end
-
-  resource "redisbloom" do
-    url "https://github.com/redisbloom/redisbloom.git",
-    revision: "b9b1b3db0cb5f48fa570fff9f231086d6849c280"
-  end
-
-  resource "redistimeseries" do
-    url "https://github.com/redistimeseries/redistimeseries.git",
-    revision: "5a980ebe656fa32dbbff618140605e203975c44a"
-  end
-
-  resource "redisearch" do
-    url "https://github.com/redisearch/redisearch.git",
-    revision: "d2ae0267bb2faf542551df14005d0efdfb6fe45b"
-  end
-
   def install
     openssl = Formula["openssl@3"]
 
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
-
-    resource("redisjson").stage do
-      system "gmake", "all"
-      lib.install Dir.glob("bin/*-release/rejson.so").first
-    end
-
-    resource("redisbloom").stage do
-      system "gmake", "all"
-      lib.install Dir.glob("bin/*-release/redisbloom.so").first
-    end
-
-    resource("redistimeseries").stage do
-      # Set compiler flags for OpenSSL
-      ENV.append "CFLAGS", "-I#{openssl.opt_include}"
-      ENV.append "CXXFLAGS", "-I#{openssl.opt_include}"
-      ENV.append "CPPFLAGS", "-I#{openssl.opt_include}"
-      ENV.append "LDFLAGS", "-L#{openssl.opt_lib}"
-      # Build the module
-      system "gmake", "build", "openssl_prefix=#{openssl.opt_prefix}", "OPENSSL_PREFIX=#{openssl.opt_prefix}"
-      lib.install Dir.glob("bin/*-release/redistimeseries.so").first
-    end
-
-    resource("redisearch").stage do
-      # RediSearch has been verified to support runtime CPU detection for SIMD optimizations
-      ENV.runtime_cpu_detection
-      # Build the module
-      system "gmake", "build", "OPENSSL_ROOT_DIR=#{openssl.opt_prefix}", "IGNORE_MISSING_DEPS=1"
-      lib.install Dir.glob("bin/*-release/search-community/redisearch.so").first
-    end
+    system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes", "REDISEARCH_GENERATE_HEADERS=0"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
@@ -109,23 +60,8 @@ class Redis < Formula
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
     end
 
-    # Add loadmodule directives for each Redis module
-    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
-      File.open("redis.conf", "a") do |f|
-        f.write "\n# #{file} module\n"
-        f.write "loadmodule #{opt_lib/file}\n"
-      end
-    end
-
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
-  end
-
-  def post_install
-    # Set execute permissions on module files
-    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
-      chmod 0755, lib/file
-    end
   end
 
   service do
