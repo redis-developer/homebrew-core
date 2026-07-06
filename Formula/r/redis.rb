@@ -46,6 +46,9 @@ class Redis < Formula
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
   def install
+
+    ENV.runtime_cpu_detection
+
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
            "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1"
 
