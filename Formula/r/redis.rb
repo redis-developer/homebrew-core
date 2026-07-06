@@ -1,9 +1,9 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://github.com/TalBarYakar/redis/releases/download/redis-docker-6/redis-full.tar.gz"
-  version "8.0.0"
-  sha256 "d9bf883aecdd42b925bc464e850cc64f3b12dff2060a87184617690fe4874bc4"
+  url "https://github.com/TalBarYakar/redis/releases/download/redis-docker-8/redis-full.tar.gz"
+  version "8.8.0"
+  sha256 "c378c7e59ceb530f3d3187f0b0abdc592260202f271ef1f9652061af5d79d3c6"
   license all_of: [
     "AGPL-3.0-only",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
