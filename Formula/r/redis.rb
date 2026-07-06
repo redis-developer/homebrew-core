@@ -77,7 +77,7 @@ class Redis < Formula
 
     # Test that all modules can be loaded
     %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
-      module_path = lib/file
+      module_path = lib/"redis/modules"/file
       assert_path_exists module_path, "#{file} module not found at #{module_path}"
 
       # Test that the module loads successfully
