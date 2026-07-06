@@ -11,7 +11,6 @@ class Redis < Formula
     "MIT", # deps/lua
     any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram
   ]
-  revision 1
   compatibility_version 1
   head "https://github.com/redis/redis.git", branch: "unstable"
 
@@ -46,7 +45,6 @@ class Redis < Formula
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
   def install
-
     ENV.runtime_cpu_detection
 
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
