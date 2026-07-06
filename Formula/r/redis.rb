@@ -44,11 +44,15 @@ class Redis < Formula
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
+  # module Makefiles set the exec bit; keep the cleaner from renormalizing it away
+  skip_clean "lib/redis/modules"
+
   def install
     ENV.runtime_cpu_detection
+    ENV.deparallelize
 
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
-           "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1"
+           "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
@@ -61,6 +65,13 @@ class Redis < Formula
 
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
+  end
+
+  def post_install
+    # Set execute permissions on module files
+    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
+      chmod 0755, lib/"redis/modules"/file
+    end
   end
 
   service do
