@@ -46,7 +46,6 @@ class Redis < Formula
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
   def install
-    openssl = Formula["openssl@3"]
 
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes", "REDISEARCH_GENERATE_HEADERS=0"
 
