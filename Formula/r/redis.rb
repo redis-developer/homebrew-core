@@ -58,7 +58,7 @@ class Redis < Formula
       s.gsub! "/var/run/redis_6379.pid", var/"run/redis.pid"
       s.gsub! "dir ./", "dir #{var}/db/redis/"
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
-      s.gsub! "#{prefix}/lib/redis/modules", "#{opt_prefix}/lib/redis/modules"
+      s.gsub! "#{lib}/redis/modules", "#{opt_lib}/redis/modules"
     end
 
     etc.install "redis.conf"
