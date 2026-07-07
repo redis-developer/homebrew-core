@@ -44,9 +44,6 @@ class Redis < Formula
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
-  # module Makefiles set the exec bit; keep the cleaner from renormalizing it away
-  skip_clean "lib/redis/modules"
-
   def install
     ENV.runtime_cpu_detection
     ENV.deparallelize
