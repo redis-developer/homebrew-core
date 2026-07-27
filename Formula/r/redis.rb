@@ -46,7 +46,6 @@ class Redis < Formula
 
   def install
     ENV.runtime_cpu_detection
-    ENV.deparallelize
 
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
            "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
