@@ -27,12 +27,32 @@ class Redis < Formula
     sha256 cellar: :any, x86_64_linux:  "89491b60e2d6bbc3e97af40a962776d1b2aab58861aaa402a158e5f96669516e"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "cmake" => :build
+  depends_on "coreutils" => :build
+  depends_on "libtool" => :build
+  depends_on "llvm@21" => :build
+  depends_on "python@3.14" => :build
+  depends_on "rust" => :build
   depends_on "openssl@3"
+
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+    depends_on "make" => :build # Needs Make 4.0+
+  end
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
+  fails_with :clang do
+    build 1699
+    cause "RediSearch's C++ requires a compiler defaulting to C++17 or newer"
+  end
+
   def install
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
+    ENV.runtime_cpu_detection
+    system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
+           "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
@@ -41,10 +61,18 @@ class Redis < Formula
       s.gsub! "/var/run/redis_6379.pid", var/"run/redis.pid"
       s.gsub! "dir ./", "dir #{var}/db/redis/"
       s.sub!(/^bind .*$/, "bind 127.0.0.1 ::1")
+      s.gsub! "#{lib}/redis/modules", "#{opt_lib}/redis/modules"
     end
 
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
+  end
+
+  def post_install
+    # Set execute permissions on module files
+    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
+      chmod 0755, lib/"redis/modules"/file
+    end
   end
 
   service do
@@ -58,5 +86,11 @@ class Redis < Formula
   test do
     system bin/"redis-server", "--test-memory", "2"
     %w[run db/redis log].each { |p| assert_path_exists var/p, "#{var/p} doesn't exist!" }
+
+    # Test that all modules can be loaded
+    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
+      output = shell_output("#{bin}/redis-server --loadmodule #{lib/"redis/modules"/file} --test-memory 2 2>&1", 1)
+      assert_match(/Module.*loaded from/, output)
+    end
   end
 end
