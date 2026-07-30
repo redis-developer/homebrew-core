@@ -50,7 +50,6 @@ class Redis < Formula
     cause "RediSearch's C++ requires a compiler defaulting to C++17 or newer"
   end
 
-
   def install
     ENV.runtime_cpu_detection
 
