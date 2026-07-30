@@ -40,12 +40,16 @@ class Redis < Formula
 
   on_macos do
     depends_on "make" => :build # Needs Make 4.0+
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
   end
 
+  fails_with :clang do
+    build 1699
+    cause "RediSearch's C++ requires a compiler defaulting to C++17 or newer"
+  end
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
   def install
-    ENV.append "CXXFLAGS", "-std=gnu++17" if OS.mac? && MacOS.version <= :sonoma
     ENV.runtime_cpu_detection
 
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
