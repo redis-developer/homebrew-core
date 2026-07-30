@@ -43,11 +43,13 @@ class Redis < Formula
     depends_on "make" => :build # Needs Make 4.0+
   end
 
+  conflicts_with "valkey", because: "both install `redis-*` binaries"
+
   fails_with :clang do
     build 1699
     cause "RediSearch's C++ requires a compiler defaulting to C++17 or newer"
   end
-  conflicts_with "valkey", because: "both install `redis-*` binaries"
+
 
   def install
     ENV.runtime_cpu_detection
