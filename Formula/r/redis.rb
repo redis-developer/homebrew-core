@@ -39,8 +39,8 @@ class Redis < Formula
   depends_on "openssl@3"
 
   on_macos do
-    depends_on "make" => :build # Needs Make 4.0+
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
+    depends_on "make" => :build # Needs Make 4.0+
   end
 
   fails_with :clang do
