@@ -45,7 +45,7 @@ class Redis < Formula
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
   def install
-    ENV.append "CXXFLAGS", "-std=gnu++20" if OS.mac? && MacOS.version <= :sonoma
+    ENV.append "CXXFLAGS", "-std=gnu++17" if OS.mac? && MacOS.version <= :sonoma
     ENV.runtime_cpu_detection
 
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
