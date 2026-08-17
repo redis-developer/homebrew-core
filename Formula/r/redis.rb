@@ -72,9 +72,7 @@ class Redis < Formula
   def post_install_steps
     # The modules are plugins that redis opens rather than links against, it checks that
     # an execute bit is set and fails otherwise.
-    %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
-      chmod 0755, lib/"redis/modules"/file
-    end
+    set_permissions "redis/modules", "a+x", base: :lib
   end
 
   service do
