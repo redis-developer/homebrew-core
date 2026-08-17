@@ -32,10 +32,11 @@ class Redis < Formula
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
   depends_on "libtool" => :build
-  depends_on "llvm@21" => :build
   depends_on "python@3.14" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
+
+  uses_from_macos "llvm" => :build
 
   on_macos do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
@@ -68,8 +69,9 @@ class Redis < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
-  def post_install
-    # Set execute permissions on module files
+  def post_install_steps
+    # The modules are plugins that redis opens rather than links against, it checks that
+    # an execute bit is set and fails otherwise.
     %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
       chmod 0755, lib/"redis/modules"/file
     end
