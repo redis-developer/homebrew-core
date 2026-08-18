@@ -4,11 +4,14 @@ class Redis < Formula
   url "https://download.redis.io/releases/redis-8.10.1.tar.gz"
   sha256 "60166c95ab7aedaa9dfe516de685be0a4dd87be95ded59ba429df14c13f1b663"
   license all_of: [
-    "AGPL-3.0-only",
-    "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
-    "BSL-1.0", # deps/fpconv
-    "MIT", # deps/lua
-    any_of: ["CC0-1.0", "BSD-2-Clause"], # deps/hdr_histogram
+    "AGPL-3.0-only", # modules: VectorSimilarity, LibMR
+    "Apache-2.0", # modules: ScalableVectorSearch, cpu_features, friso, cndict
+    "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*, deps/tre, deps/xxhash, modules: bloom
+    "BSD-3-Clause", # modules: libevent, hiredis, readies, snowball, stemmers
+    "BSL-1.0", # deps/fpconv, modules: boost, eve, dragonbox, fast_double_parser
+    "MIT", # deps/lua, modules: fmt, spdlog, robin-map, tomlplusplus, fast_float, t-digest-c, libnu, libuv, miniz
+    { any_of: ["CC0-1.0", "BSD-2-Clause"] }, # deps/hdr_histogram
+    any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"], # modules: phonetics
   ]
   compatibility_version 1
   head "https://github.com/redis/redis.git", branch: "unstable"
@@ -39,18 +42,16 @@ class Redis < Formula
   uses_from_macos "llvm" => :build
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1699
-    depends_on "make" => :build # Needs Make 4.0+
+    depends_on "make" => :build # RediSearch needs Make 4.0+
   end
 
   conflicts_with "valkey", because: "both install `redis-*` binaries"
 
-  fails_with :clang do
-    build 1699
-    cause "RediSearch's C++ requires a compiler defaulting to C++17 or newer"
-  end
-
   def install
+    # RediSearch sets `CMAKE_CXX_STANDARD` inside a function without `PARENT_SCOPE`,
+    # so no `-std` reaches the compile line and the compiler default is used instead.
+    ENV.append "CXXFLAGS", "-std=gnu++20"
+    # VectorSimilarity selects its SIMD kernels at runtime via cpu_features.
     ENV.runtime_cpu_detection
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
            "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
